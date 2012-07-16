@@ -501,6 +501,8 @@ let g:quickrun_config['markdown'] = {
 "\ }
 
 " tagbar
-map lo :TagbarOpen<CR>
-map lt :TagbarToggle<CR>
+"map lo :TagbarOpen<CR>
+"map lt :TagbarToggle<CR>
+nnoremap <silent> ,lo :<C-u>TagbarOpen<CR>
+nnoremap <silent> ,lt :<C-u>TagbarToggle<CR>
 
