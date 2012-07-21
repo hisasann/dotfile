@@ -76,7 +76,7 @@ Bundle 'tpope/vim-surround'
 Bundle 'JavaScript-syntax'
 " indent
 " .htmlファイル内のJavaScriptが残念になるので一旦コメントアウト
-"Bundle 'pangloss/vim-javascript'
+Bundle 'pangloss/vim-javascript'
 
 " メソッド宣言、変数宣言
 Bundle 'majutsushi/tagbar'
@@ -93,7 +93,7 @@ Bundle 'Lokaltog/vim-powerline'
 Bundle 'c9s/cascading.vim'
 
 " vim上のtwitter client
-Bundle 'TwitVim'
+" Bundle 'TwitVim'
 
 " 使っちゃいけないPlugin
 "Bundle 'vim-scripts/AutoComplPop'

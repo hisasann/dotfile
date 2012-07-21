@@ -11,7 +11,7 @@ if has('gui_macvim')
     set guioptions-=T
 endif
 
-set textwidth=200
+set textwidth=1000
 set columns=160
 set lines=155
 set wrap  			" 長い行を折り返して表示 (nowrap:折り返さない)
