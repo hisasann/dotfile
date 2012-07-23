@@ -36,6 +36,10 @@ Bundle "garbas/vim-snipmate"
 " html5
 Bundle 'othree/html5.vim'
 
+" Objective-C
+Bundle 'cocoa.vim'
+Bundle 'taglist.vim'
+
 " markdown
 " require - gem install bluecloth
 Bundle 'thinca/vim-quickrun'
@@ -76,7 +80,7 @@ Bundle 'tpope/vim-surround'
 Bundle 'JavaScript-syntax'
 " indent
 " .htmlファイル内のJavaScriptが残念になるので一旦コメントアウト
-"Bundle 'pangloss/vim-javascript'
+Bundle 'pangloss/vim-javascript'
 
 " メソッド宣言、変数宣言
 Bundle 'majutsushi/tagbar'
@@ -93,7 +97,7 @@ Bundle 'Lokaltog/vim-powerline'
 Bundle 'c9s/cascading.vim'
 
 " vim上のtwitter client
-Bundle 'TwitVim'
+" Bundle 'TwitVim'
 
 " 使っちゃいけないPlugin
 "Bundle 'vim-scripts/AutoComplPop'
@@ -136,6 +140,7 @@ set encoding=utf-8
 "-------------------------------------------------------------------------------
 set wildmenu           " コマンド補完を強化
 set wildmode=list:full " リスト表示，最長マッチ
+set tags=~/.tags,tags
 
 "-------------------------------------------------------------------------------
 " 検索
@@ -505,4 +510,7 @@ let g:quickrun_config['markdown'] = {
 "map lt :TagbarToggle<CR>
 nnoremap <silent> ,lo :<C-u>TagbarOpen<CR>
 nnoremap <silent> ,lt :<C-u>TagbarToggle<CR>
+
+" taglist.vim objective-cに対応
+let tlist_objc_settings='objc;P:protocols;i:interfaces;I:implementations;M:instance methods;C:implementation methods;Z:protocol methods'
 
