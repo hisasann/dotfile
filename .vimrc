@@ -1,7 +1,7 @@
 "-------------------------------------------------------------------------------
 " Memo
 "-------------------------------------------------------------------------------
-" :h text-objects	テキストオブジェクトのヘルプを表示
+" :h text-objects  テキストオブジェクトのヘルプを表示
 " set ft=javascript		ファイルを保存しなくてもJavaScriptモードになる
 
 "-------------------------------------------------------------------------------
@@ -133,7 +133,12 @@ set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V
 set title
 set linespace=0
 set showcmd        " コマンドをステータス行に表
-set encoding=utf-8
+if has("win32") || has("win64")
+	" sjisはWindows用
+	set encoding=sjis
+else
+	set encoding=utf-8
+endif
 
 "-------------------------------------------------------------------------------
 " コマンド補完
@@ -233,7 +238,12 @@ noremap ; :
 " noremap : ;
 
 " doc
-helptags ~/.vim/doc
+" Windowsだとこのdocディレクトリがないため
+if has("win32") || has("win64")
+	" helptags ~/.vim/doc
+else
+	helptags ~/.vim/doc
+endif
 
 " JSONフォーマット
 map <Leader>j !python -m json.tool<CR>
