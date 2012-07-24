@@ -14,8 +14,8 @@ endif
 set textwidth=1000
 set columns=160
 set lines=155
-set wrap  			" 長い行を折り返して表示 (nowrap:折り返さない)
-set visualbell		" Beep音を消す
+set wrap      			" 長い行を折り返して表示 (nowrap:折り返さない)
+set visualbell t_vb=	" Beep音を消して、さらに画面のフラッシュもしない
 
 "特殊文字(SpecialKey)の見える化。listcharsはlcsでも設定可能。
 "trailは行末スペース。
@@ -25,4 +25,3 @@ set listchars=tab:>-,trail:-,nbsp:%,extends:>,precedes:<
 " 全角スペースを視覚化
 highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=#666666
 au BufNewFile,BufRead * match ZenkakuSpace /　/
-
