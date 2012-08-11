@@ -34,7 +34,8 @@ Bundle "snipmate-snippets"
 Bundle "garbas/vim-snipmate"
 
 " html5
-Bundle 'othree/html5.vim'
+" .htmlファイル内のJavaScriptが残念になるので一旦コメントアウト
+"Bundle 'othree/html5.vim'
 
 " Objective-C
 Bundle 'cocoa.vim'
@@ -79,7 +80,6 @@ Bundle 'tpope/vim-surround'
 " syntax
 Bundle 'JavaScript-syntax'
 " indent
-" .htmlファイル内のJavaScriptが残念になるので一旦コメントアウト
 Bundle 'pangloss/vim-javascript'
 
 " メソッド宣言、変数宣言
@@ -551,4 +551,5 @@ vmap ,d :s/^\([/(]\*\\|<!--\) \(.*\) \(\*[/)]\\|-->\)$/\2/<CR>:nohlsearch<CR>
 " block comments
 vmap ,b v`<I<CR><esc>k0i/*<ESC>`>j0i*/<CR><esc><ESC>
 vmap ,h v`<I<CR><esc>k0i<!--<ESC>`>j0i--><CR><esc><ESC>
+
 
