@@ -96,6 +96,8 @@ Bundle 'Lokaltog/vim-powerline'
 " -- でメソッドチェーン整形（php、perl、rubyだけ）
 Bundle 'c9s/cascading.vim'
 
+Bundle 'mattn/calendar-vim'
+
 " vim上のtwitter client
 " Bundle 'TwitVim'
 
