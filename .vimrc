@@ -102,6 +102,7 @@ Bundle 'mattn/calendar-vim'
 
 " 履歴
 Bundle 'Gundo'
+" F5
 
 " vim上のtwitter client
 " Bundle 'TwitVim'
