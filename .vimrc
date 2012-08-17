@@ -96,7 +96,12 @@ Bundle 'Lokaltog/vim-powerline'
 " -- でメソッドチェーン整形（php、perl、rubyだけ）
 Bundle 'c9s/cascading.vim'
 
+" カレンダー
 Bundle 'mattn/calendar-vim'
+" :Calendar or :CalendarH
+
+" 履歴
+Bundle 'Gundo'
 
 " vim上のtwitter client
 " Bundle 'TwitVim'
@@ -556,4 +561,7 @@ vmap ,h v`<I<CR><esc>k0i<!--<ESC>`>j0i--><CR><esc><ESC>
 
 " TextMateで開く
 nnoremap <silent> ,mt :<C-u>! mate %<CR>
+
+" Gundo
+nnoremap <F5> :GundoToggle<CR>
 
