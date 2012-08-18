@@ -105,7 +105,7 @@ Bundle 'mattn/calendar-vim'
 Bundle 'Gundo'
 " F5
 
-" CSSの色表記に色付ける
+" ヘックスコードをその色で表示
 Bundle 'skammer/vim-css-color'
 
 " vim上のtwitter client
