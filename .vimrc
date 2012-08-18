@@ -75,6 +75,7 @@ Bundle 'tpope/vim-surround'
 " yahho*oooo konnichiha-  →  'yahhooooo konnichiha-'   # yss'
 " "↑ 行全体を ' で囲う。行指向操作。
 " ySSt	カレント行をタグで囲い改行する
+" インサートモードでC-G, s or S	閉じタグの自動補完
 " hoge	S<div> <div>hoge</div> これがかなり便利
 
 " JavaScript
