@@ -74,6 +74,7 @@ Bundle 'tpope/vim-surround'
 " "↑ カーソル位置がら行末までを " で囲う
 " yahho*oooo konnichiha-  →  'yahhooooo konnichiha-'   # yss'
 " "↑ 行全体を ' で囲う。行指向操作。
+" ySSt	カレント行をタグで囲い改行する
 " hoge	S<div> <div>hoge</div> これがかなり便利
 
 " JavaScript
@@ -103,6 +104,9 @@ Bundle 'mattn/calendar-vim'
 " 履歴
 Bundle 'Gundo'
 " F5
+
+" CSSの色表記に色付ける
+Bundle 'skammer/vim-css-color'
 
 " vim上のtwitter client
 " Bundle 'TwitVim'
