@@ -27,7 +27,7 @@ Bundle 'h1mesuke/vim-alignta'
 Bundle 'ZenCoding.vim'
 " Ctrl+y, Ctrl+,
 
-" TextMate風にタブで補完してくれる
+"" TextMate風にタブで補完してくれる
 Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
 Bundle "snipmate-snippets"
@@ -569,4 +569,8 @@ nnoremap <silent> ,mt :<C-u>! mate %<CR>
 
 " Gundo
 nnoremap <F5> :GundoToggle<CR>
+
+" ファイルタイプ
+nnoremap ,js :<C-u>set filetype=javascript<CR>
+nnoremap ,html :<C-u>set filetype=html<CR>
 
