@@ -565,7 +565,7 @@ vmap ,b v`<I<CR><esc>k0i/*<ESC>`>j0i*/<CR><esc><ESC>
 vmap ,h v`<I<CR><esc>k0i<!--<ESC>`>j0i--><CR><esc><ESC>
 
 " TextMateで開く
-nnoremap <silent> ,mt :<C-u>! mate %<CR>
+nnoremap ,mate :<C-u>! mate %<CR>
 
 " Gundo
 nnoremap <F5> :GundoToggle<CR>
