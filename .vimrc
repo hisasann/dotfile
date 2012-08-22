@@ -90,7 +90,7 @@ Bundle 'majutsushi/tagbar'
 " unite
 Bundle 'Shougo/unite.vim'
 " Ctrl+f カレントのファイラーを開く
-" NERDTreeは、:Unite file あるいはVimFiler に
+" Ctrl+b バッファを開く（これはよく使う）
 
 " ステータスラインをカッコよくする
 Bundle 'Lokaltog/vim-powerline'
@@ -108,6 +108,9 @@ Bundle 'Gundo'
 
 " ヘックスコードをその色で表示
 Bundle 'skammer/vim-css-color'
+
+" 目的の単語にすばやくカーソルを移動
+Bundle 'Lokaltog/vim-easymotion'
 
 " vim上のtwitter client
 " Bundle 'TwitVim'
@@ -575,3 +578,6 @@ nnoremap <F5> :GundoToggle<CR>
 nnoremap ,js :<C-u>set filetype=javascript<CR>
 nnoremap ,html :<C-u>set filetype=html<CR>
 
+" EazyMotion
+"let g:EasyMotion_leader_key = '<Leader>'
+let g:EasyMotion_leader_key = '<Space><Space>'
