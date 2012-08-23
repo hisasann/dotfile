@@ -39,6 +39,8 @@ Bundle "garbas/vim-snipmate"
 
 " Objective-C
 Bundle 'cocoa.vim'
+" Windowsの場合ctagのインストールが必要
+" via http://nanasi.jp/articles/others/ctags.html
 Bundle 'taglist.vim'
 
 " markdown
@@ -93,6 +95,7 @@ Bundle 'Shougo/unite.vim'
 " Ctrl+b バッファを開く（これはよく使う）
 
 " ステータスラインをカッコよくする
+" Windowsだと文字化けするのでその場合はコメントアウト
 Bundle 'Lokaltog/vim-powerline'
 
 " -- でメソッドチェーン整形（php、perl、rubyだけ）
@@ -111,6 +114,9 @@ Bundle 'skammer/vim-css-color'
 
 " 目的の単語にすばやくカーソルを移動
 Bundle 'Lokaltog/vim-easymotion'
+
+" git
+Bundle 'tpope/vim-fugitive'
 
 " vim上のtwitter client
 " Bundle 'TwitVim'
@@ -145,7 +151,42 @@ set number        " 行番号を非表示
 set ruler        " ルーラーを表示 (noruler:非表示)
 set cmdheight=2      " コマンドラインの高さ (Windows用gvim使用時はgvimrcを編集すること)
 set laststatus=2    " 常にステータス行を表示 (詳細は:he laststatus)
-set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P
+
+" statusline {{{
+" default
+"set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P
+" fugitive default
+"set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+" 分解したパターン via http://blog.ruedap.com/entry/20110712/vim_statusline_git_branch_name
+" ステータスラインの表示
+" Lokaltog/vim-powerlineを使っているとうまく動かないかも
+  set statusline=%<     " 行が長すぎるときに切り詰める位置
+  set statusline+=[%n]  " バッファ番号
+  set statusline+=%m    " %m 修正フラグ
+  set statusline+=%r    " %r 読み込み専用フラグ
+  set statusline+=%h    " %h ヘルプバッファフラグ
+  set statusline+=%w    " %w プレビューウィンドウフラグ
+  set statusline+=%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}  " fencとffを表示
+  set statusline+=%y    " バッファ内のファイルのタイプ
+  set statusline+=\     " 空白スペース
+if winwidth(0) >= 130
+  set statusline+=%F    " バッファ内のファイルのフルパス
+else
+  set statusline+=%t    " ファイル名のみ
+endif
+  set statusline+=%=    " 左寄せ項目と右寄せ項目の区切り
+  set statusline+=%{fugitive#statusline()}  " Gitのブランチ名を表示
+  set statusline+=\ \   " 空白スペース2個
+  set statusline+=%1l   " 何行目にカーソルがあるか
+  set statusline+=/
+  set statusline+=%L    " バッファ内の総行数
+  set statusline+=,
+  set statusline+=%c    " 何列目にカーソルがあるか
+  set statusline+=%V    " 画面上の何列目にカーソルがあるか
+  set statusline+=\ \   " 空白スペース2個
+  set statusline+=%P    " ファイル内の何％の位置にあるか
+" }}}
+
 set title
 set linespace=0
 set showcmd        " コマンドをステータス行に表
@@ -581,3 +622,13 @@ nnoremap ,html :<C-u>set filetype=html<CR>
 " EazyMotion
 "let g:EasyMotion_leader_key = '<Leader>'
 let g:EasyMotion_leader_key = '<Space><Space>'
+
+" for Fugitive {{{
+nnoremap <Space>gd :<C-u>Gdiff<Enter>
+nnoremap <Space>gs :<C-u>Gstatus<Enter>
+nnoremap <Space>gl :<C-u>Glog<Enter>
+nnoremap <Space>ga :<C-u>Gwrite<Enter>
+nnoremap <Space>gc :<C-u>Gcommit<Enter>
+nnoremap <Space>gC :<C-u>Git commit --amend<Enter>
+nnoremap <Space>gb :<C-u>Gblame<Enter>
+" }}}
