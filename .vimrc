@@ -197,12 +197,14 @@ else
 	set encoding=utf-8
 endif
 
+
 "-------------------------------------------------------------------------------
 " コマンド補完
 "-------------------------------------------------------------------------------
 set wildmenu           " コマンド補完を強化
 set wildmode=list:full " リスト表示，最長マッチ
 set tags=~/.tags,tags
+
 
 "-------------------------------------------------------------------------------
 " 検索
@@ -214,6 +216,7 @@ set wrapscan  " 最後まで検索したら先頭へ戻る
 set hlsearch  " 検索文字をハイライト
 set incsearch  " インクリメンタルサーチ
 
+
 "-------------------------------------------------------------------------------
 " タブ
 "-------------------------------------------------------------------------------
@@ -223,6 +226,7 @@ set smarttab
 set shiftwidth=4
 set shiftround
 set nowrap
+
 
 "-------------------------------------------------------------------------------
 " backup
@@ -236,6 +240,7 @@ set directory=~/vim_swap
 "set noswapfile " スワップファイル作らない
 "set hidden     " 編集中でも他のファイルを開けるようにする
 
+
 "-------------------------------------------------------------------------------
 " 色
 "-------------------------------------------------------------------------------
@@ -243,6 +248,7 @@ set directory=~/vim_swap
 syntax on
 "colorscheme molokai  " .gvimrcに書かないと反映されないのでコメントアウト
 highlight LineNr ctermfg=darkgrey
+
 
 "-------------------------------------------------------------------------------
 " 移動設定
@@ -253,12 +259,14 @@ nmap 1 0
 nmap 0 ^
 nmap 9 $
 
+
 "-------------------------------------------------------------------------------
 " 設定
 "-------------------------------------------------------------------------------
 imap <C-j> <esc>
 " insert mode でjjでesc
 inoremap jj <Esc>
+
 
 "-------------------------------------------------------------------------------
 " 編集関連
@@ -294,7 +302,6 @@ autocmd BufWritePre * :%s/\s\+$//ge
 "-------------------------------------------------------------------------------
 " その他
 "-------------------------------------------------------------------------------
-
 " ;でコマンド入力( ;と:を入れ替)
 noremap ; :
 " pluginとかでnmap :call hoge..とかやってるやつがあるので、
@@ -436,6 +443,13 @@ function! s:GetHighlight(hi)
   return hl
 endfunction
 
+" TextMateで開く
+nnoremap ,mate :<C-u>! mate %<CR>
+
+" ファイルタイプ
+nnoremap ,js :<C-u>set filetype=javascript<CR>
+nnoremap ,html :<C-u>set filetype=html<CR>
+
 "<space>j, <space>kで画面送り
 noremap <Space>j <C-f>
 noremap <Space>k <C-b>
@@ -448,6 +462,28 @@ vnoremap v $h
 
 " 最後に編集された位置に移動
 nnoremap gb '[
+
+" commentout.vim
+" lhs comments
+vmap ,# :s/^/#/<CR>:nohlsearch<CR>
+vmap ,/ :s/^/\/\//<CR>:nohlsearch<CR>
+vmap ,> :s/^/> /<CR>:nohlsearch<CR>
+vmap ," :s/^/\"/<CR>:nohlsearch<CR>
+vmap ,% :s/^/%/<CR>:nohlsearch<CR>
+vmap ,! :s/^/!/<CR>:nohlsearch<CR>
+vmap ,; :s/^/;/<CR>:nohlsearch<CR>
+vmap ,- :s/^/--/<CR>:nohlsearch<CR>
+vmap ,c :s/^\/\/\\|^--\\|^> \\|^[#"%!;]//<CR>:nohlsearch<CR>
+
+" wrapping comments
+vmap ,* :s/^\(.*\)$/\/\* \1 \*\//<CR>:nohlsearch<CR>
+vmap ,( :s/^\(.*\)$/\(\* \1 \*\)/<CR>:nohlsearch<CR>
+vmap ,< :s/^\(.*\)$/<!-- \1 -->/<CR>:nohlsearch<CR>
+vmap ,d :s/^\([/(]\*\\|<!--\) \(.*\) \(\*[/)]\\|-->\)$/\2/<CR>:nohlsearch<CR>
+
+" block comments
+vmap ,b v`<I<CR><esc>k0i/*<ESC>`>j0i*/<CR><esc><ESC>
+vmap ,h v`<I<CR><esc>k0i<!--<ESC>`>j0i--><CR><esc><ESC>
 
 
 "-------------------------------------------------------------------------------
@@ -602,38 +638,8 @@ nnoremap <silent> ,lt :<C-u>TagbarToggle<CR>
 " taglist.vim objective-cに対応
 let tlist_objc_settings='objc;P:protocols;i:interfaces;I:implementations;M:instance methods;C:implementation methods;Z:protocol methods'
 
-
-" commentout.vim
-" lhs comments
-vmap ,# :s/^/#/<CR>:nohlsearch<CR>
-vmap ,/ :s/^/\/\//<CR>:nohlsearch<CR>
-vmap ,> :s/^/> /<CR>:nohlsearch<CR>
-vmap ," :s/^/\"/<CR>:nohlsearch<CR>
-vmap ,% :s/^/%/<CR>:nohlsearch<CR>
-vmap ,! :s/^/!/<CR>:nohlsearch<CR>
-vmap ,; :s/^/;/<CR>:nohlsearch<CR>
-vmap ,- :s/^/--/<CR>:nohlsearch<CR>
-vmap ,c :s/^\/\/\\|^--\\|^> \\|^[#"%!;]//<CR>:nohlsearch<CR>
-
-" wrapping comments
-vmap ,* :s/^\(.*\)$/\/\* \1 \*\//<CR>:nohlsearch<CR>
-vmap ,( :s/^\(.*\)$/\(\* \1 \*\)/<CR>:nohlsearch<CR>
-vmap ,< :s/^\(.*\)$/<!-- \1 -->/<CR>:nohlsearch<CR>
-vmap ,d :s/^\([/(]\*\\|<!--\) \(.*\) \(\*[/)]\\|-->\)$/\2/<CR>:nohlsearch<CR>
-
-" block comments
-vmap ,b v`<I<CR><esc>k0i/*<ESC>`>j0i*/<CR><esc><ESC>
-vmap ,h v`<I<CR><esc>k0i<!--<ESC>`>j0i--><CR><esc><ESC>
-
-" TextMateで開く
-nnoremap ,mate :<C-u>! mate %<CR>
-
 " Gundo
 nnoremap <F5> :GundoToggle<CR>
-
-" ファイルタイプ
-nnoremap ,js :<C-u>set filetype=javascript<CR>
-nnoremap ,html :<C-u>set filetype=html<CR>
 
 " EazyMotion
 "let g:EasyMotion_leader_key = '<Leader>'
