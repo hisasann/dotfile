@@ -436,8 +436,18 @@ function! s:GetHighlight(hi)
   return hl
 endfunction
 
+"<space>j, <space>kで画面送り
+noremap <Space>j <C-f>
+noremap <Space>k <C-b>
+
+" カーソル位置の単語をyankする
+nnoremap vy vawy
+
 "ビジュアルモード時vで行末まで選択
 vnoremap v $h
+
+" 最後に編集された位置に移動
+nnoremap gb '[
 
 
 "-------------------------------------------------------------------------------
