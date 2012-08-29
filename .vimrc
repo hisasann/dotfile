@@ -463,6 +463,9 @@ vnoremap v $h
 " 最後に編集された位置に移動
 nnoremap gb '[
 
+"git
+nnoremap <Space>g :<C-u>!git<Space>
+
 " commentout.vim
 " lhs comments
 vmap ,# :s/^/#/<CR>:nohlsearch<CR>
