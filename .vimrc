@@ -646,7 +646,8 @@ nnoremap <F5> :GundoToggle<CR>
 
 " EazyMotion
 "let g:EasyMotion_leader_key = '<Leader>'
-let g:EasyMotion_leader_key = '<Space><Space>'
+"let g:EasyMotion_leader_key = '<Space><Space>'
+let g:EasyMotion_leader_key = '.'
 
 " for Fugitive {{{
 nnoremap <Space>gd :<C-u>Gdiff<Enter>
