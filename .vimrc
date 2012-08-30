@@ -471,6 +471,10 @@ nnoremap gl gt
 "git
 nnoremap <Space>g :<C-u>!git<Space>
 
+" <,>による連続インデント
+vnoremap < <gv
+vnoremap > >gv
+
 " commentout.vim
 " lhs comments
 vmap ,# :s/^/#/<CR>:nohlsearch<CR>
