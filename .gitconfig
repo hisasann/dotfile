@@ -1,17 +1,35 @@
 [user]
 	name = hisasann
 	email = hisasann25@gmail.com
+
+[color]
+	ui = auto
+	diff = auto
+	status = auto
+	branch = auto
+	grep = auto
+	interactive = auto
+
 [core]
 	excludesfile = /Users/hisamatsu/.gitignore_global
 	editor = vim -c \"set fenc=utf-8\"
+
+[merge]
+	tool = vimdiff
+
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+	path =
+
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	keepBackup = true
 	trustExitCode = true
+
 [alias]
+	s = status
 	st = status -sb
+	sh = show
 	co = checkout
 	b = branch
 	br = branch -r
@@ -23,8 +41,10 @@
 	cam = commit -a --amend  # 直前のcommitを修正
 	cv = commit -v
 	cs = commit -sv
+	csm = commit -sv --amend
 	sh = show
 	so = remote show origin
+	ft = fetch
 	up = pull --rebase		# pull rebase
 	rbm = rebase master		# masterへのrebaseはよく使うのでalias
 	ranking = shortlog -s -n --no-merges
@@ -47,17 +67,10 @@
 	d5 = diff HEAD~~~~~        # HEADから5つ前とdiff
 	d10 = diff HEAD~~~~~~~~~~  # HEADから10前とdiff
 
-[color]
-	ui = auto
-	diff = auto
-	status = auto
-	branch = auto
-	grep = auto
-	interactive = auto
 [push]
 	default = upstream
-[mergetool]
-	keepBackup = true
+
 [tig "bind"]
 	generic = g move-first-line
 	generic = G move-last-line
+
