@@ -458,6 +458,7 @@ noremap <Space>k <C-b>
 nnoremap vy vawy
 
 "ビジュアルモード時vで行末まで選択
+nnoremap vv ^v$h
 vnoremap v $h
 
 " 最後に編集された位置に移動
