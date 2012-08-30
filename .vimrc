@@ -464,6 +464,10 @@ vnoremap v $h
 " 最後に編集された位置に移動
 nnoremap gb '[
 
+"move tab
+nnoremap gh gT
+nnoremap gl gt
+
 "git
 nnoremap <Space>g :<C-u>!git<Space>
 
