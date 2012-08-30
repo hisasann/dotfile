@@ -8,7 +8,5 @@ if exists(":CompilerSet") != 2
 endif
 
 CompilerSet makeprg=gjslint\ %
-CompilerSet errorformat=
-      \%+P-----\ FILE\ \ :\ \ %f\ -----,
-      \Line\ %l\\,\ %t:%n:\ %m,
-      \%+Q%r
+CompilerSet errorformat=%-P%>-----\ FILE\ \ :\ \ %f\ -----,Line\ %l\\,\ %t:%n:\ %m,%-Q
+
