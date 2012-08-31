@@ -85,6 +85,8 @@ Bundle 'tpope/vim-surround'
 Bundle 'JavaScript-syntax'
 " indent
 Bundle 'pangloss/vim-javascript'
+" CoffeeScript
+Bundle 'kchmck/vim-coffee-script'
 
 " メソッド宣言、変数宣言
 Bundle 'majutsushi/tagbar'
@@ -458,7 +460,7 @@ noremap <Space>k <C-b>
 nnoremap vy vawy
 
 "ビジュアルモード時vで行末まで選択
-nnoremap vv ^v$h
+"nnoremap vv ^v$h
 vnoremap v $h
 
 " 最後に編集された位置に移動
@@ -630,8 +632,9 @@ function! s:twitvim_my_settings()
 endfunction
 
 
-" vim-quickrun - markdown
+" vim-quickrun
 let g:quickrun_config = {}
+" markdown
 let g:quickrun_config['markdown'] = {
 \ 'command': 'bluecloth',
 \ 'exec': '%c -f %s'
@@ -640,6 +643,9 @@ let g:quickrun_config['markdown'] = {
 "let g:quickrun_config['markdown'] = {
 "\ 'outputter': 'browser'
 "\ }
+" CoffeeScript
+let g:quickrun_config['coffee'] = {'command' : 'coffee', 'exec' : ['%c -cbp %s']}
+nnoremap <silent>,q :<C-u>QuickRun<CR>
 
 " tagbar
 "map lo :TagbarOpen<CR>
@@ -656,7 +662,7 @@ nnoremap <F5> :GundoToggle<CR>
 " EazyMotion
 "let g:EasyMotion_leader_key = '<Leader>'
 "let g:EasyMotion_leader_key = '<Space><Space>'
-let g:EasyMotion_leader_key = '.'
+let g:EasyMotion_leader_key = ','
 
 " for Fugitive {{{
 nnoremap <Space>gd :<C-u>Gdiff<Enter>
@@ -667,3 +673,7 @@ nnoremap <Space>gc :<C-u>Gcommit<Enter>
 nnoremap <Space>gC :<C-u>Git commit --amend<Enter>
 nnoremap <Space>gb :<C-u>Gblame<Enter>
 " }}}
+
+" CoffeeScript
+autocmd BufWritePost *.coffee silent CoffeeMake! -cb | cwindow | redraw!
+
