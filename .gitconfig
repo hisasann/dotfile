@@ -2,11 +2,11 @@
 	name = hisasann
 	email = hisasann25@gmail.com
 [core]
-	excludesfile = /Users/hisamatsu/.gitignore_global
+	excludesfile = /Users/hisasann/.gitignore_global
 	editor = vim -c \"set fenc=utf-8\"
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+	path =
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
