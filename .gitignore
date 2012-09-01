@@ -2,3 +2,14 @@
 Thumbs.db
 *.sw[po]
 .svn
+.npm
+.nvm
+.gem
+.bash_history
+.Trash
+.macports
+.necon
+.subversion
+.ssh
+vim_backup
+vim_swap
