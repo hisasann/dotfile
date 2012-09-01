@@ -44,6 +44,7 @@
 	csm = commit -sv --amend
 	sh = show
 	so = remote show origin
+	pom = push origin master
 	ft = fetch
 	up = pull --rebase		# pull rebase
 	rbm = rebase master		# masterへのrebaseはよく使うのでalias
