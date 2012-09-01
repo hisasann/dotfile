@@ -496,6 +496,9 @@ nnoremap <Space>g :<C-u>!git<Space>
 vnoremap < <gv
 vnoremap > >gv
 
+" htmlタグの属性を削除
+nnoremap ,ha :<C-u>s/\(<[a-zA-Z0-9]\+\)\([^>]\\|\n\)\{-}>/\1>/g<CR>:<C-u>nohl<CR>
+
 " tyru/caw.vimを入れたので不要
 " commentout.vim
 " lhs comments
