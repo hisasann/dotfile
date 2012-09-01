@@ -696,7 +696,7 @@ nnoremap <Space>gb :<C-u>Gblame<Enter>
 autocmd BufWritePost *.coffee silent CoffeeMake! -cb | cwindow | redraw!
 
 " surround.vim
-"  ssで選択範囲を指定文字でくくる
+" ssで選択範囲を指定文字でくくる
 nmap ss <Plug>Yssurround
 
 " Powerline
@@ -854,9 +854,9 @@ let g:Powerline_mode_n = 'NORMAL'
 
 " vimshell
 " ,is: シェルを起動
-nnoremap <silent> ,is :VimShell<CR>
+nnoremap <silent> ,vs :VimShell<CR>
 " ,iscala: Scalaを起動
-nnoremap <silent> ,iscala :VimShellInteractive scala<CR>
+nnoremap <silent> ,vscala :VimShellInteractive scala<CR>
 " ,ijs: SpiderMonkeyを起動
-nnoremap <silent> ,ijs :VimShellInteractive js<CR>
+nnoremap <silent> ,vjs :VimShellInteractive js<CR>
 
