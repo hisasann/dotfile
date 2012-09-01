@@ -93,6 +93,8 @@ Bundle 'majutsushi/tagbar'
 
 " unite
 Bundle 'Shougo/unite.vim'
+Bundle 'tsukkee/unite-help'
+Bundle 'h1mesuke/unite-outline'
 " Ctrl+f カレントのファイラーを開く
 " Ctrl+b バッファを開く（これはよく使う）
 
@@ -618,6 +620,10 @@ function! s:unite_my_settings()
   imap <silent><buffer> <ESC><ESC> <ESC>q
 endfunction
 
+" unite-plugins
+nnoremap <silent> ,uh :<C-u>Unite help<CR>
+nnoremap <silent> ,uo :<C-u>Unite outline<CR>
+
 
 """ twitvim
 let twitvim_count = 200
@@ -677,6 +683,10 @@ nnoremap <Space>gb :<C-u>Gblame<Enter>
 
 " CoffeeScript
 autocmd BufWritePost *.coffee silent CoffeeMake! -cb | cwindow | redraw!
+
+" surround.vim
+"  ssで選択範囲を指定文字でくくる
+nmap ss <Plug>Yssurround
 
 " Powerline
 "let g:Powerline_symbols='fancy'
