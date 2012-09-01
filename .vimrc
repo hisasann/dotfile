@@ -133,6 +133,9 @@ Bundle 'Shougo/vimshell'
 " cp .vim/bundle/vimproc/autoload ~/.vim/autoload
 " Winは面倒そう http://www.karakaram.com/vim/vimproc64/
 
+" Comment
+Bundle 'tyru/caw.vim'
+
 " vim上のtwitter client
 " Bundle 'TwitVim'
 
@@ -491,27 +494,28 @@ nnoremap <Space>g :<C-u>!git<Space>
 vnoremap < <gv
 vnoremap > >gv
 
+" tyru/caw.vimを入れたので不要
 " commentout.vim
 " lhs comments
-vmap ,# :s/^/#/<CR>:nohlsearch<CR>
-vmap ,/ :s/^/\/\//<CR>:nohlsearch<CR>
-vmap ,> :s/^/> /<CR>:nohlsearch<CR>
-vmap ," :s/^/\"/<CR>:nohlsearch<CR>
-vmap ,% :s/^/%/<CR>:nohlsearch<CR>
-vmap ,! :s/^/!/<CR>:nohlsearch<CR>
-vmap ,; :s/^/;/<CR>:nohlsearch<CR>
-vmap ,- :s/^/--/<CR>:nohlsearch<CR>
-vmap ,c :s/^\/\/\\|^--\\|^> \\|^[#"%!;]//<CR>:nohlsearch<CR>
-
-" wrapping comments
-vmap ,* :s/^\(.*\)$/\/\* \1 \*\//<CR>:nohlsearch<CR>
-vmap ,( :s/^\(.*\)$/\(\* \1 \*\)/<CR>:nohlsearch<CR>
-vmap ,< :s/^\(.*\)$/<!-- \1 -->/<CR>:nohlsearch<CR>
-vmap ,d :s/^\([/(]\*\\|<!--\) \(.*\) \(\*[/)]\\|-->\)$/\2/<CR>:nohlsearch<CR>
-
-" block comments
-vmap ,b v`<I<CR><esc>k0i/*<ESC>`>j0i*/<CR><esc><ESC>
-vmap ,h v`<I<CR><esc>k0i<!--<ESC>`>j0i--><CR><esc><ESC>
+"vmap ,# :s/^/#/<CR>:nohlsearch<CR>
+"vmap ,/ :s/^/\/\//<CR>:nohlsearch<CR>
+"vmap ,> :s/^/> /<CR>:nohlsearch<CR>
+"vmap ," :s/^/\"/<CR>:nohlsearch<CR>
+"vmap ,% :s/^/%/<CR>:nohlsearch<CR>
+"vmap ,! :s/^/!/<CR>:nohlsearch<CR>
+"vmap ,; :s/^/;/<CR>:nohlsearch<CR>
+"vmap ,- :s/^/--/<CR>:nohlsearch<CR>
+"vmap ,c :s/^\/\/\\|^--\\|^> \\|^[#"%!;]//<CR>:nohlsearch<CR>
+"
+"" wrapping comments
+"vmap ,* :s/^\(.*\)$/\/\* \1 \*\//<CR>:nohlsearch<CR>
+"vmap ,( :s/^\(.*\)$/\(\* \1 \*\)/<CR>:nohlsearch<CR>
+"vmap ,< :s/^\(.*\)$/<!-- \1 -->/<CR>:nohlsearch<CR>
+"vmap ,d :s/^\([/(]\*\\|<!--\) \(.*\) \(\*[/)]\\|-->\)$/\2/<CR>:nohlsearch<CR>
+"
+"" block comments
+"vmap ,b v`<I<CR><esc>k0i/*<ESC>`>j0i*/<CR><esc><ESC>
+"vmap ,h v`<I<CR><esc>k0i<!--<ESC>`>j0i--><CR><esc><ESC>
 
 
 "-------------------------------------------------------------------------------
@@ -859,4 +863,10 @@ nnoremap <silent> ,vs :VimShell<CR>
 nnoremap <silent> ,vscala :VimShellInteractive scala<CR>
 " ,ijs: SpiderMonkeyを起動
 nnoremap <silent> ,vjs :VimShellInteractive js<CR>
+
+" コメントアウトを切り替えるマッピング例
+"nmap <Leader>c <Plug>(caw:I:toggle)
+"vmap <Leader>c <Plug>(caw:I:toggle)
+nmap ,c <Plug>(caw:I:toggle)
+vmap ,c <Plug>(caw:I:toggle)
 
