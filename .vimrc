@@ -499,6 +499,10 @@ vnoremap > >gv
 " htmlタグの属性を削除
 nnoremap ,ha :<C-u>s/\(<[a-zA-Z0-9]\+\)\([^>]\\|\n\)\{-}>/\1>/g<CR>:<C-u>nohl<CR>
 
+" now
+:nnoremap <F2> "=strftime("%c")<CR>P
+:inoremap <F2> <C-R>=strftime("%c")<CR>
+
 " tyru/caw.vimを入れたので不要
 " commentout.vim
 " lhs comments
