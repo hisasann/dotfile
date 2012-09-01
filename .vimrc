@@ -122,6 +122,17 @@ Bundle 'Lokaltog/vim-easymotion'
 " git
 Bundle 'tpope/vim-fugitive'
 
+" Vimでシェルを使えるようにする
+Bundle 'Shougo/vimproc'
+Bundle 'Shougo/vimshell'
+" インストール方法（Mac）
+" via  https://github.com/Shougo/vimshell
+" cd .vim/bundle/vimproc
+" make -f make_mac.mak
+" mkdir ~/.vim/autoload
+" cp .vim/bundle/vimproc/autoload ~/.vim/autoload
+" Winは面倒そう http://www.karakaram.com/vim/vimproc64/
+
 " vim上のtwitter client
 " Bundle 'TwitVim'
 
@@ -840,4 +851,12 @@ let g:Powerline#Colorschemes#my#colorscheme = Pl#Colorscheme#Init([
   \ ])
 let g:Powerline_colorscheme='my'
 let g:Powerline_mode_n = 'NORMAL'
+
+" vimshell
+" ,is: シェルを起動
+nnoremap <silent> ,is :VimShell<CR>
+" ,iscala: Scalaを起動
+nnoremap <silent> ,iscala :VimShellInteractive scala<CR>
+" ,ijs: SpiderMonkeyを起動
+nnoremap <silent> ,ijs :VimShellInteractive js<CR>
 
