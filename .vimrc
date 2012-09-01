@@ -85,6 +85,8 @@ Bundle 'tpope/vim-surround'
 Bundle 'JavaScript-syntax'
 " indent
 Bundle 'pangloss/vim-javascript'
+" CoffeeScript
+Bundle 'kchmck/vim-coffee-script'
 
 " メソッド宣言、変数宣言
 Bundle 'majutsushi/tagbar'
@@ -458,13 +460,22 @@ noremap <Space>k <C-b>
 nnoremap vy vawy
 
 "ビジュアルモード時vで行末まで選択
+"nnoremap vv ^v$h
 vnoremap v $h
 
 " 最後に編集された位置に移動
 nnoremap gb '[
 
+"move tab
+nnoremap gh gT
+nnoremap gl gt
+
 "git
 nnoremap <Space>g :<C-u>!git<Space>
+
+" <,>による連続インデント
+vnoremap < <gv
+vnoremap > >gv
 
 " commentout.vim
 " lhs comments
@@ -621,8 +632,9 @@ function! s:twitvim_my_settings()
 endfunction
 
 
-" vim-quickrun - markdown
+" vim-quickrun
 let g:quickrun_config = {}
+" markdown
 let g:quickrun_config['markdown'] = {
 \ 'command': 'bluecloth',
 \ 'exec': '%c -f %s'
@@ -631,6 +643,9 @@ let g:quickrun_config['markdown'] = {
 "let g:quickrun_config['markdown'] = {
 "\ 'outputter': 'browser'
 "\ }
+" CoffeeScript
+let g:quickrun_config['coffee'] = {'command' : 'coffee', 'exec' : ['%c -cbp %s']}
+nnoremap <silent>,q :<C-u>QuickRun<CR>
 
 " tagbar
 "map lo :TagbarOpen<CR>
@@ -647,7 +662,7 @@ nnoremap <F5> :GundoToggle<CR>
 " EazyMotion
 "let g:EasyMotion_leader_key = '<Leader>'
 "let g:EasyMotion_leader_key = '<Space><Space>'
-let g:EasyMotion_leader_key = '.'
+let g:EasyMotion_leader_key = ','
 
 " for Fugitive {{{
 nnoremap <Space>gd :<C-u>Gdiff<Enter>
@@ -658,3 +673,160 @@ nnoremap <Space>gc :<C-u>Gcommit<Enter>
 nnoremap <Space>gC :<C-u>Git commit --amend<Enter>
 nnoremap <Space>gb :<C-u>Gblame<Enter>
 " }}}
+
+" CoffeeScript
+autocmd BufWritePost *.coffee silent CoffeeMake! -cb | cwindow | redraw!
+
+" Powerline
+"let g:Powerline_symbols='fancy'
+call Pl#Hi#Allocate({
+  \ 'black'          : 16,
+  \ 'white'          : 231,
+  \
+  \ 'darkestgreen'   : 22,
+  \ 'darkgreen'      : 28,
+  \
+  \ 'darkestcyan'    : 21,
+  \ 'mediumcyan'     : 117,
+  \
+  \ 'darkestblue'    : 24,
+  \ 'darkblue'       : 31,
+  \
+  \ 'darkestred'     : 52,
+  \ 'darkred'        : 88,
+  \ 'mediumred'      : 124,
+  \ 'brightred'      : 160,
+  \ 'brightestred'   : 196,
+  \
+  \ 'darkestyellow'  : 59,
+  \ 'darkyellow'     : 100,
+  \ 'darkestpurple'  : 57,
+  \ 'mediumpurple'   : 98,
+  \ 'brightpurple'   : 189,
+  \
+  \ 'brightorange'   : 208,
+  \ 'brightestorange': 214,
+  \
+  \ 'gray0'          : 233,
+  \ 'gray1'          : 235,
+  \ 'gray2'          : 236,
+  \ 'gray3'          : 239,
+  \ 'gray4'          : 240,
+  \ 'gray5'          : 241,
+  \ 'gray6'          : 244,
+  \ 'gray7'          : 245,
+  \ 'gray8'          : 247,
+  \ 'gray9'          : 250,
+  \ 'gray10'         : 252,
+  \ })
+" 'n': normal mode
+" 'i': insert mode
+" 'v': visual mode
+" 'r': replace mode
+" 'N': not active
+let g:Powerline#Colorschemes#my#colorscheme = Pl#Colorscheme#Init([
+  \ Pl#Hi#Segments(['SPLIT'], {
+    \ 'n': ['white', 'gray2'],
+    \ 'N': ['gray0', 'gray0'],
+    \ }),
+  \
+  \ Pl#Hi#Segments(['mode_indicator'], {
+    \ 'i': ['darkestgreen', 'white', ['bold']],
+    \ 'n': ['darkestcyan', 'white', ['bold']],
+    \ 'v': ['darkestpurple', 'white', ['bold']],
+    \ 'r': ['mediumred', 'white', ['bold']],
+    \ 's': ['white', 'gray5', ['bold']],
+    \ }),
+  \
+  \ Pl#Hi#Segments(['fileinfo', 'filename'], {
+    \ 'i': ['white', 'darkestgreen', ['bold']],
+    \ 'n': ['white', 'darkestcyan', ['bold']],
+    \ 'v': ['white', 'darkestpurple', ['bold']],
+    \ 'r': ['white', 'mediumred', ['bold']],
+    \ 'N': ['gray0', 'gray2', ['bold']],
+    \ }),
+  \
+  \ Pl#Hi#Segments(['branch', 'scrollpercent', 'raw', 'filesize'], {
+    \ 'n': ['gray2', 'gray7'],
+    \ 'N': ['gray0', 'gray2'],
+    \ }),
+  \
+  \ Pl#Hi#Segments(['fileinfo.filepath', 'status'], {
+    \ 'n': ['gray10'],
+    \ 'N': ['gray5'],
+    \ }),
+  \
+  \ Pl#Hi#Segments(['static_str'], {
+    \ 'n': ['white', 'gray4'],
+    \ 'N': ['gray1', 'gray1'],
+    \ }),
+  \
+  \ Pl#Hi#Segments(['fileinfo.flags'], {
+    \ 'n': ['white'],
+    \ 'N': ['gray4'],
+    \ }),
+  \
+  \ Pl#Hi#Segments(['currenttag', 'fileformat', 'fileencoding', 'pwd', 'filetype', 'rvm:string', 'rvm:statusline', 'virtualenv:statusline', 'charcode', 'currhigroup'], {
+    \ 'n': ['gray9', 'gray4'],
+    \ }),
+  \
+  \ Pl#Hi#Segments(['lineinfo'], {
+    \ 'n': ['gray2', 'gray10'],
+    \ 'N': ['gray2', 'gray4'],
+    \ }),
+  \
+  \ Pl#Hi#Segments(['errors'], {
+    \ 'n': ['white', 'gray2'],
+    \ }),
+  \
+  \ Pl#Hi#Segments(['lineinfo.line.tot'], {
+    \ 'n': ['gray2'],
+    \ 'N': ['gray2'],
+    \ }),
+  \
+  \ Pl#Hi#Segments(['paste_indicator', 'ws_marker'], {
+    \ 'n': ['white', 'brightred', ['bold']],
+    \ }),
+  \
+  \ Pl#Hi#Segments(['gundo:static_str.name', 'command_t:static_str.name'], {
+    \ 'n': ['white', 'mediumred', ['bold']],
+    \ 'N': ['brightred', 'darkestred', ['bold']],
+    \ }),
+  \
+  \ Pl#Hi#Segments(['gundo:static_str.buffer', 'command_t:raw.line'], {
+    \ 'n': ['white', 'darkred'],
+    \ 'N': ['brightred', 'darkestred'],
+    \ }),
+  \
+  \ Pl#Hi#Segments(['gundo:SPLIT', 'command_t:SPLIT'], {
+    \ 'n': ['white', 'darkred'],
+    \ 'N': ['white', 'darkestred'],
+    \ }),
+  \
+  \ Pl#Hi#Segments(['ctrlp:focus', 'ctrlp:byfname'], {
+    \ 'n': ['brightpurple', 'darkestpurple'],
+    \ }),
+  \
+  \ Pl#Hi#Segments(['ctrlp:prev', 'ctrlp:next', 'ctrlp:pwd'], {
+    \ 'n': ['white', 'mediumpurple'],
+    \ }),
+  \
+  \ Pl#Hi#Segments(['ctrlp:item'], {
+    \ 'n': ['darkestpurple', 'white', ['bold']],
+    \ }),
+  \
+  \ Pl#Hi#Segments(['ctrlp:marked'], {
+    \ 'n': ['brightestred', 'darkestpurple', ['bold']],
+    \ }),
+  \
+  \ Pl#Hi#Segments(['ctrlp:count'], {
+    \ 'n': ['darkestpurple', 'white'],
+    \ }),
+  \
+  \ Pl#Hi#Segments(['ctrlp:SPLIT'], {
+    \ 'n': ['white', 'darkestpurple'],
+    \ }),
+  \ ])
+let g:Powerline_colorscheme='my'
+let g:Powerline_mode_n = 'NORMAL'
+
