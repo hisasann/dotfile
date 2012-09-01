@@ -500,8 +500,8 @@ vnoremap > >gv
 nnoremap ,ha :<C-u>s/\(<[a-zA-Z0-9]\+\)\([^>]\\|\n\)\{-}>/\1>/g<CR>:<C-u>nohl<CR>
 
 " now
-:nnoremap <F2> "=strftime("%c")<CR>P
-:inoremap <F2> <C-R>=strftime("%c")<CR>
+nnoremap <F2> "=strftime("%Y/%m/%d %H:%M:%S")<CR>P
+inoremap <F2> <C-R>=strftime("%Y/%m/%d %H:%M:%S")<CR>
 
 " tyru/caw.vimを入れたので不要
 " commentout.vim
