@@ -122,16 +122,18 @@ Bundle 'Lokaltog/vim-easymotion'
 " git
 Bundle 'tpope/vim-fugitive'
 
-" Vimでシェルを使えるようにする
-Bundle 'Shougo/vimproc'
-Bundle 'Shougo/vimshell'
-" インストール方法（Mac）
-" via  https://github.com/Shougo/vimshell
-" cd .vim/bundle/vimproc
-" make -f make_mac.mak
-" mkdir ~/.vim/autoload
-" cp .vim/bundle/vimproc/autoload ~/.vim/autoload
-" Winは面倒そう http://www.karakaram.com/vim/vimproc64/
+if !has("win32") && !has("win64")
+	" Vimでシェルを使えるようにする
+	Bundle 'Shougo/vimproc'
+	Bundle 'Shougo/vimshell'
+	" インストール方法（Mac）
+	" via  https://github.com/Shougo/vimshell
+	" cd .vim/bundle/vimproc
+	" make -f make_mac.mak
+	" mkdir ~/.vim/autoload
+	" cp .vim/bundle/vimproc/autoload ~/.vim/autoload
+	" Winは面倒そう http://www.karakaram.com/vim/vimproc64/
+endif
 
 " Comment
 Bundle 'tyru/caw.vim'
@@ -856,13 +858,15 @@ let g:Powerline#Colorschemes#my#colorscheme = Pl#Colorscheme#Init([
 let g:Powerline_colorscheme='my'
 let g:Powerline_mode_n = 'NORMAL'
 
-" vimshell
-" ,is: シェルを起動
-nnoremap <silent> ,vs :VimShell<CR>
-" ,iscala: Scalaを起動
-nnoremap <silent> ,vscala :VimShellInteractive scala<CR>
-" ,ijs: SpiderMonkeyを起動
-nnoremap <silent> ,vjs :VimShellInteractive js<CR>
+if !has("win32") && !has("win64")
+	" vimshell
+	" シェルを起動
+	nnoremap <silent> ,vs :VimShell<CR>
+	" Scalaを起動
+	nnoremap <silent> ,vscala :VimShellInteractive scala<CR>
+	" SpiderMonkeyを起動
+	nnoremap <silent> ,vjs :VimShellInteractive js<CR>
+endif
 
 " コメントアウトを切り替えるマッピング例
 "nmap <Leader>c <Plug>(caw:I:toggle)
