@@ -1,4 +1,6 @@
 colorscheme molokai
+" set background=dark
+" colorscheme solarized
 
 " http://d.hatena.ne.jp/ruicc/20080202/1201971501
 if has('multi_byte_ime') || has('xim')
