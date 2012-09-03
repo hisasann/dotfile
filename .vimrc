@@ -390,8 +390,14 @@ if has('autocmd')
   endfunction
   autocmd BufReadPost * call AU_ReCheck_FENC()
 endif
-" 改行コードの自動認識
-set fileformats=unix,dos,mac
+
+"改行コードの自動認識
+if has("win32") || has("win64")
+	set fileformats=dos
+else
+	set fileformats=mac,unix,dos
+endif
+
 " □とか○の文字があってもカーソル位置がずれないようにする
 if exists('&ambiwidth')
   set ambiwidth=double
@@ -666,14 +672,18 @@ endfunction
 " vim-quickrun
 let g:quickrun_config = {}
 " markdown
-let g:quickrun_config['markdown'] = {
-\ 'command': 'bluecloth',
-\ 'exec': '%c -f %s'
-\ }
+" let g:quickrun_config['markdown'] = {
+" \ 'command': 'bluecloth',
+" \ 'exec': '%c -f %s'
+" \ }
 " ブラウザで開く場合
-"let g:quickrun_config['markdown'] = {
-"\ 'outputter': 'browser'
-"\ }
+" let g:quickrun_config['markdown'] = {
+" \ 'outputter': 'browser',
+" \ 'cmdopt': '-s'
+" \ }
+" ブラウザで開く
+nnoremap \m :!perl ~/Dropbox/code/markdown/Markdown.pl --html4tags "%" > /tmp/__markdown.html; open /tmp/__markdown.html<CR><CR>
+
 " CoffeeScript
 let g:quickrun_config['coffee'] = {'command' : 'coffee', 'exec' : ['%c -cbp %s']}
 nnoremap <silent>,q :<C-u>QuickRun<CR>
