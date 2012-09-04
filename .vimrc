@@ -365,6 +365,35 @@ augroup END
 " 保存時に行末の空白を除去する
 autocmd BufWritePre * :%s/\s\+$//ge
 
+"-------------------------------------------------------------------------------
+" エスケープ関連
+"-------------------------------------------------------------------------------
+" エスケープ
+vnoremap <Leader>e "xx:call <SID>EscapeXml('x')<CR>"xP
+
+function s:EscapeXml(regname)
+  let x = getreg(a:regname)
+  let x = substitute(x, '&', '\&amp;', 'g')
+  let x = substitute(x, '<', '\&lt;', 'g')
+  let x = substitute(x, '>', '\&gt;', 'g')
+  let x = substitute(x, "'", '\&apos;', 'g')
+  let x = substitute(x, '"', '\&quot;', 'g')
+  call setreg(a:regname, x)
+endfunction
+
+" アンエスケープ
+vnoremap <Leader>ue "xx:call <SID>UnEscapeXml('x')<CR>"xP
+
+function s:UnEscapeXml(regname)
+  let x = getreg(a:regname)
+  let x = substitute(x, '&amp;', '&', 'g')
+  let x = substitute(x, '&lt;', '<', 'g')
+  let x = substitute(x, '&gt;', '>', 'g')
+  let x = substitute(x, '&apos;', "'", 'g')
+  let x = substitute(x, '&quot;', '"', 'g')
+  call setreg(a:regname, x)
+endfunction
+
 
 "-------------------------------------------------------------------------------
 " その他
@@ -745,6 +774,11 @@ nnoremap <silent> ,lt :<C-u>TagbarToggle<CR>
 
 " taglist.vim objective-cに対応
 let tlist_objc_settings='objc;P:protocols;i:interfaces;I:implementations;M:instance methods;C:implementation methods;Z:protocol methods'
+let Tlist_Ctags_Cmd = "/Applications/MacVim.app/Contents/MacOS/ctags" "ctagsのパス
+let Tlist_Show_One_File = 1 "現在編集中のソースのタグしか表示しない
+let Tlist_Exit_OnlyWindow = 1 "taglistのウィンドーが最後のウィンドーならばVimを閉じる
+let Tlist_Use_Right_Window = 1 "右側でtaglistのウィンドーを表示
+nnoremap <silent> ,tl :TlistToggle<CR>
 
 " Gundo
 nnoremap <F5> :GundoToggle<CR>
