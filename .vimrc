@@ -1,8 +1,9 @@
 "-------------------------------------------------------------------------------
 " Memo
 "-------------------------------------------------------------------------------
-" :h text-objects  テキストオブジェクトのヘルプを表示
-" set ft=javascript		ファイルを保存しなくてもJavaScriptモードになる
+" :h text-objects   - テキストオブジェクトのヘルプを表示
+" set ft=javascript - ファイルを保存しなくてもJavaScriptモードになる
+" :Scratch          - 作業用バッファは一時的なメモや編集用のスペースとして利用できます
 
 "-------------------------------------------------------------------------------
 " Bundle
@@ -508,6 +509,9 @@ nnoremap ,ha :<C-u>s/\(<[a-zA-Z0-9]\+\)\([^>]\\|\n\)\{-}>/\1>/g<CR>:<C-u>nohl<CR
 " now
 nnoremap <F2> "=strftime("%Y/%m/%d %H:%M:%S")<CR>P
 inoremap <F2> <C-R>=strftime("%Y/%m/%d %H:%M:%S")<CR>
+
+" :CdCurrent のエイリアス
+nnoremap <Space>cd :<C-u>CdCurrent<CR>
 
 " tyru/caw.vimを入れたので不要
 " commentout.vim
