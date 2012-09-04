@@ -1,75 +1,76 @@
 [include]
-	path = .gitconfig.local
+  path = .gitconfig.local
 
 [color]
-	ui = auto
-	diff = auto
-	status = auto
-	branch = auto
-	grep = auto
-	interactive = auto
+  ui = auto
+  diff = auto
+  status = auto
+  branch = auto
+  grep = auto
+  interactive = auto
 
 [core]
-	editor = vim -c \"set fenc=utf-8\"
+  editor = vim -c \"set fenc=utf-8\"
 
 [merge]
-	tool = vimdiff
+  tool = vimdiff
 
 [difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path =
+  cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+  path =
 
 [mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	keepBackup = true
-	trustExitCode = true
+  cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+  keepBackup = true
+  trustExitCode = true
 
 [alias]
-	s = status
-	st = status -sb
-	sh = show
-	co = checkout
-	b = branch
-	br = branch -r
-	ba = branch -a
-	bm = branch --merged
-	bn = branch --no-merged		# mergeしてないbranchを表示
-	ad = add
-	ci = commit -a           # modifiedなファイルを全てstageへ
-	cam = commit -a --amend  # 直前のcommitを修正
-	cv = commit -v
-	cs = commit -sv
-	csm = commit -sv --amend
-	sh = show
-	so = remote show origin
-	pom = push origin master
-	ft = fetch
-	up = pull --rebase		# pull rebase
-	rbm = rebase master		# masterへのrebaseはよく使うのでalias
-	ranking = shortlog -s -n --no-merges
+  s = status
+  st = status -sb
+  sh = show
+  co = checkout
+  b = branch
+  br = branch -r
+  ba = branch -a
+  bm = branch --merged
+  bn = branch --no-merged    # mergeしてないbranchを表示
+  ad = add
+  ci = commit -a           # modifiedなファイルを全てstageへ
+  cam = commit -a --amend  # 直前のcommitを修正
+  cv = commit -v
+  cs = commit -sv
+  csm = commit -sv --amend
+  sh = show
+  so = remote show origin
+  pom = push origin master
+  ft = fetch
+  up = pull --rebase    # pull rebase
+  rbm = rebase master    # masterへのrebaseはよく使うのでalias
+  ranking = shortlog -s -n --no-merges
 
-	# log関連
-	lg = log --graph --pretty=oneline --decorate --date=short --abbrev-commit --branches
-	log-g = log --graph --date=short --pretty=format:'%Cgreen%h %cd %Cblue%cn %Creset%s'
-	log-ga = log --graph --all --color --pretty='%x09%h %cn%x09%s %Cred%d%Creset'
-	oneline = log --pretty=oneline
+  # log関連
+  lg = log --graph --pretty=oneline --decorate --date=short --abbrev-commit --branches
+  log-g = log --graph --date=short --pretty=format:'%Cgreen%h %cd %Cblue%cn %Creset%s'
+  log-ga = log --graph --all --color --pretty='%x09%h %cn%x09%s %Cred%d%Creset'
+  oneline = log --pretty=oneline
 
-	# diff関連
-	dm = diff master           # masterとのdiff
-	dw = diff --color-words    # 単語単位でいろつけてdiff
-	dc = diff --cached         # addされているものとのdiff
-	ds = diff --staged         # 同上(1.6.1移行)
-	d1 = diff HEAD~            # HEADから1つ前とdiff
-	d2 = diff HEAD~~           # HEADから2つ前とdiff
-	d3 = diff HEAD~~~          # HEADから3つ前とdiff
-	d4 = diff HEAD~~~~         # HEADから4つ前とdiff
-	d5 = diff HEAD~~~~~        # HEADから5つ前とdiff
-	d10 = diff HEAD~~~~~~~~~~  # HEADから10前とdiff
+  # diff関連
+  dm = diff master           # masterとのdiff
+  df = diff FEACH_HEAD       # masterとのdiff
+  dw = diff --color-words    # 単語単位でいろつけてdiff
+  dc = diff --cached         # addされているものとのdiff
+  ds = diff --staged         # 同上(1.6.1移行)
+  d1 = diff HEAD~            # HEADから1つ前とdiff
+  d2 = diff HEAD~~           # HEADから2つ前とdiff
+  d3 = diff HEAD~~~          # HEADから3つ前とdiff
+  d4 = diff HEAD~~~~         # HEADから4つ前とdiff
+  d5 = diff HEAD~~~~~        # HEADから5つ前とdiff
+  d10 = diff HEAD~~~~~~~~~~  # HEADから10前とdiff
 
 [push]
-	default = upstream
+  default = upstream
 
 [tig "bind"]
-	generic = g move-first-line
-	generic = G move-last-line
+  generic = g move-first-line
+  generic = G move-last-line
 
