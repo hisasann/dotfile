@@ -91,6 +91,7 @@ Bundle 'kchmck/vim-coffee-script'
 
 " メソッド宣言、変数宣言
 Bundle 'majutsushi/tagbar'
+" sudo brew install ctags をしてMacにはじめからついているのは使わない
 
 " unite
 Bundle 'Shougo/unite.vim'
