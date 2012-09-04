@@ -113,5 +113,5 @@ setopt hist_reduce_blanks
 # git
 autoload bashcompinit
 bashcompinit
-source /usr/local/Cellar/git/1.7.10.3/etc/bash_completion.d/git-completion.bash
+source /usr/local/Cellar/git/1.7.10.4/etc/bash_completion.d/git-completion.bash
 
