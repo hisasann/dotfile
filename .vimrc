@@ -131,7 +131,7 @@ if !has("win32") && !has("win64")
 	" cd .vim/bundle/vimproc
 	" make -f make_mac.mak
 	" mkdir ~/.vim/autoload
-	" cp .vim/bundle/vimproc/autoload ~/.vim/autoload
+	" cp -r ~/.vim/bundle/vimproc/autoload/ ~/.vim/autoload
 	" Winは面倒そう http://www.karakaram.com/vim/vimproc64/
 endif
 
