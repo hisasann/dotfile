@@ -4,6 +4,10 @@
 " :h text-objects   - テキストオブジェクトのヘルプを表示
 " set ft=javascript - ファイルを保存しなくてもJavaScriptモードになる
 " :Scratch          - 作業用バッファは一時的なメモや編集用のスペースとして利用できます
+" :ls               - 開いているバッファを一覧で表示
+" hisasannの上で*を押して検索して、:%s//hoge/gで置換ができる
+" また、:%g//dでhisasannを含む行だけを削除、:%v//dでhisasannを含む行を残すことができる
+" さらにすごいのが、:let @a=''でレジスタ消して、:%g//y Aで"apにhisasannを含む行をyankできる
 
 "-------------------------------------------------------------------------------
 " Bundle
@@ -77,9 +81,9 @@ Bundle 'tpope/vim-surround'
 " "↑ カーソル位置がら行末までを " で囲う
 " yahho*oooo konnichiha-  →  'yahhooooo konnichiha-'   # yss'
 " "↑ 行全体を ' で囲う。行指向操作。
-" ySSt	カレント行をタグで囲い改行する
-" インサートモードでC-G, s or S	閉じタグの自動補完
-" hoge	S<div> <div>hoge</div> これがかなり便利
+" ySSt  カレント行をタグで囲い改行する
+" インサートモードでC-G, s or S  閉じタグの自動補完
+" hoge  S<div> <div>hoge</div> これがかなり便利
 
 " JavaScript
 " syntax
@@ -125,16 +129,16 @@ Bundle 'Lokaltog/vim-easymotion'
 Bundle 'tpope/vim-fugitive'
 
 if !has("win32") && !has("win64")
-	" Vimでシェルを使えるようにする
-	Bundle 'Shougo/vimproc'
-	Bundle 'Shougo/vimshell'
-	" インストール方法（Mac）
-	" via  https://github.com/Shougo/vimshell
-	" cd .vim/bundle/vimproc
-	" make -f make_mac.mak
-	" mkdir ~/.vim/autoload
-	" cp -r ~/.vim/bundle/vimproc/autoload/ ~/.vim/autoload
-	" Winは面倒そう http://www.karakaram.com/vim/vimproc64/
+  " Vimでシェルを使えるようにする
+  Bundle 'Shougo/vimproc'
+  Bundle 'Shougo/vimshell'
+  " インストール方法（Mac）
+  " via  https://github.com/Shougo/vimshell
+  " cd .vim/bundle/vimproc
+  " make -f make_mac.mak
+  " mkdir ~/.vim/autoload
+  " cp -r ~/.vim/bundle/vimproc/autoload/ ~/.vim/autoload
+  " Winは面倒そう http://www.karakaram.com/vim/vimproc64/
 endif
 
 " Comment
@@ -213,10 +217,10 @@ set title
 set linespace=0
 set showcmd        " コマンドをステータス行に表
 if has("win32") || has("win64")
-	" sjisはWindows用
-	set encoding=sjis
+  " sjisはWindows用
+  set encoding=sjis
 else
-	set encoding=utf-8
+  set encoding=utf-8
 endif
 
 
@@ -242,12 +246,54 @@ set incsearch  " インクリメンタルサーチ
 "-------------------------------------------------------------------------------
 " タブ
 "-------------------------------------------------------------------------------
-set tabstop=4    " tabstopはTab文字を画面上で何文字分に展開するか
-"set expandtab    " タブを空白文字に展開
-set smarttab
-set shiftwidth=4
+set autoindent
+set cindent    " C言語的なインデント
+set expandtab    " タブを空白文字に展開
+set tabstop=2   " タブ文字の幅を設定できます。デフォルトは8です。
+set softtabstop=2   " タブ文字を入力した際にタブ文字の代わりに挿入されるホワイトスペースの量を設定します。
+set shiftwidth=2    " >> 等のコマンドや自動インデントの際に使う1レベル分のインデント量を設定します。
 set shiftround
+set smarttab
 set nowrap
+
+if has("autocmd")
+  "ファイルタイプの検索を有効にする
+  filetype plugin on
+  "そのファイルタイプにあわせたインデントを利用する
+  filetype indent on
+  " これらのftではインデントを無効に
+  "autocmd FileType php filetype indent off
+
+  autocmd FileType apache     setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType aspvbs     setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType c          setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType cpp        setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType cs         setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType css        setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType diff       setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType eruby      setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType html       setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType java       setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType javascript setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType perl       setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType php        setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType python     setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType ruby       setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType haml       setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType sh         setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType sql        setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType vb         setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType vim        setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType wsh        setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType xhtml      setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType xml        setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType yaml       setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType zsh        setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType scala      setlocal sw=2 sts=2 ts=2 et
+endif
+
+" 保存時にtabをスペースに変換する
+autocmd BufWritePre * :%s/\t/  /ge
 
 
 "-------------------------------------------------------------------------------
@@ -294,8 +340,6 @@ inoremap jj <Esc>
 "-------------------------------------------------------------------------------
 " 編集関連
 "-------------------------------------------------------------------------------
-set autoindent
-set cindent    " C言語的なインデント
 set showmatch      " 括弧の対応をハイライト
 set backspace=indent,eol,start
 set clipboard=unnamed
@@ -318,8 +362,6 @@ augroup END
 
 " 保存時に行末の空白を除去する
 autocmd BufWritePre * :%s/\s\+$//ge
-" 保存時にtabをスペースに変換する
-"autocmd BufWritePre * :%s/\t/  /ge
 
 
 "-------------------------------------------------------------------------------
@@ -334,9 +376,9 @@ noremap ; :
 " doc
 " Windowsだとこのdocディレクトリがないため
 if has("win32") || has("win64")
-	" helptags ~/.vim/doc
+  " helptags ~/.vim/doc
 else
-	helptags ~/.vim/doc
+  helptags ~/.vim/doc
 endif
 
 " JSONフォーマット
@@ -395,9 +437,9 @@ endif
 
 "改行コードの自動認識
 if has("win32") || has("win64")
-	set fileformats=dos
+  set fileformats=dos
 else
-	set fileformats=mac,unix,dos
+  set fileformats=mac,unix,dos
 endif
 
 " □とか○の文字があってもカーソル位置がずれないようにする
@@ -881,13 +923,13 @@ let g:Powerline_colorscheme='my'
 let g:Powerline_mode_n = 'NORMAL'
 
 if !has("win32") && !has("win64")
-	" vimshell
-	" シェルを起動
-	nnoremap <silent> ,vs :VimShell<CR>
-	" Scalaを起動
-	nnoremap <silent> ,vscala :VimShellInteractive scala<CR>
-	" SpiderMonkeyを起動
-	nnoremap <silent> ,vjs :VimShellInteractive js<CR>
+  " vimshell
+  " シェルを起動
+  nnoremap <silent> ,vs :VimShell<CR>
+  " Scalaを起動
+  nnoremap <silent> ,vscala :VimShellInteractive scala<CR>
+  " SpiderMonkeyを起動
+  nnoremap <silent> ,vjs :VimShellInteractive js<CR>
 endif
 
 " コメントアウトを切り替えるマッピング例
