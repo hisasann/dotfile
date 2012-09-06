@@ -15,6 +15,15 @@ export LSCOLORS=exfxcxdxbxegedabagacad
 export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
 zstyle ':completion:*' list-colors 'di=34' 'ln=35' 'so=32' 'ex=31' 'bd=46;34' 'cd=43;34'
 
+# ~/.zshenv, ~/.bash_profile などに以下を追加
+source ~/.nvm/nvm.sh
+nvm use "v0.9.0"
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
 # エイリアスの設定
 alias ls="ls -GvF"
 alias l="ls -G"
@@ -115,4 +124,7 @@ setopt hist_reduce_blanks
 autoload bashcompinit
 bashcompinit
 source /usr/local/Cellar/git/1.7.12/etc/bash_completion.d/git-completion.bash
+
+# local設定を読み込み
+source ~/.zshrc.local
 
