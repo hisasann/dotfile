@@ -1,1 +1,14 @@
-#!/bin/bashDOT_FILES=( .zshrc .ctags .gitconfig .gitignore .gvimrc .vimrc)for file in ${DOT_FILES[@]}do    ln -s $HOME/dotfiles/$file $HOME/$filedone
+#!/bin/bash
+
+echo 'start'
+
+cd $(dirname $0)
+for dotfile in .?*
+do
+    if [ $dotfile != '..' ] && [ $dotfile != '.git' ]
+    then
+        ln -fs "$PWD/$dotfile" $HOME
+    fi
+done
+
+echo 'end'
