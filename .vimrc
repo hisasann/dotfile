@@ -34,6 +34,10 @@ Bundle 'h1mesuke/vim-alignta'
 Bundle 'ZenCoding.vim'
 " Ctrl+y, Ctrl+,
 
+" fontzoom.vim
+" +、-で拡大、縮小、:Fontzoom!でリセット、あとはCtrl押しながらマウスのスクロール
+Bundle 'thinca/vim-fontzoom'
+
 "" TextMate風にタブで補完してくれる
 Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
