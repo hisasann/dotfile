@@ -23,8 +23,9 @@ alias la="ls -Gla"
 alias ip="ifconfig | grep 192.*"
 alias du="du -h"
 alias df="df -h"
+alias vi="/Applications/MacVim.app/Contents/MacOS/Vim -g --remote-tab-silent"
+alias vim="/Applications/MacVim.app/Contents/MacOS/Vim -g --remote-tab-silent"
 alias macvim="/Applications/MacVim.app/Contents/MacOS/Vim -g --remote-tab-silent"
-
 # プロンプトの色の設定
 autoload colors
 colors
