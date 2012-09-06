@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# via https://github.com/isystk/dotfiles/blob/master/setup.sh
+
 echo 'start'
 
 cd $(dirname $0)
