@@ -38,6 +38,9 @@ Bundle 'ZenCoding.vim'
 " +、-で拡大、縮小、:Fontzoom!でリセット、あとはCtrl押しながらマウスのスクロール
 Bundle 'thinca/vim-fontzoom'
 
+" indent-guides.vim
+Bundle 'nathanaelkane/vim-indent-guides'
+
 "" TextMate風にタブで補完してくれる
 Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
@@ -979,3 +982,7 @@ endif
 nmap ,c <Plug>(caw:I:toggle)
 vmap ,c <Plug>(caw:I:toggle)
 
+" indent-guides.vim
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_color_change_percent = 30
+let g:indent_guides_guide_size = 1
