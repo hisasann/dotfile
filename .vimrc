@@ -373,6 +373,9 @@ augroup END
 " 保存時に行末の空白を除去する
 autocmd BufWritePre * :%s/\s\+$//ge
 
+" 線を引く
+inoremap <F8> <C-R>=repeat('*', 80 - virtcol('.'))<CR>
+
 "-------------------------------------------------------------------------------
 " エスケープ関連
 "-------------------------------------------------------------------------------
@@ -982,7 +985,10 @@ endif
 nmap ,c <Plug>(caw:I:toggle)
 vmap ,c <Plug>(caw:I:toggle)
 
-" indent-guides.vim
-let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_color_change_percent = 30
-let g:indent_guides_guide_size = 1
+if has("gui_macvim") || has("win32") || has("win64")
+  " indent-guides.vim
+  let g:indent_guides_enable_on_vim_startup = 1
+  let g:indent_guides_color_change_percent = 30
+  let g:indent_guides_guide_size = 1
+endif
+
