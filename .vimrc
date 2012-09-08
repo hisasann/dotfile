@@ -374,7 +374,7 @@ augroup END
 autocmd BufWritePre * :%s/\s\+$//ge
 
 " 線を引く
-inoremap <F8> <C-R>=repeat('*', 80 - virtcol('.'))<CR>
+inoremap <F8> <C-R>=repeat('-', 80 - virtcol('.'))<CR>
 
 "-------------------------------------------------------------------------------
 " エスケープ関連
