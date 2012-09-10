@@ -7,6 +7,8 @@ bindkey -v
 # パスの設定
 PATH=/usr/local/bin:$PATH
 export MANPATH=/usr/local/share/man:/usr/local/man:/usr/share/man
+# Sublime Text 2
+export EDITOR='subl -w'
 
 # 関数
 find-grep () { find . -type f -print | xargs grep -n --binary-files=without-match $@ }
@@ -35,6 +37,7 @@ alias df="df -h"
 alias vi="/Applications/MacVim.app/Contents/MacOS/Vim -g --remote-tab-silent"
 alias vim="/Applications/MacVim.app/Contents/MacOS/Vim -g --remote-tab-silent"
 alias macvim="/Applications/MacVim.app/Contents/MacOS/Vim -g --remote-tab-silent"
+
 # プロンプトの色の設定
 autoload colors
 colors
