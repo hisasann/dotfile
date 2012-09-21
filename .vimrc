@@ -53,6 +53,11 @@ Bundle "garbas/vim-snipmate"
 
 " Objective-C
 Bundle 'cocoa.vim'
+" Cmd + Opt + ↑ - .hファイルと.mファイルのトグル
+" Cmd + r        - ビルドand実行
+" Cmd + b        - ビルド
+" Cmd + 0        - XCode起動
+" Cmd + 2        - :ListMethods
 " Windowsの場合ctagのインストールが必要
 " via http://nanasi.jp/articles/others/ctags.html
 Bundle 'taglist.vim'
