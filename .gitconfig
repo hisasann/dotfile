@@ -74,3 +74,5 @@
   generic = g move-first-line
   generic = G move-last-line
 
+[mergetool]
+  keepBackup = true
