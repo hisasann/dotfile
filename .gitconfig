@@ -1,5 +1,5 @@
 [include]
-  path = ~/.gitconfig.local
+  path = .gitconfig.local
 
 [color]
   ui = auto
@@ -56,7 +56,7 @@
 
   # diff関連
   dm = diff master           # masterとのdiff
-  df = diff FETCH_HEAD       # masterとのdiff
+  df = diff FETCH_HEAD       # FETCH_HEADとのdiff
   dw = diff --color-words    # 単語単位でいろつけてdiff
   dc = diff --cached         # addされているものとのdiff
   ds = diff --staged         # 同上(1.6.1移行)
