@@ -721,6 +721,10 @@ nnoremap <silent> ,uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
 nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
 " 最近使用したファイル一覧
 nnoremap <silent> ,um :<C-u>Unite file_mru<CR>
+" ブックマーク一覧
+nnoremap <silent> ,uc :<C-u>Unite bookmark<CR>
+" ブックマーク追加
+nnoremap <silent> ,ud :<C-u>UniteBookmarkAdd<CR>
 " 全部乗せ
 nnoremap <silent> ,ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
 
