@@ -37,7 +37,6 @@ Bundle 'ZenCoding.vim'
 " fontzoom.vim
 " +、-で拡大、縮小、:Fontzoom!でリセット、あとはCtrl押しながらマウスのスクロール
 Bundle 'thinca/vim-fontzoom'
-
 " indent-guides.vim
 Bundle 'nathanaelkane/vim-indent-guides'
 
@@ -805,7 +804,7 @@ nnoremap <F5> :GundoToggle<CR>
 
 " EazyMotion
 "let g:EasyMotion_leader_key = '<Leader>'
-"let g:EasyMotion_leader_key = '<Space><Space>'
+" let g:EasyMotion_leader_key = '<Space>'
 let g:EasyMotion_leader_key = ','
 
 " for Fugitive {{{
