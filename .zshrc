@@ -37,6 +37,8 @@ alias df="df -h"
 alias vi="/Applications/MacVim.app/Contents/MacOS/Vim -g --remote-tab-silent"
 alias vim="/Applications/MacVim.app/Contents/MacOS/Vim -g --remote-tab-silent"
 alias macvim="/Applications/MacVim.app/Contents/MacOS/Vim -g --remote-tab-silent"
+alias safari="open -a Safari"
+alias chrome="open -a Google\ Chrome"
 
 # プロンプトの色の設定
 autoload colors
