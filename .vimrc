@@ -23,7 +23,10 @@ call vundle#rc()
 
 Bundle 'gmarik/vundle'
 Bundle 'YankRing.vim'
-Bundle 'neocomplcache'
+
+" neocomplcache
+Bundle 'Shougo/neocomplcache-snippets-complete'
+Bundle 'Shougo/neocomplcache'
 
 " センタリング
 Bundle 'h1mesuke/vim-alignta'
@@ -140,6 +143,9 @@ Bundle 'Lokaltog/vim-easymotion'
 
 " git
 Bundle 'tpope/vim-fugitive'
+
+" Titanium
+Bundle 'pekepeke/titanium-vim'
 
 if !has("win32") && !has("win64")
   " Vimでシェルを使えるようにする
