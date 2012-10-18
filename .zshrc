@@ -10,6 +10,9 @@ export MANPATH=/usr/local/share/man:/usr/local/man:/usr/share/man
 # Sublime Text 2
 export EDITOR='subl -w'
 
+# symbolicatecrash用
+export DEVELOPER_DIR="/Applications/XCode.app/Contents/Developer"
+
 # 関数
 find-grep () { find . -type f -print | xargs grep -n --binary-files=without-match $@ }
 
@@ -20,6 +23,8 @@ zstyle ':completion:*' list-colors 'di=34' 'ln=35' 'so=32' 'ex=31' 'bd=46;34' 'c
 # ~/.zshenv, ~/.bash_profile などに以下を追加
 source ~/.nvm/nvm.sh
 nvm use "v0.9.0"
+npm_dir=${NVM_PATH}_modules
+export NODE_PATH=$npm_dir
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function
@@ -39,6 +44,8 @@ alias vim="/Applications/MacVim.app/Contents/MacOS/Vim -g --remote-tab-silent"
 alias macvim="/Applications/MacVim.app/Contents/MacOS/Vim -g --remote-tab-silent"
 alias safari="open -a Safari"
 alias chrome="open -a Google\ Chrome"
+alias symbolicatecrash="/Applications/Xcode.app/Contents/Developer//Platforms/iPhoneOS.platform/Developer/Library/PrivateFrameworks/DTDeviceKit.framework/Versions/A/Resources/symbolicatecrash"
+
 
 # プロンプトの色の設定
 autoload colors
