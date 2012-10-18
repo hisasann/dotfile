@@ -34,7 +34,8 @@ Bundle 'h1mesuke/vim-alignta'
 
 " My Bundles here:
 " ZenCoding
-Bundle 'ZenCoding.vim'
+" Bundle 'ZenCoding.vim'
+Bundle 'mattn/zencoding-vim'
 " Ctrl+y, Ctrl+,
 
 " fontzoom.vim
@@ -145,7 +146,7 @@ Bundle 'Lokaltog/vim-easymotion'
 Bundle 'tpope/vim-fugitive'
 
 " Titanium
-Bundle 'pekepeke/titanium-vim'
+" Bundle 'pekepeke/titanium-vim'
 
 if !has("win32") && !has("win64")
   " Vimでシェルを使えるようにする
