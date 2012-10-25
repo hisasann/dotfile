@@ -45,6 +45,7 @@ alias macvim="/Applications/MacVim.app/Contents/MacOS/Vim -g --remote-tab-silent
 alias safari="open -a Safari"
 alias chrome="open -a Google\ Chrome"
 alias symbolicatecrash="/Applications/Xcode.app/Contents/Developer//Platforms/iPhoneOS.platform/Developer/Library/PrivateFrameworks/DTDeviceKit.framework/Versions/A/Resources/symbolicatecrash"
+alias today='date +%Y%m%d'
 
 
 # プロンプトの色の設定
