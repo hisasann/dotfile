@@ -68,6 +68,10 @@
   d10 = diff HEAD~~~~~~~~~~  # HEADから10前とdiff
   dn = diff --name-only      # 変更があるファイル名だけを表示
 
+  # clean関連
+  cn = clean -d -n           # ワーキングツリーに入っていないファイル一覧を表示（ディレクトリも）
+  cf = clean -d -f           # ワーキングツリーに入っていないファイルを削除（ディレクトリも）
+
 [push]
   default = upstream
 
