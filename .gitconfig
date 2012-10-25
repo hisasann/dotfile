@@ -49,6 +49,7 @@
   sh1 = show HEAD
   sh2 = show HEAD~
   sh3 = show HEAD~~
+  ls = ls-files        # gitで管理しているファイル一覧
 
   # log関連
   lg = log --graph --pretty=oneline --decorate --date=short --abbrev-commit --branches
