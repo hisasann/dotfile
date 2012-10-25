@@ -40,13 +40,15 @@
   cv = commit -v
   cs = commit -sv
   csm = commit -sv --amend
-  sh = show
   so = remote show origin
   pom = push origin master
   ft = fetch
   up = pull --rebase    # pull rebase
   rbm = rebase master    # masterへのrebaseはよく使うのでalias
   ranking = shortlog -s -n --no-merges
+  sh1 = show HEAD
+  sh2 = show HEAD~
+  sh3 = show HEAD~~
 
   # log関連
   lg = log --graph --pretty=oneline --decorate --date=short --abbrev-commit --branches
