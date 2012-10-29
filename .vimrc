@@ -25,7 +25,7 @@ Bundle 'gmarik/vundle'
 " Bundle 'YankRing.vim'
 
 " neocomplcache
-Bundle 'Shougo/neocomplcache-snippets-complete'
+Bundle 'Shougo/neosnippet'
 Bundle 'Shougo/neocomplcache'
 
 " センタリング
@@ -508,8 +508,10 @@ autocmd FileType ruby :map <C-n> <ESC>:!ruby -cW %<CR>
 autocmd FileType ruby :map <C-e> <ESC>:!ruby %<CR>
 
 " gjslint
-autocmd FileType javascript :compiler gjslint
-autocmd QuickfixCmdPost make copen
+if !has("win32") && !has("win64")
+  autocmd FileType javascript :compiler gjslint
+  autocmd QuickfixCmdPost make copen
+endif
 
 " 括弧入力後に←に移動
 imap {} {}<Left>
