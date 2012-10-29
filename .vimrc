@@ -22,7 +22,7 @@ set rtp+=~/.vim/bundle/vundle
 call vundle#rc()
 
 Bundle 'gmarik/vundle'
-Bundle 'YankRing.vim'
+" Bundle 'YankRing.vim'
 
 " neocomplcache
 Bundle 'Shougo/neocomplcache-snippets-complete'
