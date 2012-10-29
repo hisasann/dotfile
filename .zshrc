@@ -79,12 +79,15 @@ esac
 
 # コマンド補完
 autoload -U compinit
-compinit
+compinit -u
 
 # コマンド予測
 autoload predict-on
 # predict-off
 predict-on
+
+# cdの履歴を表示
+setopt autopushd
 
 # 補完候補が複数ある時に、一覧表示
 setopt auto_list
