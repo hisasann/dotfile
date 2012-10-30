@@ -25,55 +25,55 @@
   trustExitCode = true
 
 [alias]
-  s = status
-  st = status -sb
-  sh = show
-  co = checkout
-  b = branch
-  br = branch -r
-  ba = branch -a
-  bm = branch --merged
-  bn = branch --no-merged    # mergeしてないbranchを表示
-  ad = add
-  ci = commit -a           # modifiedなファイルを全てstageへ
-  cam = commit -a --amend  # 直前のcommitを修正
-  cv = commit -v
-  cs = commit -sv
-  csm = commit -sv --amend
-  so = remote show origin
-  pom = push origin master
-  ft = fetch
-  up = pull --rebase    # pull rebase
-  rbm = rebase master    # masterへのrebaseはよく使うのでalias
+  s       = status
+  st      = status -sb         # シンプルなstatus
+  sh      = show
+  co      = checkout
+  b       = branch -rav        # ローカル・リモートbranch・最終コミットを表示
+  br      = branch -r          # リモートbranchを表示
+  ba      = branch -a          # ローカル・リモートbranchを表示
+  bm      = branch --merged
+  bn      = branch --no-merged # mergeしてないbranchを表示
+  ad      = add
+  ci      = commit -a          # modifiedなファイルを全てstageへ
+  cam     = commit -a --amend  # 直前のcommitを修正
+  cv      = commit -v          # 変更点を表示しながらコミットメッセージを編集してコミットする
+  cs      = commit -sv         # サインも表示する
+  csm     = commit -sv --amend
+  so      = remote show origin
+  pom     = push origin master
+  ft      = fetch
+  up      = pull --rebase      # pull rebase
+  rbm     = rebase master      # masterへのrebaseはよく使うのでalias
   ranking = shortlog -s -n --no-merges
-  sh1 = show HEAD
-  sh2 = show HEAD~
-  sh3 = show HEAD~~
-  ls = ls-files        # gitで管理しているファイル一覧
+  sh1     = show HEAD
+  sh2     = show HEAD~
+  sh3     = show HEAD~~
+  ls      = ls-files           # gitで管理しているファイル一覧
 
   # log関連
-  lg = log --graph --pretty=oneline --decorate --date=short --abbrev-commit --branches
-  log-g = log --graph --date=short --pretty=format:'%Cgreen%h %cd %Cblue%cn %Creset%s'
-  log-ga = log --graph --all --color --pretty='%x09%h %cn%x09%s %Cred%d%Creset'
+  lg      = log --graph --pretty=oneline --decorate --date=short --abbrev-commit --branches
+  log-g   = log --graph --date=short --pretty=format:'%Cgreen%h %cd %Cblue%cn %Creset%s'
+  log-ga  = log --graph --all --color --pretty='%x09%h %cn%x09%s %Cred%d%Creset'
   oneline = log --pretty=oneline
 
   # diff関連
-  dm = diff master           # masterとのdiff
-  df = diff FETCH_HEAD       # FETCH_HEADとのdiff
-  dw = diff --color-words    # 単語単位でいろつけてdiff
-  dc = diff --cached         # addされているものとのdiff
-  ds = diff --staged         # 同上(1.6.1移行)
-  d1 = diff HEAD~            # HEADから1つ前とdiff
-  d2 = diff HEAD~~           # HEADから2つ前とdiff
-  d3 = diff HEAD~~~          # HEADから3つ前とdiff
-  d4 = diff HEAD~~~~         # HEADから4つ前とdiff
-  d5 = diff HEAD~~~~~        # HEADから5つ前とdiff
-  d10 = diff HEAD~~~~~~~~~~  # HEADから10前とdiff
-  dn = diff --name-only      # 変更があるファイル名だけを表示
+  dm  = diff master           # masterとのdiff
+  df  = diff FETCH_HEAD       # FETCH_HEADとのdiff
+  dw  = diff --color-words    # 単語単位でいろつけてdiff
+  dc  = diff --cached         # addされているものとのdiff
+  ds  = diff --staged         # 同上(1.6.1移行)
+  d1  = diff HEAD~            # HEADから1つ前とdiff
+  d2  = diff HEAD~~           # HEADから2つ前とdiff
+  d3  = diff HEAD~~~          # HEADから3つ前とdiff
+  d4  = diff HEAD~~~~         # HEADから4つ前とdiff
+  d5  = diff HEAD~~~~~        # HEADから5つ前とdiff
+  d10 = diff HEAD~~~~~~~~~~   # HEADから10前とdiff
+  dn  = diff --name-only      # 変更があるファイル名だけを表示
 
   # clean関連
-  cn = clean -d -n           # ワーキングツリーに入っていないファイル一覧を表示（ディレクトリも）
-  cf = clean -d -f           # ワーキングツリーに入っていないファイルを削除（ディレクトリも）
+  cn  = clean -d -n           # ワーキングツリーに入っていないファイル一覧を表示（ディレクトリも）
+  cf  = clean -d -f           # ワーキングツリーに入っていないファイルを削除（ディレクトリも）
 
 [push]
   default = upstream
