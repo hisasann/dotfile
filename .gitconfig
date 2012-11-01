@@ -34,6 +34,7 @@
   ba      = branch -a          # ローカル・リモートbranchを表示
   bm      = branch --merged
   bn      = branch --no-merged # mergeしてないbranchを表示
+  bl      = blame              # 各行をダレが変更したか分かる
   ad      = add
   ci      = commit -a          # modifiedなファイルを全てstageへ
   cam     = commit -a --amend  # 直前のcommitを修正
