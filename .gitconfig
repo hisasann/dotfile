@@ -2,12 +2,27 @@
   path = .gitconfig.local
 
 [color]
-  ui = auto
-  diff = auto
-  status = auto
-  branch = auto
-  grep = auto
-  interactive = auto
+  ui = always
+#   ui = auto
+#   diff = auto
+#   status = auto
+#   branch = auto
+#   grep = auto
+#   interactive = auto
+
+[color "branch"]
+  current = yellow reverse
+  local = yellow
+  remote = green
+[color "diff"]
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
+[color "status"]
+  added = yellow
+  changed = green
+  untracked = cyan
 
 [core]
   editor = vim -c \"set fenc=utf-8\"
@@ -16,13 +31,13 @@
   tool = vimdiff
 
 [difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+  cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+  path =
 
 [mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+  cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
   keepBackup = true
-	trustExitCode = true
+  trustExitCode = true
 
 [alias]
   s       = status
