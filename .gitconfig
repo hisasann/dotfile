@@ -95,6 +95,9 @@
   cn  = clean -d -n           # ワーキングツリーに入っていないファイル一覧を表示（ディレクトリも）
   cf  = clean -d -f           # ワーキングツリーに入っていないファイルを削除（ディレクトリも）
 
+  whois = "!sh -c 'git log -i -1 --pretty=\"format:%an <%ae>\n\" --author=\"$1\"' -"
+  whatis = show -s --pretty='tformat:%h (%s, %ad)' --date=short
+
 [push]
   default = upstream
 
