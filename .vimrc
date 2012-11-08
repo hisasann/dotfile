@@ -573,6 +573,9 @@ endfunction
 " TextMateで開く
 nnoremap ,mate :<C-u>! mate %<CR>
 
+" Sublime Text 1で開く
+nnoremap ,subl :<C-u>! subl %<CR>
+
 " ファイルタイプ
 nnoremap ,js :<C-u>set filetype=javascript<CR>
 nnoremap ,html :<C-u>set filetype=html<CR>
