@@ -145,6 +145,9 @@ Bundle 'Lokaltog/vim-easymotion'
 " git
 Bundle 'tpope/vim-fugitive'
 
+" multi
+Bundle 'mattn/multi-vim'
+
 " Titanium
 " Bundle 'pekepeke/titanium-vim'
 
