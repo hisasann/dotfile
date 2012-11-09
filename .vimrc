@@ -147,6 +147,7 @@ Bundle 'tpope/vim-fugitive'
 
 " multi
 Bundle 'mattn/multi-vim'
+" :Multi ^ or :Multi $ or :Multi hoge
 
 " Titanium
 " Bundle 'pekepeke/titanium-vim'
