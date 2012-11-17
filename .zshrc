@@ -6,6 +6,7 @@ bindkey -v
 
 # パスの設定
 PATH=/usr/local/bin:$PATH
+PATH=~//bin:$PATH
 export MANPATH=/usr/local/share/man:/usr/local/man:/usr/share/man
 # Sublime Text 2
 export EDITOR='subl -w'
