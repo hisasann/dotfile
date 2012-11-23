@@ -140,7 +140,7 @@ setopt hist_reduce_blanks
 # git
 autoload bashcompinit
 bashcompinit
-source /usr/local/Cellar/git/1.7.12/etc/bash_completion.d/git-completion.bash
+source /usr/local/Cellar/git/1.8.0/etc/bash_completion.d/git-completion.bash
 
 # local設定を読み込み
 source ~/.zshrc.local
