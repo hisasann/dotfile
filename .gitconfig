@@ -1,4 +1,5 @@
 [include]
+  # from 1.7.10
   path = .gitconfig.local
 
 [color]
@@ -29,10 +30,17 @@
   changed = green
   untracked = cyan
 [core]
+  pager = less -r
   editor = vim -c \"set fenc=utf-8\"
 
 [merge]
+  # from 1.7.6
   tool = vimdiff
+  ff = false
+
+[pull]
+  # from 1.7.9
+  rebase = true
 
 [difftool "sourcetree"]
   cmd = opendiff \"$LOCAL\" \"$REMOTE\"
