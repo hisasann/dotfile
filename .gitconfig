@@ -81,6 +81,7 @@
 
   # log関連
   lg      = log --graph --pretty=oneline --decorate --date=short --abbrev-commit --branches
+  logs = log -p --graph --decorate --pretty=format:\"%ad [%cn] <c:%h t:%t p:%p> %n %Cgreen%d%Creset %s %n\" --stat
   log-g   = log --graph --date=short --pretty=format:'%Cgreen%h %cd %Cblue%cn %Creset%s'
   log-ga  = log --graph --all --color --pretty='%x09%h %cn%x09%s %Cred%d%Creset'
   oneline = log --pretty=oneline
