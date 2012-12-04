@@ -150,6 +150,10 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'mattn/multi-vim'
 " :Multi ^ or :Multi $ or :Multi hoge
 
+" minimap
+" 重いな
+" Bundle 'koron/minimap-vim'
+
 " Titanium
 " Bundle 'pekepeke/titanium-vim'
 
@@ -642,6 +646,8 @@ nnoremap <Space>cd :<C-u>CdCurrent<CR>
 "" block comments
 "vmap ,b v`<I<CR><esc>k0i/*<ESC>`>j0i*/<CR><esc><ESC>
 "vmap ,h v`<I<CR><esc>k0i<!--<ESC>`>j0i--><CR><esc><ESC>
+
+autocmd FileType html setlocal includeexpr=substitute(v:fname,'^\\/','','') | setlocal path+=;/
 
 
 "-------------------------------------------------------------------------------
