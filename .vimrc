@@ -163,8 +163,8 @@ Bundle 'mattn/multi-vim'
 " 更新したりすると、結構ここで怒られるのでとりあえず使わない
 if !has("win32") && !has("win64")
   " Vimでシェルを使えるようにする
-"   Bundle 'Shougo/vimproc'
-"   Bundle 'Shougo/vimshell'
+  Bundle 'Shougo/vimproc'
+  Bundle 'Shougo/vimshell'
   " インストール方法（Mac）
   " via  https://github.com/Shougo/vimshell
   " cd .vim/bundle/vimproc
