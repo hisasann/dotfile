@@ -122,6 +122,9 @@ Bundle 'h1mesuke/unite-outline'
 " Ctrl+f カレントのファイラーを開く
 " Ctrl+b バッファを開く（これはよく使う）
 
+" vimfiler
+Bundle 'Shougo/vimfiler'
+
 " ステータスラインをカッコよくする
 " Windowsだと文字化けするのでその場合はコメントアウト
 Bundle 'Lokaltog/vim-powerline'
@@ -1029,3 +1032,25 @@ if has("gui_macvim") || has("win32") || has("win64")
   let g:indent_guides_guide_size = 1
 endif
 
+" VimFiler
+nnoremap <F3> :VimFiler -buffer-name=explorer -split -winwidth=45 -toggle -no-quit<Cr>
+autocmd! FileType vimfiler call g:my_vimfiler_settings()
+function! g:my_vimfiler_settings()
+  nmap     <buffer><expr><Cr> vimfiler#smart_cursor_map("\<Plug>(vimfiler_expand_tree)", "\<Plug>(vimfiler_edit_file)")
+  nnoremap <buffer>s          :call vimfiler#mappings#do_action('my_split')<Cr>
+  nnoremap <buffer>v          :call vimfiler#mappings#do_action('my_vsplit')<Cr>
+endfunction
+
+let my_action = { 'is_selectable' : 1 }
+function! my_action.func(candidates)
+  wincmd p
+  exec 'split '. a:candidates[0].action__path
+endfunction
+call unite#custom_action('file', 'my_split', my_action)
+
+let my_action = { 'is_selectable' : 1 }
+function! my_action.func(candidates)
+  wincmd p
+  exec 'vsplit '. a:candidates[0].action__path
+endfunction
+call unite#custom_action('file', 'my_vsplit', my_action)
