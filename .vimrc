@@ -177,6 +177,9 @@ endif
 " Comment
 Bundle 'tyru/caw.vim'
 
+" レインボーサイクロン！
+Bundle 'daisuzu/rainbowcyclone.vim'
+
 " vim上のtwitter client
 " Bundle 'TwitVim'
 
@@ -1054,3 +1057,10 @@ function! my_action.func(candidates)
   exec 'vsplit '. a:candidates[0].action__path
 endfunction
 call unite#custom_action('file', 'my_vsplit', my_action)
+
+
+" レインボーサイクロン
+nmap c/ <Plug>(rc_highlight)
+nmap c* <Plug>(rc_highlight_with_cursor)
+nmap cn <Plug>(rc_highlight_with_last_pattern)
+
