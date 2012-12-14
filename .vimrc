@@ -180,6 +180,9 @@ Bundle 'tyru/caw.vim'
 " レインボーサイクロン！
 Bundle 'daisuzu/rainbowcyclone.vim'
 
+" メモ
+Bundle 'glidenote/memolist.vim'
+
 " vim上のtwitter client
 " Bundle 'TwitVim'
 
@@ -1063,4 +1066,10 @@ call unite#custom_action('file', 'my_vsplit', my_action)
 nmap c/ <Plug>(rc_highlight)
 nmap c* <Plug>(rc_highlight_with_cursor)
 nmap cn <Plug>(rc_highlight_with_last_pattern)
+
+
+" メモ
+map <Leader>mn  :MemoNew<CR>
+map <Leader>ml  :MemoList<CR>
+map <Leader>mg  :MemoGrep<CR>
 
