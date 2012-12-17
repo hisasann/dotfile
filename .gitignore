@@ -13,4 +13,8 @@ Thumbs.db
 .ssh
 vim_backup
 vim_swap
-.vim
+.vim/autoload
+.vim/bundle
+.vim/doc
+.vim/undo
+
