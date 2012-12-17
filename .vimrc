@@ -183,6 +183,10 @@ Bundle 'daisuzu/rainbowcyclone.vim'
 " メモ
 Bundle 'glidenote/memolist.vim'
 
+" vim-smartchr
+Bundle 'kana/vim-smartchr'
+
+
 " vim上のtwitter client
 " Bundle 'TwitVim'
 
@@ -658,6 +662,12 @@ nnoremap <Space>cd :<C-u>CdCurrent<CR>
 
 autocmd FileType html setlocal includeexpr=substitute(v:fname,'^\\/','','') | setlocal path+=;/
 
+" 無限アンドゥ
+if has('persistent_undo')
+  set undodir=~/.vim/undo
+  set undofile
+endif
+
 
 "-------------------------------------------------------------------------------
 " plugin
@@ -1072,4 +1082,9 @@ nmap cn <Plug>(rc_highlight_with_last_pattern)
 map <Leader>mn  :MemoNew<CR>
 map <Leader>ml  :MemoList<CR>
 map <Leader>mg  :MemoGrep<CR>
+
+
+" vim-smartchr
+inoremap <expr> = smartchr#loop('=', ' = ', ' == ')
+inoremap <expr> , smartchr#loop(',', ', ', ' => ')
 
