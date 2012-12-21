@@ -1,4 +1,6 @@
-colorscheme molokai
+" colorscheme molokai
+colorscheme jellybeans
+
 " set background=dark
 " colorscheme solarized
 
@@ -16,8 +18,8 @@ endif
 set textwidth=1000
 set columns=180
 set lines=155
-set wrap      			" 長い行を折り返して表示 (nowrap:折り返さない)
-set visualbell t_vb=	" Beep音を消して、さらに画面のフラッシュもしない
+set wrap            " 長い行を折り返して表示 (nowrap:折り返さない)
+set visualbell t_vb=  " Beep音を消して、さらに画面のフラッシュもしない
 
 "特殊文字(SpecialKey)の見える化。listcharsはlcsでも設定可能。
 "trailは行末スペース。
