@@ -1073,10 +1073,14 @@ call unite#custom_action('file', 'my_vsplit', my_action)
 
 
 " レインボーサイクロン
-nmap c/ <Plug>(rc_highlight)
-nmap c* <Plug>(rc_highlight_with_cursor)
-nmap cn <Plug>(rc_highlight_with_last_pattern)
-
+nmap c/ <Plug>(rc_search_forward)
+nmap c? <Plug>(rc_search_backward)
+nmap c* <Plug>(rc_search_forward_with_cursor)
+nmap c# <Plug>(rc_search_backward_with_cursor)
+nmap cn <Plug>(rc_search_forward_with_last_pattern)
+nmap cN <Plug>(rc_search_backward_with_last_pattern)
+" ハイライトをクリア
+" :RCReset
 
 " メモ
 map <Leader>mn  :MemoNew<CR>
