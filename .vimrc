@@ -151,7 +151,7 @@ Bundle 'tpope/vim-fugitive'
 
 " multi
 " Bundle 'mattn/multi-vim'
-:Multi ^ or :Multi $ or :Multi hoge
+" :Multi ^ or :Multi $ or :Multi hoge
 
 " minimap
 " 重いな
