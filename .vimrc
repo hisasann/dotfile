@@ -78,7 +78,7 @@ Bundle 'open-browser.vim'
 " via http://d.hatena.ne.jp/riskn/20070430/1177941248
 
 " tree
-Bundle 'scrooloose/nerdtree'
+" Bundle 'scrooloose/nerdtree'
 
 " via http://subtech.g.hatena.ne.jp/secondlife/20061222/1166778147
 Bundle 'tpope/vim-surround'
@@ -150,8 +150,8 @@ Bundle 'Lokaltog/vim-easymotion'
 Bundle 'tpope/vim-fugitive'
 
 " multi
-Bundle 'mattn/multi-vim'
-" :Multi ^ or :Multi $ or :Multi hoge
+" Bundle 'mattn/multi-vim'
+:Multi ^ or :Multi $ or :Multi hoge
 
 " minimap
 " 重いな
@@ -188,7 +188,7 @@ Bundle 'kana/vim-smartchr'
 
 
 " vim上のtwitter client
-" Bundle 'TwitVim'
+Bundle 'TwitVim'
 
 " 使っちゃいけないPlugin
 "Bundle 'vim-scripts/AutoComplPop'
@@ -1091,4 +1091,5 @@ map <Leader>mg  :MemoGrep<CR>
 " vim-smartchr
 inoremap <expr> = smartchr#loop('=', ' = ', ' == ')
 inoremap <expr> , smartchr#loop(',', ', ', ' => ')
+
 
