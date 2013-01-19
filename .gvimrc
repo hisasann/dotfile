@@ -1,5 +1,5 @@
-" colorscheme molokai
-colorscheme jellybeans
+colorscheme molokai
+" colorscheme jellybeans
 
 " set background=dark
 " colorscheme solarized
@@ -27,5 +27,5 @@ set list
 set listchars=tab:>-,trail:-,nbsp:%,extends:>,precedes:<
 
 " 全角スペースを視覚化
-highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=#666666
-au BufNewFile,BufRead * match ZenkakuSpace /　/
+" highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=#666666
+" au BufNewFile,BufRead * match ZenkakuSpace /　/
