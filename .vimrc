@@ -63,9 +63,13 @@ Bundle 'cocoa.vim'
 " Cmd + 0        - XCode起動
 " Cmd + 2        - :ListMethods
 
-
+" 以下の4つでIDEを実現
 Bundle 'wesleyche/SrcExpl'
 Bundle 'Trinity'
+" o : ディレクトリを開く or ファイルを開く
+" O : 再帰的にディレクトリを開く
+" s : 縦に開く
+" m : メニューを開く
 Bundle 'scrooloose/nerdtree'
 " Windowsの場合ctagのインストールが必要
 " via http://nanasi.jp/articles/others/ctags.html
