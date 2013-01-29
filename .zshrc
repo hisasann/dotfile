@@ -1,184 +1,39 @@
-# 文字コードの設定
-export LANG=ja_JP.UTF-8
+# Path to your oh-my-zsh configuration.
+ZSH=$HOME/.oh-my-zsh
 
-# viのキーバインド
-bindkey -v
+# Set name of the theme to load.
+# Look in ~/.oh-my-zsh/themes/
+# Optionally, if you set this to "random", it'll load a random theme each
+# time that oh-my-zsh is loaded.
+ZSH_THEME="funky"
 
-# パスの設定
-PATH=/usr/local/bin:$PATH
-PATH=~//bin:$PATH
-export MANPATH=/usr/local/share/man:/usr/local/man:/usr/share/man
-# Sublime Text 2
-export EDITOR='subl -w'
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# symbolicatecrash用
-export DEVELOPER_DIR="/Applications/XCode.app/Contents/Developer"
+# Set to this to use case-sensitive completion
+# CASE_SENSITIVE="true"
 
-# 関数
-find-grep () { find . -type f -print | xargs grep -n --binary-files=without-match $@ }
+# Comment this out to disable bi-weekly auto-update checks
+# DISABLE_AUTO_UPDATE="true"
 
-export LSCOLORS=exfxcxdxbxegedabagacad
-export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
-zstyle ':completion:*' list-colors 'di=34' 'ln=35' 'so=32' 'ex=31' 'bd=46;34' 'cd=43;34'
+# Uncomment to change how many often would you like to wait before auto-updates occur? (in days)
+# export UPDATE_ZSH_DAYS=13
 
-# ~/.zshenv, ~/.bash_profile などに以下を追加
-source ~/.nvm/nvm.sh
-nvm use "v0.9.0"
-npm_dir=${NVM_PATH}_modules
-export NODE_PATH=$npm_dir
+# Uncomment following line if you want to disable colors in ls
+# DISABLE_LS_COLORS="true"
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function
+# Uncomment following line if you want to disable autosetting terminal title.
+# DISABLE_AUTO_TITLE="true"
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+# Uncomment following line if you want red dots to be displayed while waiting for completion
+# COMPLETION_WAITING_DOTS="true"
 
-# エイリアスの設定
-alias ls="ls -GvF"
-alias l="ls -G"
-alias ll="ls -Gl"
-alias la="ls -Gla"
-alias ip="ifconfig | grep 192.*"
-alias du="du -sh"
-alias df="df -h"
-alias vi="/Applications/MacVim.app/Contents/MacOS/Vim -g --remote-tab-silent"
-alias vim="/Applications/MacVim.app/Contents/MacOS/Vim -g --remote-tab-silent"
-alias macvim="/Applications/MacVim.app/Contents/MacOS/Vim -g --remote-tab-silent"
-alias safari="open -a Safari"
-alias chrome="open -a Google\ Chrome"
-alias symbolicatecrash="/Applications/Xcode.app/Contents/Developer//Platforms/iPhoneOS.platform/Developer/Library/PrivateFrameworks/DTDeviceKit.framework/Versions/A/Resources/symbolicatecrash"
-alias today='date +%Y%m%d'
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+plugins=(git ruby gem brew)
 
+source $ZSH/oh-my-zsh.sh
 
-# プロンプトの色の設定
-autoload colors
-colors
-case ${UID} in
-0)
-  PROMPT="%B%{${fg[red]}%}%/#%{${reset_color}%}%b "
-  PROMPT2="%B%{${fg[red]}%}%_#%{${reset_color}%}%b "
-  SPROMPT="%B%{${fg[red]}%}%r is correct? [n,y,a,e]:%{${reset_color}%}%b "
-  [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] &&
-    PROMPT="%{${fg[white]}%}${HOST%%.*} ${PROMPT}"
-  ;;
-*)
-  PROMPT="%{${fg[red]}%}%/%%%{${reset_color}%} "
-  PROMPT2="%{${fg[red]}%}%_%%%{${reset_color}%} "
-  SPROMPT="%{${fg[red]}%}%r is correct? [n,y,a,e]:%{${reset_color}%} "
-  [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] &&
-    PROMPT="%{${fg[white]}%}${HOST%%.*} ${PROMPT}"
-  ;;
-esac
-
-# タイトル
-case "${TERM}" in
-kterm*|xterm)
-    precmd() {
-        echo -ne "\033]0;${USER}@${HOST%%.*}:${PWD}\007"
-    }
-    ;;
-esac
-
-# コマンド補完
-autoload -U compinit
-compinit -u
-
-# コマンド予測
-autoload predict-on
-# predict-off
-predict-on
-
-# cdの履歴を表示
-setopt autopushd
-
-# 補完候補が複数ある時に、一覧表示
-setopt auto_list
-
-# 保管結果をできるだけ詰める
-setopt list_packed
-
-# 補完キー（Tab, Ctrl+I) を連打するだけで順に補完候補を自動で補完
-setopt auto_menu
-
-# ビープ音を鳴らさないようにする
-setopt no_beep
-
-# ディレクトリを水色にする｡
-export LS_COLORS='di=01;36'
-
-# cd をしたときにlsを実行する
-function chpwd() { ls }
-
-# ディレクトリ名だけで､ディレクトリの移動をする｡
-setopt auto_cd
-
-# cdの履歴を保存する
-# cd -TAB
-setopt auto_pushd
-
-# コマンドを間違えたら教えてくれる
-setopt correct
-
-# コマンド履歴
-autoload history-search-end
-zle -N history-beginning-search-backward-end history-search-end
-zle -N history-beginning-search-forward-end history-search-end
-bindkey "^P" history-beginning-search-backward-end
-bindkey "^N" history-beginning-search-forward-end
-
-# ヒストリー
-HISTFILE=~/.zsh_history
-HISTSIZE=10000
-SAVEHIST=10000
-setopt share_history
-# 直前と同じコマンドラインはヒストリに追加しない
-setopt hist_ignore_dups
-# ヒストリにhistoryコマンドを記録しない
-setopt hist_no_store
-# 余分なスペースを削除してヒストリに記録する
-setopt hist_reduce_blanks
-
-#
-# Show branch name in Zsh's right prompt
-#
-
-autoload -Uz VCS_INFO_get_data_git; VCS_INFO_get_data_git 2> /dev/null
-
-function rprompt-git-current-branch {
-    local name st color gitdir action
-    if [[ "$PWD" =~ '/¥.git(/.*)?$' ]]; then
-            return
-    fi
-    name=`git rev-parse --abbrev-ref=loose HEAD 2> /dev/null`
-    if [[ -z $name ]]; then
-            return
-    fi
-
-    gitdir=`git rev-parse --git-dir 2> /dev/null`
-    action=`VCS_INFO_git_getaction "$gitdir"` && action="($action)"
-
-    st=`git status 2> /dev/null`
-    if [[ -n `echo "$st" | grep "^nothing to"` ]]; then
-            color=%F{green}
-    elif [[ -n `echo "$st" | grep "^nothing added"` ]]; then
-            color=%F{yellow}
-    elif [[ -n `echo "$st" | grep "^# Untracked"` ]]; then
-            color=%B%F{red}
-    else
-                color=%F{red}
-        fi
-
-    echo "$color$name$action%f%b "
-}
-
-setopt prompt_subst
-
-RPROMPT='[`rprompt-git-current-branch`%~]'
-
-# git
-autoload bashcompinit
-bashcompinit
-source /usr/local/Cellar/git/1.8.0/etc/bash_completion.d/git-completion.bash
-
-# local設定を読み込み
-source ~/.zshrc.local
-
+# Customize to your needs...
