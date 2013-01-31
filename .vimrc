@@ -111,9 +111,11 @@ Bundle 'tpope/vim-surround'
 
 " JavaScript
 " syntax
-Bundle 'JavaScript-syntax'
+" Bundle 'JavaScript-syntax'
+Bundle 'jelera/vim-javascript-syntax'
 " indent
-Bundle 'pangloss/vim-javascript'
+" Bundle 'pangloss/vim-javascript'
+Bundle 'jiangmiao/simple-javascript-indenter'
 " CoffeeScript
 Bundle 'kchmck/vim-coffee-script'
 
@@ -606,6 +608,7 @@ nnoremap ,subl :<C-u>! subl %<CR>
 
 " ファイルタイプ
 nnoremap ,js :<C-u>set filetype=javascript<CR>
+nnoremap ,css :<C-u>set filetype=css<CR>
 nnoremap ,html :<C-u>set filetype=html<CR>
 
 "<space>j, <space>kで画面送り
@@ -1152,3 +1155,9 @@ nmap <F10> :TrinityToggleTagList<CR>
 " Open and close the NERD Tree separately
 nmap <F11> :TrinityToggleNERDTree<CR>
 
+
+" Simple-Javascript-Indenter
+" この設定入れるとshiftwidthを1にしてインデントしてくれる
+let g:SimpleJsIndenter_BriefMode = 1
+" この設定入れるとswitchのインデントがいくらかマシに
+let g:SimpleJsIndenter_CaseIndentLevel = -1
