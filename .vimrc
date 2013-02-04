@@ -70,7 +70,8 @@ Bundle 'Trinity'
 " O : 再帰的にディレクトリを開く
 " s : 縦に開く
 " m : メニューを開く
-Bundle 'scrooloose/nerdtree'
+" Trinityが勝手にインクルードしているのでここで呼ぶと誤動作する
+" Bundle 'scrooloose/nerdtree'
 " Windowsの場合ctagのインストールが必要
 " via http://nanasi.jp/articles/others/ctags.html
 Bundle 'taglist.vim'
@@ -676,6 +677,52 @@ if has('persistent_undo')
   set undodir=~/.vim/undo
   set undofile
 endif
+
+" ↓キーでシンタックスチェック
+au FileType html :compiler tidy
+au FileType html :setlocal makeprg=tidy\ -raw\ -quiet\ -errors\ --gnu-emacs\ yes\ \"%\"
+au FileType html :map <down> <esc>:make<cr>
+au FileType css :compiler css
+au FileType css :map <down> <esc>:make<cr>
+"au FileType javascript :compiler javascriptlint
+"au FileType javascript :map <down> <esc>:make<cr>
+au FileType php        :map <down> <esc>:!php  -l %<cr>
+au FileType perl       :map <down> <esc>:!perl -c %<cr>
+au FileType ruby       :map <down> <esc>:!ruby -c %<cr>
+au FileType javascript :map <down> <esc>:make %<cr>
+
+" ↑キーで実行
+au FileType php        :map <up> <esc>:!php  %<cr>
+au FileType perl       :map <up> <esc>:!perl %<cr>
+au FileType ruby       :map <up> <esc>:!ruby %<cr>
+au FileType javascript :map <up> <esc>:!node %<cr>
+
+" <Space>q で強制終了
+nnoremap <Space>q :<C-u>q!<Return>
+
+" ESC*2 でハイライトやめる
+nnoremap <Esc><Esc> :<C-u>set nohlsearch<Return>
+
+" encoding
+nmap ,U :set encoding=utf-8<CR>
+nmap ,E :set encoding=euc-jp<CR>
+nmap ,S :set encoding=cp932<CR>
+nmap ,J :set fileencoding=iso-2022-jp<CR>
+
+" fileencoding
+nmap ,fU :set fileencoding=utf-8<CR>
+nmap ,fE :set fileencoding=euc-jp<CR>
+nmap ,fS :set fileencoding=cp932<CR>
+nmap ,fJ :set fileencoding=iso-2022-jp<CR>
+
+" fileformat
+nmap ,fu :set fileformat=unix<CR>
+nmap ,fd :set fileformat=dos<CR>
+nmap ,fm :set fileformat=mac<CR>
+
+" 検索時に勝手にエスケープさせる
+cnoremap <expr> /  getcmdtype() == '/' ? '\/' : '/'
+cnoremap <expr> ?  getcmdtype() == '?' ? '\?' : '?'
 
 
 "-------------------------------------------------------------------------------
