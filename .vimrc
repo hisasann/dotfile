@@ -724,6 +724,9 @@ nmap ,fm :set fileformat=mac<CR>
 cnoremap <expr> /  getcmdtype() == '/' ? '\/' : '/'
 cnoremap <expr> ?  getcmdtype() == '?' ? '\?' : '?'
 
+" hogeファイル
+command! Hoge edit ~/hoge/hoge.txt
+
 
 "-------------------------------------------------------------------------------
 " plugin
@@ -1145,7 +1148,7 @@ map <Leader>mg  :MemoGrep<CR>
 
 
 " vim-smartchr
-inoremap <expr> = smartchr#loop('=', ' = ', ' == ')
+" inoremap <expr> = smartchr#loop('=', ' = ', ' == ')
 inoremap <expr> , smartchr#loop(',', ', ', ' => ')
 
 " SrcExpl
