@@ -48,6 +48,12 @@ alias chrome="open -a Google\ Chrome"
 alias symbolicatecrash="/Applications/Xcode.app/Contents/Developer//Platforms/iPhoneOS.platform/Developer/Library/PrivateFrameworks/DTDeviceKit.framework/Versions/A/Resources/symbolicatecrash"
 alias today='date +%Y%m%d'
 
+# git
+alias gst='git st && g stash list'
+alias glgg='git logg'
+alias gcm='git cs'
+alias gpom='git pom'
+alias gpod='git pod'
 
 # プロンプトの色の設定
 autoload colors

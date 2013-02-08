@@ -70,6 +70,7 @@
   csm     = commit -sv --amend
   so      = remote show origin
   pom     = push origin master
+  pod     = push origin develop
   ft      = fetch
   up      = pull --rebase      # pull rebase
   rbm     = rebase master      # masterへのrebaseはよく使うのでalias
@@ -84,6 +85,7 @@
   logs = log -p --graph --decorate --pretty=format:\"%ad [%cn] <c:%h t:%t p:%p> %n %Cgreen%d%Creset %s %n\" --stat
   log-g   = log --graph --date=short --pretty=format:'%Cgreen%h %cd %Cblue%cn %Creset%s'
   log-ga  = log --graph --all --color --pretty='%x09%h %cn%x09%s %Cred%d%Creset'
+  logg = log --stat --pretty=format:'%Cblue%h %Cgreen%ar %Cred%an %Creset%s %Cred%d'
   oneline = log --pretty=oneline
 
   # diff関連
