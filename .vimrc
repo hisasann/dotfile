@@ -275,6 +275,15 @@ else
   set encoding=utf-8
 endif
 
+" 折りたたみ関連
+set nofoldenable
+set foldmethod=indent
+set foldopen=all  " fold内に移動すれば自動で開く
+" set foldclose=all  " fold外に移動しfoldlevelより深ければ閉じる
+set foldlevel=1   " 折りたたみの具合
+set foldnestmax=2  " 最大折りたたみ深度$
+set foldcolumn=2  " 左側に折りたたみガイド表示$
+
 
 "-------------------------------------------------------------------------------
 " コマンド補完
