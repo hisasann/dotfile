@@ -203,6 +203,13 @@ Bundle 'TwitVim'
 "Bundle 'vim-scripts/AutoComplPop'
 "Bundle 'AutoClose'
 
+" fを拡張、f入力後2文字入力しfを押していくと行を跨いで移動する
+Bundle 'rhysd/clever-f.vim'
+
+" s入力後2文字入力するとその行の場所に移動できる、fよりも賢いが少し重い
+" via http://qiita.com/items/36805a539abb813a5158
+Bundle 'goldfeld/vim-seek'
+
 filetype plugin indent on     " required!
 "
 "
@@ -868,6 +875,8 @@ endfunction
 
 " unite-plugins
 nnoremap <silent> ,uh :<C-u>Unite help<CR>
+" Markdownなどを解析してアウトラインを表示してくれる、むちゃくちゃ便利
+" via http://qiita.com/items/2cebdb805f45e7b4b901
 nnoremap <silent> ,uo :<C-u>Unite outline<CR>
 
 
