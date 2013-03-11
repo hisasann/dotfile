@@ -736,6 +736,9 @@ cnoremap <expr> ?  getcmdtype() == '?' ? '\?' : '?'
 " hogeファイル
 command! Hoge edit ~/hoge/hoge.txt
 
+" 0番レジスタを使いやすくした
+" via http://qiita.com/items/bd97a9b963dae40b63f5
+vnoremap <silent> <C-p> "0p<CR>
 
 "-------------------------------------------------------------------------------
 " plugin
