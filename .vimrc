@@ -14,49 +14,50 @@
 "-------------------------------------------------------------------------------
 " Bundle
 "-------------------------------------------------------------------------------
-" vundle {{{
-filetype off
-filetype plugin indent off
+set nocompatible               " Be iMproved
 
-set rtp+=~/.vim/bundle/vundle
-call vundle#rc()
+ if has('vim_starting')
+   set runtimepath+=~/.vim/bundle/neobundle.vim/
+ endif
 
-Bundle 'gmarik/vundle'
-" Bundle 'YankRing.vim'
+ call neobundle#rc(expand('~/.vim/bundle/'))
+
+NeoBundle 'gmarik/vundle'
+" NeoBundle 'YankRing.vim'
 
 " neocomplcache
-Bundle 'Shougo/neosnippet'
-Bundle 'Shougo/neocomplcache'
+NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/neocomplcache'
 
 " センタリング
-Bundle 'h1mesuke/vim-alignta'
+NeoBundle 'h1mesuke/vim-alignta'
 " :Alignta- でハイフンでセンタリング
 
 " My Bundles here:
 " ZenCoding
-" Bundle 'ZenCoding.vim'
-Bundle 'mattn/zencoding-vim'
+" NeoBundle 'ZenCoding.vim'
+NeoBundle 'mattn/zencoding-vim'
 " Ctrl+y, Ctrl+,
 
 " fontzoom.vim
 " +、-で拡大、縮小、:Fontzoom!でリセット、あとはCtrl押しながらマウスのスクロール
-Bundle 'thinca/vim-fontzoom'
+NeoBundle 'thinca/vim-fontzoom'
 " indent-guides.vim
-Bundle 'nathanaelkane/vim-indent-guides'
+NeoBundle 'nathanaelkane/vim-indent-guides'
 
 "" TextMate風にタブで補完してくれる
-Bundle "MarcWeber/vim-addon-mw-utils"
-Bundle "tomtom/tlib_vim"
-Bundle "snipmate-snippets"
+NeoBundle "MarcWeber/vim-addon-mw-utils"
+NeoBundle "tomtom/tlib_vim"
+NeoBundle "snipmate-snippets"
 " neosnippetのTABとバッテイングするためコメントアウト
-" Bundle "garbas/vim-snipmate"
+" NeoBundle "garbas/vim-snipmate"
 
 " html5
 " .htmlファイル内のJavaScriptが残念になるので一旦コメントアウト
-"Bundle 'othree/html5.vim'
+"NeoBundle 'othree/html5.vim'
 
 " Objective-C
-Bundle 'cocoa.vim'
+NeoBundle 'cocoa.vim'
 " Cmd + Opt + ↑ - .hファイルと.mファイルのトグル
 " Cmd + r        - ビルドand実行
 " Cmd + b        - ビルド
@@ -64,31 +65,31 @@ Bundle 'cocoa.vim'
 " Cmd + 2        - :ListMethods
 
 " 以下の4つでIDEを実現
-Bundle 'wesleyche/SrcExpl'
-Bundle 'Trinity'
+NeoBundle 'wesleyche/SrcExpl'
+NeoBundle 'Trinity'
 " o : ディレクトリを開く or ファイルを開く
 " O : 再帰的にディレクトリを開く
 " s : 縦に開く
 " m : メニューを開く
 " Trinityが勝手にインクルードしているのでここで呼ぶと誤動作する
-" Bundle 'scrooloose/nerdtree'
+" NeoBundle 'scrooloose/nerdtree'
 " Windowsの場合ctagのインストールが必要
 " via http://nanasi.jp/articles/others/ctags.html
-Bundle 'taglist.vim'
+NeoBundle 'taglist.vim'
 
 " markdown
 " require - gem install bluecloth
-Bundle 'thinca/vim-quickrun'
-Bundle 'tpope/vim-markdown'
-Bundle 'open-browser.vim'
+NeoBundle 'thinca/vim-quickrun'
+NeoBundle 'tpope/vim-markdown'
+NeoBundle 'open-browser.vim'
 
 " XMLとかHTMLとかの編集機能を強化する
-" Bundle 'xmledit'
+" NeoBundle 'xmledit'
 " 以下のリンクのhtml.vimを作成しないと動かない
 " via http://d.hatena.ne.jp/riskn/20070430/1177941248
 
 " via http://subtech.g.hatena.ne.jp/secondlife/20061222/1166778147
-Bundle 'tpope/vim-surround'
+NeoBundle 'tpope/vim-surround'
 " d + s + 囲んでるもの
 " ds'     (今カーソルのある文字列を囲んでいる ' を消す)
 " ds"     (" を)
@@ -112,68 +113,73 @@ Bundle 'tpope/vim-surround'
 
 " JavaScript
 " syntax
-" Bundle 'JavaScript-syntax'
-Bundle 'jelera/vim-javascript-syntax'
+" NeoBundle 'JavaScript-syntax'
+NeoBundle 'jelera/vim-javascript-syntax'
 " indent
-" Bundle 'pangloss/vim-javascript'
-Bundle 'jiangmiao/simple-javascript-indenter'
+" NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'jiangmiao/simple-javascript-indenter'
 " CoffeeScript
-Bundle 'kchmck/vim-coffee-script'
+NeoBundle 'kchmck/vim-coffee-script'
 
 " メソッド宣言、変数宣言
-Bundle 'majutsushi/tagbar'
+NeoBundle 'majutsushi/tagbar'
 " sudo brew install ctags をしてMacにはじめからついているのは使わない
 
 " unite
-Bundle 'Shougo/unite.vim'
-Bundle 'tsukkee/unite-help'
-Bundle 'h1mesuke/unite-outline'
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'tsukkee/unite-help'
+NeoBundle 'h1mesuke/unite-outline'
 " Ctrl+f カレントのファイラーを開く
 " Ctrl+b バッファを開く（これはよく使う）
 
 " vimfiler
-Bundle 'Shougo/vimfiler'
+NeoBundle 'Shougo/vimfiler'
 
 " ステータスラインをカッコよくする
 " Windowsだと文字化けするのでその場合はコメントアウト
-Bundle 'Lokaltog/vim-powerline'
+NeoBundle 'Lokaltog/vim-powerline'
+" NeoBundle 'taichouchou2/alpaca_powertabline'
+" NeoBundle 'Lokaltog/powerline', { 'rtp' : 'powerline/bindings/vim'}
 
 " -- でメソッドチェーン整形（php、perl、rubyだけ）
-Bundle 'c9s/cascading.vim'
+NeoBundle 'c9s/cascading.vim'
 
 " カレンダー
-Bundle 'mattn/calendar-vim'
+NeoBundle 'mattn/calendar-vim'
 " :Calendar or :CalendarH
 
 " 履歴
-Bundle 'Gundo'
+NeoBundle 'Gundo'
 " F5
 
 " ヘックスコードをその色で表示
-Bundle 'skammer/vim-css-color'
+NeoBundle 'skammer/vim-css-color'
 
 " 目的の単語にすばやくカーソルを移動
-Bundle 'Lokaltog/vim-easymotion'
+NeoBundle 'Lokaltog/vim-easymotion'
 
 " git
-Bundle 'tpope/vim-fugitive'
+NeoBundle 'tpope/vim-fugitive'
+
+" vim girl
+" NeoBundle 'thinca/vim-splash'
 
 " multi
-" Bundle 'mattn/multi-vim'
+" NeoBundle 'mattn/multi-vim'
 " :Multi ^ or :Multi $ or :Multi hoge
 
 " minimap
 " 重いな
-" Bundle 'koron/minimap-vim'
+" NeoBundle 'koron/minimap-vim'
 
 " Titanium
-" Bundle 'pekepeke/titanium-vim'
+" NeoBundle 'pekepeke/titanium-vim'
 
 " 更新したりすると、結構ここで怒られるのでとりあえず使わない
 if !has("win32") && !has("win64")
   " Vimでシェルを使えるようにする
-  Bundle 'Shougo/vimproc'
-  Bundle 'Shougo/vimshell'
+  NeoBundle 'Shougo/vimproc'
+  NeoBundle 'Shougo/vimshell'
   " インストール方法（Mac）
   " via  https://github.com/Shougo/vimshell
   " cd .vim/bundle/vimproc
@@ -184,46 +190,39 @@ if !has("win32") && !has("win64")
 endif
 
 " Comment
-Bundle 'tyru/caw.vim'
+NeoBundle 'tyru/caw.vim'
 
 " レインボーサイクロン！
-Bundle 'daisuzu/rainbowcyclone.vim'
+NeoBundle 'daisuzu/rainbowcyclone.vim'
 
 " メモ
-Bundle 'glidenote/memolist.vim'
+NeoBundle 'glidenote/memolist.vim'
 
 " vim-smartchr
-Bundle 'kana/vim-smartchr'
+NeoBundle 'kana/vim-smartchr'
 
 
 " vim上のtwitter client
-Bundle 'TwitVim'
+NeoBundle 'TwitVim'
 
 " 使っちゃいけないPlugin
-"Bundle 'vim-scripts/AutoComplPop'
-"Bundle 'AutoClose'
+"NeoBundle 'vim-scripts/AutoComplPop'
+"NeoBundle 'AutoClose'
 
 " fを拡張、f入力後2文字入力しfを押していくと行を跨いで移動する
-Bundle 'rhysd/clever-f.vim'
+NeoBundle 'rhysd/clever-f.vim'
 
 " s入力後2文字入力するとその行の場所に移動できる、fよりも賢いが少し重い
 " via http://qiita.com/items/36805a539abb813a5158
-Bundle 'goldfeld/vim-seek'
+NeoBundle 'goldfeld/vim-seek'
 
 filetype plugin indent on     " required!
-"
+
 "
 " Brief help
-" :BundleList          - list configured bundles
-" :BundleInstall(!)    - install(update) bundles
-" :BundleSearch(!) foo - search(or refresh cache first) for foo
-" :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
-"
-" see :h vundle for more details or wiki for FAQ
-" NOTE: comments after Bundle command are not allowed..
-
-" }}}
-
+" :NeoBundleList          - list configured bundles
+" :NeoBundleInstall(!)    - install(update) bundles
+" :NeoBundleClean(!)      - confirm(or auto-approve) removal of unused bundles
 
 "-------------------------------------------------------------------------------
 " 全般設定
