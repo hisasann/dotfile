@@ -10,7 +10,7 @@ if has('multi_byte_ime') || has('xim')
 endif
 
 if has('gui_macvim')
-    set transparency=3
+    set transparency=10
     set guifont=Menlo:h12
     set guioptions-=T
 endif
@@ -29,3 +29,7 @@ set listchars=tab:>-,trail:-,nbsp:%,extends:>,precedes:<
 " 全角スペースを視覚化
 " highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=#666666
 " au BufNewFile,BufRead * match ZenkakuSpace /　/
+
+" <F2>, <F3> で background を切り替える - gVim のみ
+nnoremap <Leader>bl :<C-u>set bg=light<Return>
+nnoremap <Leader>bd :<C-u>set bg=dark<Return>
