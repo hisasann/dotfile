@@ -23,7 +23,7 @@ set nocompatible               " Be iMproved
  call neobundle#rc(expand('~/.vim/bundle/'))
 
 NeoBundle 'gmarik/vundle'
-" NeoBundle 'YankRing.vim'
+NeoBundle 'YankRing.vim'
 
 " neocomplcache
 NeoBundle 'Shougo/neosnippet'
@@ -735,7 +735,7 @@ nmap ,fu :set fileformat=unix<CR>
 nmap ,fd :set fileformat=dos<CR>
 nmap ,fm :set fileformat=mac<CR>
 
-" 検索時に勝手にエスケープさせる
+"u 検索時に勝手にエスケープさせる
 cnoremap <expr> /  getcmdtype() == '/' ? '\/' : '/'
 cnoremap <expr> ?  getcmdtype() == '?' ? '\?' : '?'
 
@@ -745,6 +745,25 @@ command! Hoge edit ~/hoge/hoge.txt
 " 0番レジスタを使いやすくした
 " via http://qiita.com/items/bd97a9b963dae40b63f5
 vnoremap <silent> <C-p> "0p<CR>
+
+" 連番
+set nrformats-=octal
+nnoremap <silent> co :ContinuousNumber <C-a><CR>
+vnoremap <silent> co :ContinuousNumber <C-a><CR>
+command! -count -nargs=1 ContinuousNumber let c = col('.')|for n in range(1, <count>?<count>-line('.'):1)|exec 'normal! j' . n . <q-args>|call cursor('.', c)|endfor
+
+" Ctrl + hjkl でウィンドウ間を移動
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" Shift + 矢印でウィンドウサイズを変更
+nnoremap <S-Left>  <C-w><<CR>
+nnoremap <S-Right> <C-w>><CR>
+nnoremap <S-Up>    <C-w>-<CR>
+nnoremap <S-Down>  <C-w>+<CR>
+
 
 "-------------------------------------------------------------------------------
 " plugin
