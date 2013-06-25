@@ -14,6 +14,9 @@ export EDITOR='subl -w'
 # symbolicatecrash用
 export DEVELOPER_DIR="/Applications/XCode.app/Contents/Developer"
 
+# gisty
+export GISTY_DIR="$HOME/_/dev/gists"
+
 # 関数
 find-grep () { find . -type f -print | xargs grep -n --binary-files=without-match $@ }
 
