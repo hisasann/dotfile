@@ -812,7 +812,7 @@ map <silent> [Tag]p :tabprevious<CR>
 
 
 " バッファの移動
-nmap bb :ls<CR>:buf
+nmap <C-h> :ls<CR>:buf
 
 
 "-------------------------------------------------------------------------------
@@ -1023,7 +1023,7 @@ nmap ss <Plug>Yssurround
 " Powerline
 "let g:Powerline_symbols='fancy'
 call Pl#Hi#Allocate({
-  \ 'black'          : 16,
+  \ 'black'          : 17,
   \ 'white'          : 231,
   \
   \ 'darkestgreen'   : 22,
@@ -1038,7 +1038,7 @@ call Pl#Hi#Allocate({
   \ 'darkestred'     : 52,
   \ 'darkred'        : 88,
   \ 'mediumred'      : 124,
-  \ 'brightred'      : 160,
+  \ 'brightred'      : 161,
   \ 'brightestred'   : 196,
   \
   \ 'darkestyellow'  : 59,
