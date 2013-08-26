@@ -562,7 +562,7 @@ endif
 " 括弧入力後に←に移動
 imap {} {}<Left>
 imap [] []<Left>
-imap () ()<Left>
+" imap () ()<Left>
 imap "" ""<Left>
 imap '' ''<Left>
 imap <> <><Left>
@@ -812,7 +812,7 @@ map <silent> [Tag]p :tabprevious<CR>
 
 
 " バッファの移動
-nmap <C-h> :ls<CR>:buf
+nmap <C-n> :ls<CR>:buf
 
 
 "-------------------------------------------------------------------------------
