@@ -137,9 +137,10 @@ NeoBundle 'Shougo/vimfiler'
 
 " ステータスラインをカッコよくする
 " Windowsだと文字化けするのでその場合はコメントアウト
-NeoBundle 'Lokaltog/vim-powerline'
+" NeoBundle 'Lokaltog/vim-powerline'
 " NeoBundle 'taichouchou2/alpaca_powertabline'
 " NeoBundle 'Lokaltog/powerline', { 'rtp' : 'powerline/bindings/vim'}
+NeoBundle 'bling/vim-airline'
 
 " -- でメソッドチェーン整形（php、perl、rubyだけ）
 NeoBundle 'c9s/cascading.vim'
