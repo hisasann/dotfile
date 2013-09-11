@@ -1293,6 +1293,9 @@ nmap <F9>  :TrinityToggleSourceExplorer<CR>
 nmap <F10> :TrinityToggleTagList<CR>
 
 " Open and close the NERD Tree separately
+" o - ディレクトリを開く or ファイルを開く。
+" C - ルートの変更 現在のディレクトリに。
+" u - ルートを上げる。
 nmap <F11> :TrinityToggleNERDTree<CR>
 
 
