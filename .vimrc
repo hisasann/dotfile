@@ -272,7 +272,8 @@ endif
   set statusline+=%P    " ファイル内の何％の位置にあるか
 " }}}
 
-set title
+" set title
+set title titlestring=%t%(\ %M%)%(\ (%{expand(\"%:~:.:h\")})%)%(\ %a%)
 set linespace=0
 set showcmd        " コマンドをステータス行に表
 if has("win32") || has("win64")
@@ -391,6 +392,8 @@ highlight LineNr ctermfg=darkgrey
 "-------------------------------------------------------------------------------
 " 移動設定
 "-------------------------------------------------------------------------------
+" deleteボタンが遠いんだ！
+nmap <C-H> <BS>
 
 " 0, 9で行頭、行末へ
 nmap 1 ^
