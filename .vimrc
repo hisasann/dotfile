@@ -81,7 +81,9 @@ NeoBundle 'taglist.vim'
 " require - gem install bluecloth
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'tpope/vim-markdown'
-NeoBundle 'open-browser.vim'
+
+NeoBundle 'tyru/open-browser.vim'
+NeoBundle 'tyru/urilib.vim'
 
 " XMLとかHTMLとかの編集機能を強化する
 " NeoBundle 'xmledit'
@@ -1315,3 +1317,9 @@ nmap <F11> :TrinityToggleNERDTree<CR>
 let g:SimpleJsIndenter_BriefMode = 1
 " この設定入れるとswitchのインデントがいくらかマシに
 let g:SimpleJsIndenter_CaseIndentLevel = -1
+
+" open-browser {{{
+" refs http://d.hatena.ne.jp/tyru/20100619/git_push_vim_plugins_to_github
+nmap <Space>w <Plug>(openbrowser-open)
+vmap <Space>w <Plug>(openbrowser-open)
+"}}}
