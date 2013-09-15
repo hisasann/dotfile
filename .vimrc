@@ -824,9 +824,12 @@ map <silent> [Tag]n :tabnext<CR>
 map <silent> [Tag]p :tabprevious<CR>
 " tp 前のタブ
 
-
 " バッファの移動
 nmap <C-e> :ls<CR>:buf
+
+" 矢印なキーでバッファ移動
+map <Right> :bn<CR>
+map <Left> :bp<CR>
 
 
 "-------------------------------------------------------------------------------
