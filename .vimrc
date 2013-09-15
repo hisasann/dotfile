@@ -217,6 +217,11 @@ NeoBundle 'rhysd/clever-f.vim'
 " via http://qiita.com/items/36805a539abb813a5158
 NeoBundle 'goldfeld/vim-seek'
 
+NeoBundle 'kana/vim-textobj-indent'
+" dai, diiで同じインデントを削除
+NeoBundle 'kana/vim-textobj-user'
+NeoBundle 'kana/vim-textobj-line'
+
 filetype plugin indent on     " required!
 
 "
@@ -236,6 +241,9 @@ set number        " 行番号を非表示
 set ruler        " ルーラーを表示 (noruler:非表示)
 set cmdheight=2      " コマンドラインの高さ (Windows用gvim使用時はgvimrcを編集すること)
 set laststatus=2    " 常にステータス行を表示 (詳細は:he laststatus)
+" via http://kadoppe.com/archives/2013/09/vimrc-2.html
+set lazyredraw
+set ttyfast
 
 " statusline {{{
 " default
