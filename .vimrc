@@ -803,7 +803,7 @@ map <silent> [Tag]p :tabprevious<CR>
 " tp 前のタブ
 
 " バッファの移動
-nmap <C-e> :ls<CR>:buf
+nmap <C-b> :ls<CR>:buf
 
 " 矢印なキーでバッファ移動
 map <Right> :bn<CR>
@@ -906,8 +906,8 @@ let g:unite_enable_start_insert = 1
 " インサート／ノーマルどちらからでも呼び出せるようにキーマップ
 nnoremap <silent> <C-f> :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
 inoremap <silent> <C-f> <ESC>:<C-u>UniteWithBufferDir -buffer-name=files file<CR>
-nnoremap <silent> <C-b> :<C-u>Unite buffer file_mru<CR>
-inoremap <silent> <C-b> <ESC>:<C-u>Unite buffer file_mru<CR>
+nnoremap <silent> <C-e> :<C-u>Unite buffer file_mru<CR>
+inoremap <silent> <C-e> <ESC>:<C-u>Unite buffer file_mru<CR>
 
 " バッファ一覧
 nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
