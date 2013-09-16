@@ -303,6 +303,12 @@ set foldlevel=1   " 折りたたみの具合
 set foldnestmax=2  " 最大折りたたみ深度$
 set foldcolumn=2  " 左側に折りたたみガイド表示$
 
+" ウィンドウを移動するタイミングで再読み込み
+" via http://vim-users.jp/2011/03/hack206/
+augroup vimrc-checktime
+  autocmd!
+  autocmd WinEnter * checktime
+augroup END
 
 "-------------------------------------------------------------------------------
 " コマンド補完
