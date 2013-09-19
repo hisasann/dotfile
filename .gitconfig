@@ -32,7 +32,7 @@
 [core]
   pager = less -r
   editor = vim -c \"set fenc=utf-8\"
-  excludesfile = ~/.gitignore_global
+  excludesfile = /Users/hisamatsu/.gitignore_global
 
 [merge]
   # from 1.7.6
