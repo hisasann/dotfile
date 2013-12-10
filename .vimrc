@@ -225,6 +225,12 @@ NeoBundle 'kana/vim-textobj-indent'
 NeoBundle 'kana/vim-textobj-user'
 NeoBundle 'kana/vim-textobj-line'
 
+" 置換のときにハイライト
+NeoBundle 'osyo-manga/vim-over'
+
+" 自動保存
+NeoBundle 'syui/wauto.vim'
+
 filetype plugin indent on     " required!
 
 "
@@ -1156,3 +1162,22 @@ let g:SimpleJsIndenter_CaseIndentLevel = -1
 nmap <Space>w <Plug>(openbrowser-open)
 vmap <Space>w <Plug>(openbrowser-open)
 "}}}
+
+
+"" over.vim {{{
+
+" over.vimの起動
+nnoremap <silent> ,m :OverCommandLine<CR>
+
+" カーソル下の単語をハイライト付きで置換
+nnoremap sub :OverCommandLine<CR>%s/<C-r><C-w>//g<Left><Left>
+
+" コピーした文字列をハイライト付きで置換
+nnoremap subp y:OverCommandLine<CR>%s!<C-r>=substitute(@0, '!', '\\!', 'g')<CR>!!gI<Left><Left><Left>
+
+" }}}
+
+" wauto.vim
+nmap ,s  <Plug>(AutoWriteStart)
+nmap ,ss <Plug>(AutoWriteStop)
+
