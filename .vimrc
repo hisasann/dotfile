@@ -149,7 +149,7 @@ NeoBundle 'bling/vim-airline'
 NeoBundle 'c9s/cascading.vim'
 
 " カレンダー
-NeoBundle 'mattn/calendar-vim'
+" NeoBundle 'mattn/calendar-vim'
 " :Calendar or :CalendarH
 
 " 履歴
@@ -230,6 +230,9 @@ NeoBundle 'osyo-manga/vim-over'
 
 " 自動保存
 NeoBundle 'syui/wauto.vim'
+
+" カレンダー
+NeoBundle 'itchyny/calendar.vim'
 
 filetype plugin indent on     " required!
 
@@ -1181,3 +1184,6 @@ nnoremap subp y:OverCommandLine<CR>%s!<C-r>=substitute(@0, '!', '\\!', 'g')<CR>!
 nmap ,s  <Plug>(AutoWriteStart)
 nmap ,ss <Plug>(AutoWriteStop)
 
+" カレンダー
+let g:calendar_google_calendar = 1
+let g:calendar_google_task = 1
