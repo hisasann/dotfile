@@ -254,6 +254,10 @@ NeoBundle 'syui/wauto.vim'
 " カレンダー
 NeoBundle 'itchyny/calendar.vim'
 
+
+" wildfire
+NeoBundle 'gcmt/wildfire.vim'
+
 filetype plugin indent on     " required!
 
 "
@@ -1207,3 +1211,13 @@ nmap ,ss <Plug>(AutoWriteStop)
 " カレンダー
 let g:calendar_google_calendar = 1
 let g:calendar_google_task = 1
+
+" wildfire
+" This selects the next closest text object.
+let g:wildfire_fuel_map = "<ENTER>"
+
+" This selects the previous closest text object.
+let g:wildfire_water_map = "<BS>"
+
+let g:wildfire_objects = ["i'", 'i"', "i)", "i]", "i}", "ip", "it"]
+
