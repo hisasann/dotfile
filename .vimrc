@@ -941,8 +941,8 @@ let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
 let g:unite_enable_start_insert = 1
 
 " インサート／ノーマルどちらからでも呼び出せるようにキーマップ
-nnoremap <silent> <C-f> :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
-inoremap <silent> <C-f> <ESC>:<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+nnoremap <silent> <C-f> :<C-u>UniteWithBufferDir file file/new -buffer-name=file<CR>
+inoremap <silent> <C-f> <ESC>:<C-u>UniteWithBufferDir file file/new -buffer-name=file<CR>
 nnoremap <silent> <C-e> :<C-u>Unite buffer file_mru<CR>
 inoremap <silent> <C-e> <ESC>:<C-u>Unite buffer file_mru<CR>
 
@@ -960,6 +960,9 @@ nnoremap <silent> ,uc :<C-u>Unite bookmark<CR>
 nnoremap <silent> ,ud :<C-u>UniteBookmarkAdd<CR>
 " 全部乗せ
 nnoremap <silent> ,ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
+
+" ファイル作成
+nnoremap <silent> ,uff :<C-u>UniteWithBufferDir file file/new -buffer-name=file<CR>
 
 "file current_dir
 "noremap <silent> ,ufc :<C-u>Unite file -buffer-name=file<CR>
