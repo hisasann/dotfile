@@ -152,6 +152,7 @@ NeoBundle 'majutsushi/tagbar'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'tsukkee/unite-help'
 NeoBundle 'h1mesuke/unite-outline'
+NeoBundle 'Shougo/neomru.vim'
 " Ctrl+f カレントのファイラーを開く
 " Ctrl+b バッファを開く（これはよく使う）
 
@@ -1208,8 +1209,8 @@ nnoremap subp y:OverCommandLine<CR>%s!<C-r>=substitute(@0, '!', '\\!', 'g')<CR>!
 " }}}
 
 " wauto.vim
-nmap ,s  <Plug>(AutoWriteStart)
-nmap ,ss <Plug>(AutoWriteStop)
+" nmap ,s  <Plug>(AutoWriteStart)
+" nmap ,ss <Plug>(AutoWriteStop)
 
 " カレンダー
 let g:calendar_google_calendar = 1
