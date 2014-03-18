@@ -66,6 +66,10 @@ alias gcm='git cs'
 alias gpom='git pom'
 alias gpod='git pod'
 
+# 楽ちん！
+alias cd="pushd"
+alias bd="popd"
+
 # プロンプトの色の設定
 autoload colors
 colors
