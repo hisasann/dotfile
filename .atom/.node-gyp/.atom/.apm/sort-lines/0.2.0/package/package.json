@@ -1,0 +1,15 @@
+{
+  "name": "sort-lines",
+  "main": "./lib/sort-lines",
+  "version": "0.2.0",
+  "description": "Sorts your lines. Never gets tired.",
+  "activationEvents": [
+    "sort-lines:sort"
+  ],
+  "repository": "https://github.com/atom/sort-lines",
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.39.0"
+  },
+  "dependencies": {}
+}

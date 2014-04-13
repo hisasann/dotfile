@@ -1,0 +1,15 @@
+{
+  "name": "autocomplete-plus",
+  "version": "0.12.0",
+  "main": "./lib/autocomplete",
+  "description": "Display possible completions in the editor while typing",
+  "repository": "https://github.com/saschagehlich/autocomplete-plus",
+  "engines": {
+    "atom": "*"
+  },
+  "dependencies": {
+    "underscore-plus": "1.x",
+    "fuzzaldrin": "~1.0.0",
+    "minimatch": "~0.2.14"
+  }
+}

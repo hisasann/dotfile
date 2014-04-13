@@ -1,0 +1,38 @@
+{
+  "name": "atom-beautifier",
+  "main": "./lib/beautifier",
+  "version": "0.5.0",
+  "private": true,
+  "description": "Beautifier for Atom",
+  "activationEvents": [
+    "beautifier",
+    "beautifier:js",
+    "beautifier:css",
+    "beautifier:html"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/taronfoxworth/atom-beautifier"
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "dependencies": {
+    "lodash": "^2.4.1",
+    "emissary": "^1.0.0",
+    "js-beautify": "~1.4.2"
+  },
+  "readme": "# Atom beautifier\n\nA beautifier for [Atom.io](Atom.io).\n\n\n\nSupports:\n\n  Javascript\n\n  HTML\n\n  CSS\n\n  More coming soon...\n\n## Installation\n\nSee the [Atom docs](http://atom.io/docs/latest/customizing-atom#installing-packages).\n\n```shell\n$ apm install atom-beautifier\n```\n\n## Using It\n\nPress `ctrl-alt-f`\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/taronfoxworth/atom-beautifier/issues"
+  },
+  "homepage": "https://github.com/taronfoxworth/atom-beautifier",
+  "_id": "atom-beautifier@0.5.0",
+  "dist": {
+    "shasum": "ab7bd4808380dd2ed0ec50093cece7c40aaaddd9"
+  },
+  "_resolved": "/var/folders/c6/8vh3gys940ddjwmk07cm9fg1hs3f0d/T/d-114313-7311-1chg5gb/package.tgz",
+  "_from": "/var/folders/c6/8vh3gys940ddjwmk07cm9fg1hs3f0d/T/d-114313-7311-1chg5gb/package.tgz"
+}
