@@ -57,7 +57,7 @@ NeoBundle 'h1mesuke/vim-alignta'
 " My Bundles here:
 " ZenCoding
 " NeoBundle 'ZenCoding.vim'
-NeoBundle 'mattn/zencoding-vim'
+NeoBundle 'mattn/emmet-vim'
 " Ctrl+y, Ctrl+,
 
 " fontzoom.vim
