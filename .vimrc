@@ -42,7 +42,6 @@ set nocompatible               " Be iMproved
 
  call neobundle#rc(expand('~/.vim/bundle/'))
 
-NeoBundle 'gmarik/vundle'
 NeoBundle 'YankRing.vim'
 
 " neocomplcache
@@ -54,9 +53,7 @@ NeoBundle 'honza/vim-snippets'
 NeoBundle 'h1mesuke/vim-alignta'
 " :Alignta- でハイフンでセンタリング
 
-" My Bundles here:
 " ZenCoding
-" NeoBundle 'ZenCoding.vim'
 NeoBundle 'mattn/emmet-vim'
 " Ctrl+y, Ctrl+,
 
@@ -65,17 +62,6 @@ NeoBundle 'mattn/emmet-vim'
 NeoBundle 'thinca/vim-fontzoom'
 " indent-guides.vim
 NeoBundle 'nathanaelkane/vim-indent-guides'
-
-"" TextMate風にタブで補完してくれる
-" NeoBundle "MarcWeber/vim-addon-mw-utils"
-" NeoBundle "tomtom/tlib_vim"
-" NeoBundle "snipmate-snippets"
-" neosnippetのTABとバッテイングするためコメントアウト
-" NeoBundle "garbas/vim-snipmate"
-
-" html5
-" .htmlファイル内のJavaScriptが残念になるので一旦コメントアウト
-"NeoBundle 'othree/html5.vim'
 
 " Objective-C
 NeoBundle 'cocoa.vim'
@@ -92,8 +78,6 @@ NeoBundle 'Trinity'
 " O : 再帰的にディレクトリを開く
 " s : 縦に開く
 " m : メニューを開く
-" Trinityが勝手にインクルードしているのでここで呼ぶと誤動作する
-" NeoBundle 'scrooloose/nerdtree'
 " Windowsの場合ctagのインストールが必要
 " via http://nanasi.jp/articles/others/ctags.html
 NeoBundle 'taglist.vim'
@@ -105,11 +89,6 @@ NeoBundle 'tpope/vim-markdown'
 
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'tyru/urilib.vim'
-
-" XMLとかHTMLとかの編集機能を強化する
-" NeoBundle 'xmledit'
-" 以下のリンクのhtml.vimを作成しないと動かない
-" via http://d.hatena.ne.jp/riskn/20070430/1177941248
 
 " via http://subtech.g.hatena.ne.jp/secondlife/20061222/1166778147
 NeoBundle 'tpope/vim-surround'
@@ -136,10 +115,8 @@ NeoBundle 'tpope/vim-surround'
 
 " JavaScript
 " syntax
-" NeoBundle 'JavaScript-syntax'
 NeoBundle 'jelera/vim-javascript-syntax'
 " indent
-" NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'jiangmiao/simple-javascript-indenter'
 " CoffeeScript
 NeoBundle 'kchmck/vim-coffee-script'
@@ -169,10 +146,6 @@ NeoBundle 'bling/vim-airline'
 " -- でメソッドチェーン整形（php、perl、rubyだけ）
 NeoBundle 'c9s/cascading.vim'
 
-" カレンダー
-" NeoBundle 'mattn/calendar-vim'
-" :Calendar or :CalendarH
-
 " 履歴
 NeoBundle 'Gundo'
 " F5
@@ -189,31 +162,6 @@ NeoBundle 'tpope/vim-fugitive'
 " vim girl
 " NeoBundle 'thinca/vim-splash'
 
-" multi
-" NeoBundle 'mattn/multi-vim'
-" :Multi ^ or :Multi $ or :Multi hoge
-
-" minimap
-" 重いな
-" NeoBundle 'koron/minimap-vim'
-
-" Titanium
-" NeoBundle 'pekepeke/titanium-vim'
-
-" 更新したりすると、結構ここで怒られるのでとりあえず使わない
-if !has("win32") && !has("win64")
-  " Vimでシェルを使えるようにする
-  NeoBundle 'Shougo/vimproc'
-  NeoBundle 'Shougo/vimshell'
-  " インストール方法（Mac）
-  " via  https://github.com/Shougo/vimshell
-  " cd .vim/bundle/vimproc
-  " make -f make_mac.mak
-  " mkdir ~/.vim/autoload
-  " cp -r ~/.vim/bundle/vimproc/autoload/ ~/.vim/autoload
-  " Winは面倒そう http://www.karakaram.com/vim/vimproc64/
-endif
-
 " Comment
 NeoBundle 'tyru/caw.vim'
 
@@ -226,20 +174,11 @@ NeoBundle 'glidenote/memolist.vim'
 " vim-smartchr
 NeoBundle 'kana/vim-smartchr'
 
-
 " vim上のtwitter client
 NeoBundle 'TwitVim'
 
-" 使っちゃいけないPlugin
-"NeoBundle 'vim-scripts/AutoComplPop'
-"NeoBundle 'AutoClose'
-
 " fを拡張、f入力後2文字入力しfを押していくと行を跨いで移動する
 NeoBundle 'rhysd/clever-f.vim'
-
-" s入力後2文字入力するとその行の場所に移動できる、fよりも賢いが少し重い
-" via http://qiita.com/items/36805a539abb813a5158
-NeoBundle 'goldfeld/vim-seek'
 
 NeoBundle 'kana/vim-textobj-indent'
 " dai, diiで同じインデントを削除
@@ -255,9 +194,22 @@ NeoBundle 'syui/wauto.vim'
 " カレンダー
 NeoBundle 'itchyny/calendar.vim'
 
-
 " wildfire
 NeoBundle 'gcmt/wildfire.vim'
+
+" 更新したりすると、結構ここで怒られるのでとりあえず使わない
+if !has("win32") && !has("win64")
+  " Vimでシェルを使えるようにする
+  NeoBundle 'Shougo/vimproc'
+  NeoBundle 'Shougo/vimshell'
+  " インストール方法（Mac）
+  " via  https://github.com/Shougo/vimshell
+  " cd .vim/bundle/vimproc
+  " make -f make_mac.mak
+  " mkdir ~/.vim/autoload
+  " cp -r ~/.vim/bundle/vimproc/autoload/ ~/.vim/autoload
+  " Winは面倒そう http://www.karakaram.com/vim/vimproc64/
+endif
 
 filetype plugin indent on     " required!
 
@@ -1037,9 +989,6 @@ nnoremap <silent> ,tl :TlistToggle<CR>
 " Gundo
 nnoremap <F5> :GundoToggle<CR>
 
-" EazyMotion
-let g:EasyMotion_leader_key = ','
-
 " for Fugitive {{{
 nnoremap <Space>gd :<C-u>Gdiff<Enter>
 nnoremap <Space>gs :<C-u>Gstatus<Enter>
@@ -1055,7 +1004,7 @@ autocmd BufWritePost *.coffee silent CoffeeMake! -cb | cwindow | redraw!
 
 " surround.vim
 " ssで選択範囲を指定文字でくくる
-nmap ss <Plug>Yssurround
+" nmap ss <Plug>Yssurround
 
 if !has("win32") && !has("win64")
   " vimshell
@@ -1198,13 +1147,13 @@ vmap <Space>w <Plug>(openbrowser-open)
 "" over.vim {{{
 
 " over.vimの起動
-nnoremap <silent> ,m :OverCommandLine<CR>
-
-" カーソル下の単語をハイライト付きで置換
-nnoremap sub :OverCommandLine<CR>%s/<C-r><C-w>//g<Left><Left>
-
-" コピーした文字列をハイライト付きで置換
-nnoremap subp y:OverCommandLine<CR>%s!<C-r>=substitute(@0, '!', '\\!', 'g')<CR>!!gI<Left><Left><Left>
+" nnoremap <silent> ,m :OverCommandLine<CR>
+"
+" " カーソル下の単語をハイライト付きで置換
+" nnoremap sub :OverCommandLine<CR>%s/<C-r><C-w>//g<Left><Left>
+"
+" " コピーした文字列をハイライト付きで置換
+" nnoremap subp y:OverCommandLine<CR>%s!<C-r>=substitute(@0, '!', '\\!', 'g')<CR>!!gI<Left><Left><Left>
 
 " }}}
 
@@ -1224,4 +1173,8 @@ let g:wildfire_fuel_map = "<ENTER>"
 let g:wildfire_water_map = "<BS>"
 
 let g:wildfire_objects = ["i'", 'i"', "i)", "i]", "i}", "ip", "it"]
+
+" EazyMotion
+let g:EasyMotion_do_mapping = 0 "Disable default mappings
+nmap s <Plug>(easymotion-s2)
 
