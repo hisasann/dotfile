@@ -1,0 +1,1 @@
+{"digest":"01703ab852b1cfb2fdabb7b3222c6bde2f4518b2","css":".wrap-guide {\n  height: 100%;\n  width: 1px;\n  z-index: 100;\n  position: absolute;\n  top: 0;\n  background-color: #cccccc;\n}\n","imports":[{"path":"static/variables/syntax-variables.less","digest":"8370f833ae772bc12b01665b713a49f8ce99caf6"}],"version":1}
