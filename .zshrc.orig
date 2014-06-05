@@ -61,6 +61,7 @@ alias chrome="open -a Google\ Chrome"
 alias symbolicatecrash="/Applications/Xcode.app/Contents/Developer//Platforms/iPhoneOS.platform/Developer/Library/PrivateFrameworks/DTDeviceKit.framework/Versions/A/Resources/symbolicatecrash"
 alias today='date +%Y%m%d'
 alias unity='open -n /Applications/Unity/Unity.app'
+alias swift='/Applications/Xcode6-Beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swift'
 
 # git
 alias gst='git st && g stash list'
