@@ -17,4 +17,5 @@ vim_swap
 .vim/bundle
 .vim/doc
 .vim/undo
+.atom
 
