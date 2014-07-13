@@ -36,11 +36,11 @@
 "-------------------------------------------------------------------------------
 set nocompatible               " Be iMproved
 
- if has('vim_starting')
-   set runtimepath+=~/.vim/bundle/neobundle.vim/
- endif
+if has('vim_starting')
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
 
- call neobundle#rc(expand('~/.vim/bundle/'))
+call neobundle#rc(expand('~/.vim/bundle/'))
 
 NeoBundle 'YankRing.vim'
 
@@ -50,16 +50,17 @@ NeoBundle 'Shougo/neosnippet'
 NeoBundle 'honza/vim-snippets'
 
 " センタリング
-NeoBundle 'h1mesuke/vim-alignta'
 " :Alignta- でハイフンでセンタリング
+NeoBundle 'h1mesuke/vim-alignta'
 
 " ZenCoding
-NeoBundle 'mattn/emmet-vim'
 " Ctrl+y, Ctrl+,
+NeoBundle 'mattn/emmet-vim'
 
 " fontzoom.vim
 " +、-で拡大、縮小、:Fontzoom!でリセット、あとはCtrl押しながらマウスのスクロール
 NeoBundle 'thinca/vim-fontzoom'
+
 " indent-guides.vim
 NeoBundle 'nathanaelkane/vim-indent-guides'
 
@@ -71,15 +72,12 @@ NeoBundle 'cocoa.vim'
 " Cmd + 0        - XCode起動
 " Cmd + 2        - :ListMethods
 
-" 以下の4つでIDEを実現
-NeoBundle 'wesleyche/SrcExpl'
-NeoBundle 'Trinity'
 " o : ディレクトリを開く or ファイルを開く
 " O : 再帰的にディレクトリを開く
 " s : 縦に開く
 " m : メニューを開く
-" Windowsの場合ctagのインストールが必要
-" via http://nanasi.jp/articles/others/ctags.html
+NeoBundle 'wesleyche/SrcExpl'
+NeoBundle 'Trinity'
 NeoBundle 'taglist.vim'
 
 " markdown
@@ -91,7 +89,6 @@ NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'tyru/urilib.vim'
 
 " via http://subtech.g.hatena.ne.jp/secondlife/20061222/1166778147
-NeoBundle 'tpope/vim-surround'
 " d + s + 囲んでるもの
 " ds'     (今カーソルのある文字列を囲んでいる ' を消す)
 " ds"     (" を)
@@ -112,6 +109,7 @@ NeoBundle 'tpope/vim-surround'
 " ySSt  カレント行をタグで囲い改行する
 " インサートモードでC-G, s or S  閉じタグの自動補完
 " hoge  S<div> <div>hoge</div> これがかなり便利
+NeoBundle 'tpope/vim-surround'
 
 " JavaScript
 " syntax
@@ -122,28 +120,22 @@ NeoBundle 'jiangmiao/simple-javascript-indenter'
 NeoBundle 'kchmck/vim-coffee-script'
 
 " メソッド宣言、変数宣言
-NeoBundle 'majutsushi/tagbar'
 " sudo brew install ctags をしてMacにはじめからついているのは使わない
+NeoBundle 'majutsushi/tagbar'
 
 " unite
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'tsukkee/unite-help'
 NeoBundle 'h1mesuke/unite-outline'
-NeoBundle 'Shougo/neomru.vim'
-" Ctrl+f カレントのファイラーを開く
-" Ctrl+b バッファを開く（これはよく使う）
+NeoBundle 'Shougo/neomru.vim', { 'depends': [ 'Shougo/unite.vim' ] }
 
 " vimfiler
-NeoBundle 'Shougo/vimfiler'
+NeoBundle 'Shougo/vimfiler.vim', { 'depends': [ 'Shougo/unite.vim' ] }
 
 " ステータスラインをカッコよくする
-" Windowsだと文字化けするのでその場合はコメントアウト
-" NeoBundle 'Lokaltog/vim-powerline'
-" NeoBundle 'taichouchou2/alpaca_powertabline'
-" NeoBundle 'Lokaltog/powerline', { 'rtp' : 'powerline/bindings/vim'}
 NeoBundle 'bling/vim-airline'
 
-" -- でメソッドチェーン整形（php、perl、rubyだけ）
+" -- でメソッドチェーン整形（php、perl、ruby）
 NeoBundle 'c9s/cascading.vim'
 
 " 履歴
@@ -158,9 +150,6 @@ NeoBundle 'Lokaltog/vim-easymotion'
 
 " git
 NeoBundle 'tpope/vim-fugitive'
-
-" vim girl
-" NeoBundle 'thinca/vim-splash'
 
 " Comment
 NeoBundle 'tyru/caw.vim'
@@ -185,35 +174,32 @@ NeoBundle 'kana/vim-textobj-indent'
 NeoBundle 'kana/vim-textobj-user'
 NeoBundle 'kana/vim-textobj-line'
 
-" 置換のときにハイライト
-NeoBundle 'osyo-manga/vim-over'
-
-" 自動保存
-NeoBundle 'syui/wauto.vim'
-
 " カレンダー
 NeoBundle 'itchyny/calendar.vim'
 
 " wildfire
 NeoBundle 'gcmt/wildfire.vim'
 
-" 更新したりすると、結構ここで怒られるのでとりあえず使わない
-if !has("win32") && !has("win64")
-  " Vimでシェルを使えるようにする
-  NeoBundle 'Shougo/vimproc'
-  NeoBundle 'Shougo/vimshell'
-  " インストール方法（Mac）
-  " via  https://github.com/Shougo/vimshell
-  " cd .vim/bundle/vimproc
-  " make -f make_mac.mak
-  " mkdir ~/.vim/autoload
-  " cp -r ~/.vim/bundle/vimproc/autoload/ ~/.vim/autoload
-  " Winは面倒そう http://www.karakaram.com/vim/vimproc64/
-endif
+NeoBundle 'Shougo/vimproc.vim', {
+      \ 'build' : {
+      \     'windows' : 'mingw32-make -f make_mingw32.mak',
+      \     'cygwin'  : 'make -f make_cygwin.mak',
+      \     'mac'     : 'make -f make_mac.mak',
+      \     'unix'    : 'make -f make_unix.mak',
+      \    },
+      \ }
+NeoBundle 'Shougo/vimshell.vim'
+" インストール方法（Mac）
+" via  https://github.com/Shougo/vimshell
+" cd .vim/bundle/vimproc
+" make -f make_mac.mak
+" mkdir ~/.vim/autoload
+" cp -r ~/.vim/bundle/vimproc/autoload/ ~/.vim/autoload
 
 filetype plugin indent on     " required!
 
-"
+NeoBundleCheck
+
 " Brief help
 " :NeoBundleList          - list configured bundles
 " :NeoBundleInstall(!)    - install(update) bundles
@@ -235,13 +221,6 @@ set lazyredraw
 set ttyfast
 
 " statusline {{{
-" default
-"set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P
-" fugitive default
-"set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
-" 分解したパターン via http://blog.ruedap.com/entry/20110712/vim_statusline_git_branch_name
-" ステータスラインの表示
-" Lokaltog/vim-powerlineを使っているとうまく動かないかも
   set statusline=%<     " 行が長すぎるときに切り詰める位置
   set statusline+=[%n]  " バッファ番号
   set statusline+=%m    " %m 修正フラグ
@@ -294,6 +273,12 @@ set foldcolumn=2  " 左側に折りたたみガイド表示$
 augroup vimrc-checktime
   autocmd!
   autocmd WinEnter * checktime
+augroup END
+
+augroup BufferAu
+  autocmd!
+  "カレントディレクトリを自動的に移動
+  autocmd BufNewFile,BufRead,BufEnter * if isdirectory(expand("%:p:h")) && bufname("%") !~ "NERD_tree" | cd %:p:h | endif
 augroup END
 
 "-------------------------------------------------------------------------------
@@ -476,9 +461,6 @@ endfunction
 "-------------------------------------------------------------------------------
 " ;でコマンド入力( ;と:を入れ替)
 noremap ; :
-" pluginとかでnmap :call hoge..とかやってるやつがあるので、
-" :でもexコマンドに入れるようにしておく
-" noremap : ;
 
 " doc
 " Windowsだとこのdocディレクトリがないため
@@ -546,7 +528,7 @@ endif
 if has("win32") || has("win64")
   set fileformats=dos
 else
-  set fileformats=mac,unix,dos
+  set fileformats=unix,mac,dos
 endif
 
 " □とか○の文字があってもカーソル位置がずれないようにする
@@ -630,8 +612,8 @@ nnoremap ,mate :<C-u>! mate %<CR>
 nnoremap ,subl :<C-u>! subl %<CR>
 
 " ファイルタイプ
-nnoremap ,js :<C-u>set filetype=javascript<CR>
-nnoremap ,css :<C-u>set filetype=css<CR>
+nnoremap ,js   :<C-u>set filetype=javascript<CR>
+nnoremap ,css  :<C-u>set filetype=css<CR>
 nnoremap ,html :<C-u>set filetype=html<CR>
 
 "<space>j, <space>kで画面送り
@@ -642,7 +624,6 @@ noremap <Space>k <C-b>
 nnoremap vy vawy
 
 "ビジュアルモード時vで行末まで選択
-"nnoremap vv ^v$h
 vnoremap v $h
 
 " 最後に編集された位置に移動
@@ -1063,10 +1044,42 @@ nmap cN <Plug>(rc_search_backward_with_last_pattern)
 " ハイライトをクリア
 " :RCReset
 
-" メモ
+" memolist.vim
 map <Leader>mn  :MemoNew<CR>
 map <Leader>ml  :MemoList<CR>
 map <Leader>mg  :MemoGrep<CR>
+
+" suffix type (default markdown)
+let g:memolist_memo_suffix = "md"
+let g:memolist_memo_suffix = "txt"
+
+let g:memolist_path = "~/Dropbox/memo"
+
+" date format (default %Y-%m-%d %H:%M)
+let g:memolist_memo_date = "%Y-%m-%d %H:%M"
+let g:memolist_memo_date = "epoch"
+let g:memolist_memo_date = "%D %T"
+
+" tags prompt (default 0)
+let g:memolist_prompt_tags = 1
+
+" categories prompt (default 0)
+let g:memolist_prompt_categories = 1
+
+" use qfixgrep (default 0)
+let g:memolist_qfixgrep = 1
+
+" use vimfler (default 0)
+let g:memolist_vimfiler = 0
+
+" use unite (default 0)
+let g:memolist_unite = 1
+
+" use arbitrary unite source (default is 'file')
+let g:memolist_unite_source = "file_rec"
+
+" use arbitrary unite option (default is empty)
+let g:memolist_unite_option = "-start-insert"
 
 
 " vim-smartchr
@@ -1144,23 +1157,6 @@ vmap <Space>w <Plug>(openbrowser-open)
 "}}}
 
 
-"" over.vim {{{
-
-" over.vimの起動
-" nnoremap <silent> ,m :OverCommandLine<CR>
-"
-" " カーソル下の単語をハイライト付きで置換
-" nnoremap sub :OverCommandLine<CR>%s/<C-r><C-w>//g<Left><Left>
-"
-" " コピーした文字列をハイライト付きで置換
-" nnoremap subp y:OverCommandLine<CR>%s!<C-r>=substitute(@0, '!', '\\!', 'g')<CR>!!gI<Left><Left><Left>
-
-" }}}
-
-" wauto.vim
-" nmap ,s  <Plug>(AutoWriteStart)
-" nmap ,ss <Plug>(AutoWriteStop)
-
 " カレンダー
 let g:calendar_google_calendar = 1
 let g:calendar_google_task = 1
@@ -1178,3 +1174,47 @@ let g:wildfire_objects = ["i'", 'i"', "i)", "i]", "i}", "ip", "it"]
 let g:EasyMotion_do_mapping = 0 "Disable default mappings
 nmap s <Plug>(easymotion-s2)
 
+" for ZenCoding.vim
+let g:user_emmet_settings = {
+\ 'lang': 'ja',
+\ 'html': {
+\       'indentation' : '  ',
+\   'snippets': {
+\   'flash': "<object data=\"${cursor}\""
+\        ." type=\"application/x-shockwave-flash\""
+\        ." id=\"\" width=\"\" height=\"\">"
+\        ." <param name=\"movie\" value=\"\" />\n</object>",
+\   },
+\ },
+\ 'css': {
+\   'filters': 'fc',
+\ },
+\ 'stylus': {
+\   'extends': 'css',
+\   'filters': 'fc',
+\ },
+\ 'php': {
+\   'extends': 'html',
+\   'filters': 'html,c',
+\ },
+\}
+let g:use_emmet_complete_tag = 1
+
+" airline {{{
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+let g:airline_left_sep = '⮀'
+let g:airline_left_alt_sep = '⮁'
+let g:airline_right_sep = '⮂'
+let g:airline_right_alt_sep = '⮃'
+let g:airline_symbols.branch = '⭠'
+let g:airline_symbols.readonly = '⭤'
+let g:airline_symbols.linenr = '⭡'
+let g:airline_linecolumn_prefix = ''
+let g:airline_detect_modified=1
+let g:airline_detect_paste=1
+let g:airline_inactive_collapse=1
+let g:airline#extensions#csv#enabled = 1
+" }}}
+"
