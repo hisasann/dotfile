@@ -1,8 +1,12 @@
-colorscheme molokai
-" colorscheme jellybeans
-
-" set background=dark
-" colorscheme solarized
+" colorscheme
+syntax on
+set background=dark
+if ($ft=='js')
+  colorscheme Tomorrow-Night
+else
+  colorscheme hybrid
+endif
+" colorscheme molokai
 
 " http://d.hatena.ne.jp/ruicc/20080202/1201971501
 if has('multi_byte_ime') || has('xim')
