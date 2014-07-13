@@ -130,6 +130,7 @@ NeoBundle 'h1mesuke/unite-outline'
 NeoBundle 'Shougo/neomru.vim', { 'depends': [ 'Shougo/unite.vim' ] }
 
 " vimfiler
+" ドットファイルは、.を押せば表示される
 NeoBundle 'Shougo/vimfiler.vim', { 'depends': [ 'Shougo/unite.vim' ] }
 
 " ステータスラインをカッコよくする
