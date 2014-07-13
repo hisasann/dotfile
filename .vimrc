@@ -197,6 +197,9 @@ NeoBundle 'Shougo/vimshell.vim'
 " mkdir ~/.vim/autoload
 " cp -r ~/.vim/bundle/vimproc/autoload/ ~/.vim/autoload
 
+NeoBundle 'w0ng/vim-hybrid'
+NeoBundle 'chriskempson/vim-tomorrow-theme'
+
 filetype plugin indent on     " required!
 
 NeoBundleCheck
@@ -1219,3 +1222,4 @@ let g:airline_inactive_collapse=1
 let g:airline#extensions#csv#enabled = 1
 " }}}
 "
+
