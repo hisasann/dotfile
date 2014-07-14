@@ -1,5 +1,0 @@
-'.platform-darwin .workspace':
-  'cmd-shift-b': 'travis-ci-status:toggle-build-matrix'
-
-'.platform-win32 .workspace':
-  'ctrl-shift-b': 'travis-ci-status:toggle-build-matrix'

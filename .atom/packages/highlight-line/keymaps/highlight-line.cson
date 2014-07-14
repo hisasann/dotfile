@@ -1,3 +1,0 @@
-'.editor':
-  'cmd-shift-u': 'highlight-line:toggle-underline'
-  'cmd-shift-h': 'highlight-line:toggle-background'
