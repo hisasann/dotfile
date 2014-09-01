@@ -30,6 +30,7 @@
   changed = green
   untracked = cyan
 [core]
+  autocrlf = input
   pager = less -r
   editor = vim -c \"set fenc=utf-8\"
   excludesfile = /Users/hisamatsu/.gitignore_global
