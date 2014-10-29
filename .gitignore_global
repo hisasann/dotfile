@@ -1,3 +1,6 @@
+,*
+,/
+*~
 .DS_Store
 Thumbs.db
 *.sw[po]
@@ -18,4 +21,3 @@ vim_swap
 .vim/doc
 .vim/undo
 .atom
-

@@ -33,7 +33,7 @@
   autocrlf = input
   pager = less -r
   editor = vim -c \"set fenc=utf-8\"
-  excludesfile = /Users/hisamatsu/.gitignore_global
+  excludesfile = ~/.gitignore_global
 
 [merge]
   # from 1.7.6
