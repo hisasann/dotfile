@@ -1,0 +1,184 @@
+"-------------------------------------------------------------------------------
+" 全般設定
+"-------------------------------------------------------------------------------
+set nocompatible            " 必ず最初に書く（vi互換コードを解除）
+set viminfo='20,<50,s10,h,! " YankRing用に!を追加
+set shellslash              " Windowsでディレクトリパスの区切り文字に / を使えるようにする
+set lazyredraw              " マクロなどを実行中は描画を中断
+set number        " 行番号を非表示
+set ruler        " ルーラーを表示 (noruler:非表示)
+set cmdheight=2      " コマンドラインの高さ (Windows用gvim使用時はgvimrcを編集すること)
+set laststatus=2    " 常にステータス行を表示 (詳細は:he laststatus)
+" via http://kadoppe.com/archives/2013/09/vimrc-2.html
+set lazyredraw
+set ttyfast
+
+" 折りたたみ関連
+set nofoldenable
+set foldmethod=indent
+set foldopen=all  " fold内に移動すれば自動で開く
+" set foldclose=all  " fold外に移動しfoldlevelより深ければ閉じる
+set foldlevel=1   " 折りたたみの具合
+set foldnestmax=2  " 最大折りたたみ深度$
+set foldcolumn=2  " 左側に折りたたみガイド表示$
+
+"-------------------------------------------------------------------------------
+" 検索
+"-------------------------------------------------------------------------------
+set ignorecase  " 大文字小文字無視
+set smartcase  " 大文字ではじめたら大文字小文字無視しない
+set wrapscan  " 最後まで検索したら先頭へ戻る
+"set nowrapscan  " 検索をファイルの先頭へループしない
+set hlsearch  " 検索文字をハイライト
+set incsearch  " インクリメンタルサーチ
+
+"-------------------------------------------------------------------------------
+" タブ
+"-------------------------------------------------------------------------------
+set autoindent
+set cindent    " C言語的なインデント
+set expandtab    " タブを空白文字に展開
+set tabstop=2   " タブ文字の幅を設定できます。デフォルトは8です。
+set softtabstop=2   " タブ文字を入力した際にタブ文字の代わりに挿入されるホワイトスペースの量を設定します。
+set shiftwidth=2    " >> 等のコマンドや自動インデントの際に使う1レベル分のインデント量を設定します。
+set shiftround
+set smarttab
+set nowrap
+
+" 保存時にtabをスペースに変換する
+autocmd BufWritePre * :%s/\t/  /ge
+
+"-------------------------------------------------------------------------------
+" 移動設定
+"-------------------------------------------------------------------------------
+" deleteボタンが遠いんだ！
+nmap <C-H> <BS>
+
+" 0, 9で行頭、行末へ
+nmap 1 ^
+nmap 9 $
+
+"-------------------------------------------------------------------------------
+" 設定
+"-------------------------------------------------------------------------------
+" 挿入モードからコマンドモードに戻るキーバインド
+imap <C-j> <esc>
+" insert mode でjjでesc
+inoremap jj <Esc>
+
+"-------------------------------------------------------------------------------
+" 編集関連
+"-------------------------------------------------------------------------------
+set showmatch      " 括弧の対応をハイライト
+set backspace=indent,eol,start
+set clipboard=unnamed
+set pastetoggle=<F12>
+set guioptions+=a
+
+" insertモードを抜けるとIMEオフ
+set noimdisable
+set iminsert=0 imsearch=0
+set noimcmdline
+inoremap <silent> <ESC> <ESC>:set iminsert=0<CR>
+
+" コンマの後に自動的にスペースを挿入
+inoremap , ,<Space>
+" XMLの閉タグを自動挿入
+augroup MyXML
+  autocmd!
+  autocmd Filetype xml inoremap <buffer> </ </<C-x><C-o>
+augroup END
+
+" 保存時に行末の空白を除去する
+autocmd BufWritePre * :%s/\s\+$//ge
+
+" 線を引く
+inoremap <F8> <C-R>=repeat('-', 80 - virtcol('.'))<CR>
+
+"-------------------------------------------------------------------------------
+" その他
+"-------------------------------------------------------------------------------
+" ;でコマンド入力( ;と:を入れ替)
+noremap ; :
+
+" 括弧入力後に←に移動
+imap {} {}<Left>
+imap [] []<Left>
+" imap () ()<Left>
+imap "" ""<Left>
+imap '' ''<Left>
+imap <> <><Left>
+
+" カーソル行をハイライト
+set cursorline
+" カレントウィンドウにのみ罫線を引く
+augroup cch
+  autocmd! cch
+  autocmd WinLeave * set nocursorline
+  autocmd WinEnter,BufRead * set cursorline
+augroup END
+
+hi clear CursorLine
+hi CursorLine gui=underline
+highlight CursorLine ctermbg=black guibg=black
+
+" 全角スペースの表示
+highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=darkgray
+match ZenkakuSpace /　/
+
+" 挿入モード時、ステータスラインの色を変更a
+" via https://sites.google.com/site/fudist/Home/vim-nihongo-ban/vim-color
+let g:hi_insert = 'highlight StatusLine guifg=darkblue guibg=darkyellow gui=none ctermfg=blue ctermbg=yellow cterm=none'
+
+if has('syntax')
+  augroup InsertHook
+    autocmd!
+    autocmd InsertEnter * call s:StatusLine('Enter')
+    autocmd InsertLeave * call s:StatusLine('Leave')
+  augroup END
+endif
+
+" ファイルタイプ
+nnoremap ,js   :<C-u>set filetype=javascript<CR>
+nnoremap ,css  :<C-u>set filetype=css<CR>
+nnoremap ,html :<C-u>set filetype=html<CR>
+
+"<space>j, <space>kで画面送り
+noremap <Space>j <C-f>
+noremap <Space>k <C-b>
+
+" カーソル位置の単語をyankする
+nnoremap vy vawy
+
+"ビジュアルモード時vで行末まで選択
+vnoremap v $h
+
+" 最後に編集された位置に移動
+nnoremap gb '[
+
+"move tab
+nnoremap gh gT
+nnoremap gl gt
+
+"git
+nnoremap <Space>g :<C-u>!git<Space>
+
+" <,>による連続インデント
+vnoremap < <gv
+vnoremap > >gv
+
+" :CdCurrent のエイリアス
+nnoremap <Space>cd :<C-u>CdCurrent<CR>
+
+autocmd FileType html setlocal includeexpr=substitute(v:fname,'^\\/','','') | setlocal path+=;/
+
+" <Space>q で強制終了
+nnoremap <Space>q :<C-u>q!<Return>
+
+" ESC*2 でハイライトやめる
+nnoremap <Esc><Esc> :<C-u>set nohlsearch<Return>
+
+" 0番レジスタを使いやすくした
+" via http://qiita.com/items/bd97a9b963dae40b63f5
+vnoremap <silent> <C-p> "0p
+
