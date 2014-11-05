@@ -22,6 +22,13 @@ set foldlevel=1   " 折りたたみの具合
 set foldnestmax=2  " 最大折りたたみ深度$
 set foldcolumn=2  " 左側に折りたたみガイド表示$
 
+
+" via http://superuser.com/questions/622898/how-to-turn-off-the-bell-sound-in-intellij
+" WebStormのビープ音を消す方法
+set visualbell
+set noerrorbells
+
+
 "-------------------------------------------------------------------------------
 " 検索
 "-------------------------------------------------------------------------------
