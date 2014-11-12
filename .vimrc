@@ -128,6 +128,8 @@ NeoBundle 'Shougo/unite.vim'
 NeoBundle 'tsukkee/unite-help'
 NeoBundle 'h1mesuke/unite-outline'
 NeoBundle 'Shougo/neomru.vim', { 'depends': [ 'Shougo/unite.vim' ] }
+" via https://twitter.com/ShougoMatsu/status/433720402276143104
+NeoBundle 't9md/vim-choosewin'
 
 " vimfiler
 " ドットファイルは、.を押せば表示される
@@ -781,7 +783,7 @@ map <silent> [Tag]p :tabprevious<CR>
 " tp 前のタブ
 
 " バッファの移動
-nmap <C-b> :ls<CR>:buf
+" nmap <C-b> :ls<CR>:buf
 
 " 矢印なキーでバッファ移動
 map <Right> :bn<CR>
@@ -884,6 +886,8 @@ nnoremap <silent> <C-f> :<C-u>UniteWithBufferDir file file/new -buffer-name=file
 inoremap <silent> <C-f> <ESC>:<C-u>UniteWithBufferDir file file/new -buffer-name=file<CR>
 nnoremap <silent> <C-e> :<C-u>Unite buffer file_mru<CR>
 inoremap <silent> <C-e> <ESC>:<C-u>Unite buffer file_mru<CR>
+nnoremap <silent> <C-b> :<C-u>Unite bookmark<CR>
+inoremap <silent> <C-b> <ESC>:<C-u>Unite bookmark<CR>
 
 " バッファ一覧
 nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
@@ -955,8 +959,8 @@ let g:quickrun_config = {}
 nnoremap \m :!perl ~/Dropbox/code/markdown/Markdown.pl --html4tags "%" > /tmp/__markdown.html; open /tmp/__markdown.html<CR><CR>
 
 " CoffeeScript
-let g:quickrun_config['coffee'] = {'command' : 'coffee', 'exec' : ['%c -cbp %s']}
-nnoremap <silent>,q :<C-u>QuickRun<CR>
+" let g:quickrun_config['coffee'] = {'command' : 'coffee', 'exec' : ['%c -cbp %s']}
+" nnoremap <silent>,q :<C-u>QuickRun<CR>
 
 " tagbar
 "map lo :TagbarOpen<CR>
@@ -986,7 +990,7 @@ nnoremap <Space>gb :<C-u>Gblame<Enter>
 " }}}
 
 " CoffeeScript
-autocmd BufWritePost *.coffee silent CoffeeMake! -cb | cwindow | redraw!
+" autocmd BufWritePost *.coffee silent CoffeeMake! -cb | cwindow | redraw!
 
 " surround.vim
 " ssで選択範囲を指定文字でくくる
@@ -1016,7 +1020,7 @@ if has("gui_macvim") || has("win32") || has("win64")
 endif
 
 " VimFiler
-nnoremap <F3> :VimFiler -buffer-name=explorer -split -winwidth=45 -toggle -no-quit<Cr>
+nnoremap <F3> :VimFiler -buffer-name=explorer -split -winwidth=55 -toggle -no-quit<Cr>
 " autocmd! FileType vimfiler call g:my_vimfiler_settings()
 " function! g:my_vimfiler_settings()
 "   nmap     <buffer><expr><Cr> vimfiler#smart_cursor_map("\<Plug>(vimfiler_expand_tree)", "\<Plug>(vimfiler_edit_file)")
