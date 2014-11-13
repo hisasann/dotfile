@@ -203,6 +203,10 @@ NeoBundle 'Shougo/vimshell.vim'
 NeoBundle 'w0ng/vim-hybrid'
 NeoBundle 'chriskempson/vim-tomorrow-theme'
 
+" :vimgrep console.log *
+" ]q or [q
+NeoBundle 'tpope/vim-unimpaired'
+
 filetype plugin indent on     " required!
 
 NeoBundleCheck
