@@ -694,7 +694,7 @@ au FileType javascript :map <up> <esc>:!node %<cr>
 nnoremap <Space>q :<C-u>q!<Return>
 
 " ESC*2 でハイライトやめる
-nnoremap <Esc><Esc> :<C-u>set nohlsearch<Return>
+nnoremap <Esc><Esc> :<C-u>set nohlsearch<Return>:<C-u>RCReset<Return>
 
 " encoding
 nmap ,U :set encoding=utf-8<CR>
