@@ -65,7 +65,7 @@ NeoBundle 'thinca/vim-fontzoom'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 
 " Objective-C
-NeoBundle 'cocoa.vim'
+" NeoBundle 'cocoa.vim'
 " Cmd + Opt + ↑ - .hファイルと.mファイルのトグル
 " Cmd + r        - ビルドand実行
 " Cmd + b        - ビルド
@@ -134,7 +134,6 @@ NeoBundle 't9md/vim-choosewin'
 " vimfiler
 " ドットファイルは、.を押せば表示される
 NeoBundle 'Shougo/vimfiler.vim', { 'depends': [ 'Shougo/unite.vim' ] }
-" NeoBundle 'Shougo/vimfiler.vim'
 
 " ステータスラインをカッコよくする
 NeoBundle 'bling/vim-airline'
@@ -168,7 +167,7 @@ NeoBundle 'glidenote/memolist.vim'
 NeoBundle 'kana/vim-smartchr'
 
 " vim上のtwitter client
-NeoBundle 'TwitVim'
+" NeoBundle 'TwitVim'
 
 " fを拡張、f入力後2文字入力しfを押していくと行を跨いで移動する
 NeoBundle 'rhysd/clever-f.vim'
@@ -179,7 +178,7 @@ NeoBundle 'kana/vim-textobj-user'
 NeoBundle 'kana/vim-textobj-line'
 
 " カレンダー
-NeoBundle 'itchyny/calendar.vim'
+" NeoBundle 'itchyny/calendar.vim'
 
 " wildfire
 NeoBundle 'gcmt/wildfire.vim'
@@ -206,6 +205,9 @@ NeoBundle 'chriskempson/vim-tomorrow-theme'
 " :vimgrep console.log *
 " ]q or [q
 NeoBundle 'tpope/vim-unimpaired'
+
+" coffeescript
+NeoBundle 'lukaszkorecki/CoffeeTags'
 
 filetype plugin indent on     " required!
 
@@ -971,6 +973,7 @@ nnoremap \m :!perl ~/Dropbox/code/markdown/Markdown.pl --html4tags "%" > /tmp/__
 "map lt :TagbarToggle<CR>
 nnoremap <silent> ,lo :<C-u>TagbarOpen<CR>
 nnoremap <silent> ,lt :<C-u>TagbarToggle<CR>
+set tags+=.git/tags
 
 " taglist.vim objective-cに対応
 let tlist_objc_settings='objc;P:protocols;i:interfaces;I:implementations;M:instance methods;C:implementation methods;Z:protocol methods'
@@ -1023,28 +1026,28 @@ if has("gui_macvim") || has("win32") || has("win64")
   let g:indent_guides_guide_size = 1
 endif
 
-" VimFiler
-nnoremap <F3> :VimFiler -buffer-name=explorer -split -winwidth=55 -toggle -no-quit<Cr>
-" autocmd! FileType vimfiler call g:my_vimfiler_settings()
-" function! g:my_vimfiler_settings()
-"   nmap     <buffer><expr><Cr> vimfiler#smart_cursor_map("\<Plug>(vimfiler_expand_tree)", "\<Plug>(vimfiler_edit_file)")
-"   nnoremap <buffer>s          :call vimfiler#mappings#do_action('my_split')<Cr>
-"   nnoremap <buffer>v          :call vimfiler#mappings#do_action('my_vsplit')<Cr>
-" endfunction
-"
-" let my_action = { 'is_selectable' : 1 }
-" function! my_action.func(candidates)
-"   wincmd p
-"   exec 'split '. a:candidates[0].action__path
-" endfunction
-" call unite#custom_action('file', 'my_split', my_action)
-"
-" let my_action = { 'is_selectable' : 1 }
-" function! my_action.func(candidates)
-"   wincmd p
-"   exec 'vsplit '. a:candidates[0].action__path
-" endfunction
-" call unite#custom_action('file', 'my_vsplit', my_action)
+" vimfiler {{{
+
+"vimデフォルトのエクスプローラをvimfilerで置き換える
+let g:vimfiler_as_default_explorer = 1
+"セーフモードを無効にした状態で起動する
+let g:vimfiler_safe_mode_by_default = 0
+"現在開いているバッファのディレクトリを開く
+nnoremap <silent> ,fe :<C-u>VimFilerBufferDir -quit<CR>
+"現在開いているバッファをIDE風に開く
+nnoremap <silent> ,fi :<C-u>VimFilerBufferDir -split -simple -winwidth=45 -toggle -no-quit<CR>
+nnoremap <F3> :VimFiler -buffer-name=explorer -split -simple -winwidth=45 -toggle -no-quit<Cr>
+
+"デフォルトのキーマッピングを変更
+augroup vimrc
+  autocmd FileType vimfiler call s:vimfiler_my_settings()
+augroup END
+function! s:vimfiler_my_settings()
+  nmap <buffer> q <Plug>(vimfiler_exit)
+  nmap <buffer> Q <Plug>(vimfiler_hide)
+endfunction
+
+" }}}
 
 
 " レインボーサイクロン
