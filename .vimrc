@@ -1017,6 +1017,12 @@ augroup END
 function! s:vimfiler_my_settings()
   nmap <buffer> q <Plug>(vimfiler_exit)
   nmap <buffer> Q <Plug>(vimfiler_hide)
+  let g:vimfiler_tree_leaf_icon = ' '
+  let g:vimfiler_tree_opened_icon = '\' " filled inverse triangle
+  let g:vimfiler_tree_closed_icon = '>' " filled right-pointed triangle
+  let g:vimfiler_file_icon = '-'
+  let g:vimfiler_readonly_file_icon = "x" " like X
+  let g:vimfiler_marked_file_icon = "O"   " checkmark like レ
 endfunction
 " }}}
 
