@@ -61,6 +61,7 @@
   b       = branch -rav        # ローカル・リモートbranch・最終コミットを表示
   br      = branch -r          # リモートbranchを表示
   ba      = branch -a          # ローカル・リモートbranchを表示
+  bv      = branch -vv         # ローカルブランチがどのリモートトラキングブランチに関連付けられているか、pull的な
   bm      = branch --merged
   bn      = branch --no-merged # mergeしてないbranchを表示
   bl      = blame              # 各行をダレが変更したか分かる
