@@ -20,8 +20,8 @@ if has('gui_macvim')
 endif
 
 set textwidth=1000
-set columns=200
-set lines=155
+set columns=400
+set lines=300
 set wrap            " 長い行を折り返して表示 (nowrap:折り返さない)
 set visualbell t_vb=  " Beep音を消して、さらに画面のフラッシュもしない
 
