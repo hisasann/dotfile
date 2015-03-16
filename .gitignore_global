@@ -21,4 +21,8 @@ vim_swap
 .vim/bundle
 .vim/doc
 .vim/undo
-.atom
+.atom/packages
+.atom/storage
+.atom/compile-cache
+.atom/.node-gyp
+

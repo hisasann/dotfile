@@ -1,4 +1,4 @@
-'global':
+'*':
   'exception-reporting':
     'userId': 'f8e5301b-f0f5-8d40-324c-38570b1598c2'
   'release-notes':
@@ -13,14 +13,14 @@
     'useShadowDOM': true
     'invisibles': {}
   'core':
-    'themes': [
-      'seti-ui'
-      'monokai'
-    ]
     'ignoredNames': [
       '.git'
       '.svn'
       '.DS_Store'
+    ]
+    'themes': [
+      'seti-ui'
+      'monokai'
     ]
   'autocomplete-plus':
     'enableAutoActivation': false
