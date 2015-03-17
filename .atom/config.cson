@@ -24,3 +24,6 @@
     ]
   "autocomplete-plus":
     enableAutoActivation: false
+  "grunt-runner": {}
+  "highlight-column": {}
+  "atom-color-highlight": {}
