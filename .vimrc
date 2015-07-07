@@ -192,6 +192,19 @@ NeoBundle 'tpope/vim-unimpaired'
 " coffeescript
 NeoBundle 'lukaszkorecki/CoffeeTags'
 
+" gist
+NeoBundle 'mattn/gist-vim', {'depends': 'mattn/webapi-vim'}
+
+" incsearch.vim
+NeoBundle 'haya14busa/incsearch.vim'
+Plugin 'haya14busa/incsearch.vim'
+Plug 'haya14busa/incsearch.vim'
+
+" incsearch-fuzzy.vim
+NeoBundle 'haya14busa/incsearch-fuzzy.vim'
+Plugin 'haya14busa/incsearch-fuzzy.vim'
+Plug 'haya14busa/incsearch-fuzzy.vim'
+
 filetype plugin indent on     " required!
 
 NeoBundleCheck
@@ -296,7 +309,7 @@ set wrapscan  " 最後まで検索したら先頭へ戻る
 "set nowrapscan  " 検索をファイルの先頭へループしない
 set hlsearch  " 検索文字をハイライト
 set incsearch  " インクリメンタルサーチ
-nmap / /\v
+" nmap / /\v
 " }}}
 
 "---------------------------------------------------------------------------
@@ -640,8 +653,8 @@ vnoremap > >gv
 nnoremap ,ha :<C-u>s/\(<[a-zA-Z0-9]\+\)\([^>]\\|\n\)\{-}>/\1>/g<CR>:<C-u>nohl<CR>
 
 " now
-nnoremap <F2> "=strftime("%Y/%m/%d %H:%M:%S")<CR>P
-inoremap <F2> <C-R>=strftime("%Y/%m/%d %H:%M:%S")<CR>
+nnoremap <F2> "=strftime("%Y-%m-%d %H:%M:%S")<CR>P
+inoremap <F2> <C-R>=strftime("%Y-%m-%d %H:%M:%S")<CR>
 
 " :CdCurrent のエイリアス
 nnoremap <Space>cd :<C-u>CdCurrent<CR>
@@ -1193,5 +1206,27 @@ nmap <C-p> <Plug>(yankround-prev)
 nmap <C-n> <Plug>(yankround-next)
 " }}}
 
+"---------------------------------------------------------------------------
+" for haya14busa/incsearch.vim {{{
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
+set hlsearch
+let g:incsearch#auto_nohlsearch = 1
+map n  <Plug>(incsearch-nohl-n)
+map N  <Plug>(incsearch-nohl-N)
+map *  <Plug>(incsearch-nohl-*)
+map #  <Plug>(incsearch-nohl-#)
+map g* <Plug>(incsearch-nohl-g*)
+map g# <Plug>(incsearch-nohl-g#)
+" }}}
+
+"---------------------------------------------------------------------------
+" for haya14busa/incsearch-fuzzy.vim {{{
+map z/ <Plug>(incsearch-fuzzy-/)
+map z? <Plug>(incsearch-fuzzy-?)
+map zg/ <Plug>(incsearch-fuzzy-stay)
+
+" }}}
 " }}}
 
