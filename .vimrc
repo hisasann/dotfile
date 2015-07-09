@@ -197,13 +197,16 @@ NeoBundle 'mattn/gist-vim', {'depends': 'mattn/webapi-vim'}
 
 " incsearch.vim
 NeoBundle 'haya14busa/incsearch.vim'
-Plugin 'haya14busa/incsearch.vim'
-Plug 'haya14busa/incsearch.vim'
+" Plugin 'haya14busa/incsearch.vim'
+" Plug 'haya14busa/incsearch.vim'
 
 " incsearch-fuzzy.vim
 NeoBundle 'haya14busa/incsearch-fuzzy.vim'
-Plugin 'haya14busa/incsearch-fuzzy.vim'
-Plug 'haya14busa/incsearch-fuzzy.vim'
+" Plugin 'haya14busa/incsearch-fuzzy.vim'
+" Plug 'haya14busa/incsearch-fuzzy.vim'
+
+" beyondmarc/glsl.vim
+NeoBundle 'beyondmarc/glsl.vim'
 
 filetype plugin indent on     " required!
 
@@ -1226,7 +1229,12 @@ map g# <Plug>(incsearch-nohl-g#)
 map z/ <Plug>(incsearch-fuzzy-/)
 map z? <Plug>(incsearch-fuzzy-?)
 map zg/ <Plug>(incsearch-fuzzy-stay)
-
 " }}}
+
+"---------------------------------------------------------------------------
+" for beyondmarc/glsl.vim {{{
+let g:glsl_file_extensions = '*.glsl,*.vsh,*.fsh'
+" }}}
+
 " }}}
 
