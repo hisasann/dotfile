@@ -8,7 +8,6 @@
   metrics:
     userId: "e38c60f5bbc5bb3c6011837545d585a110ae269b"
   editor:
-    fontSize: 14
     preferredLineLength: 200
     useShadowDOM: true
     invisibles: {}
@@ -21,6 +20,9 @@
     themes: [
       "seti-ui"
       "monokai"
+    ]
+    disabledPackages: [
+      "gulp-helper"
     ]
   "autocomplete-plus":
     enableAutoActivation: false

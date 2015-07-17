@@ -208,6 +208,9 @@ NeoBundle 'haya14busa/incsearch-fuzzy.vim'
 " beyondmarc/glsl.vim
 NeoBundle 'beyondmarc/glsl.vim'
 
+" terryma/vim-expand-region
+NeoBundle 'terryma/vim-expand-region'
+
 filetype plugin indent on     " required!
 
 NeoBundleCheck
@@ -792,6 +795,12 @@ map <silent> [Tag]p :tabprevious<CR>
 " 矢印なキーでバッファ移動
 map <Right> :bn<CR>
 map <Left> :bp<CR>
+
+" 貼り付けたテキストの末尾へ自動的に移動する
+vnoremap <silent> y y`]
+vnoremap <silent> p p`]
+nnoremap <silent> p p`]
+
 " }}}
 
 "---------------------------------------------------------------------------
@@ -1235,6 +1244,14 @@ map zg/ <Plug>(incsearch-fuzzy-stay)
 " for beyondmarc/glsl.vim {{{
 let g:glsl_file_extensions = '*.glsl,*.vsh,*.fsh'
 " }}}
+
+"---------------------------------------------------------------------------
+" for terryma/vim-expand-region {{{
+" let g:expand_region_use_select_mode = 0
+" map v <Plug>(expand_region_expand)
+" vmap <C-v> <Plug>(expand_region_shrink)
+" }}}
+
 
 " }}}
 
