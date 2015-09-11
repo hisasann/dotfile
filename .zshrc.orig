@@ -88,9 +88,9 @@ alias swift='/Applications/Xcode6-Beta.app/Contents/Developer/Toolchains/XcodeDe
 # git
 # oh-my-zshに取られた
 # https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/git/git.plugin.zsh
-# alias gst='git status -sb && g stash list'
-# alias glgg='git logg'
-# alias gcm='git cs'
+alias gst='git status -sb && g stash list'
+alias glgg='git logg'
+alias gcm='git cs'
 alias gpom='git pom'
 alias gpod='git pod'
 
