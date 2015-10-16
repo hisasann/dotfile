@@ -33,13 +33,24 @@
 
 "---------------------------------------------------------------------------
 " bundle settings {{{
-set nocompatible               " Be iMproved
+" Note: Skip initialization for vim-tiny or vim-small.
+if 0 | endif
 
 if has('vim_starting')
+  if &compatible
+    set nocompatible               " Be iMproved
+  endif
+
+  " Required:
   set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
-call neobundle#rc(expand('~/.vim/bundle/'))
+" Required:
+call neobundle#begin(expand('~/.vim/bundle/'))
+
+" Let NeoBundle manage NeoBundle
+" Required:
+NeoBundleFetch 'Shougo/neobundle.vim'
 
 " YankRing.vim的なやつ
 " キーマップを既存のを置き換えないのでよいよい
@@ -127,6 +138,7 @@ NeoBundle 't9md/vim-choosewin'
 NeoBundle 'Shougo/vimfiler.vim', { 'depends': [ 'Shougo/unite.vim' ] }
 
 " ステータスラインをカッコよくする
+NeoBundle 'Lokaltog/powerline', { 'rtp' : 'powerline/bindings/vim'}
 NeoBundle 'bling/vim-airline'
 
 " -- でメソッドチェーン整形（php、perl、ruby）
@@ -164,16 +176,18 @@ NeoBundle 'kana/vim-textobj-line'
 
 " wildfire
 " text objectをENTERでどんどん広げていける
-NeoBundle 'gcmt/wildfire.vim'
+" terryma/vim-expand-regionを使うのでこっちは使わない
+" NeoBundle 'gcmt/wildfire.vim'
 
 NeoBundle 'Shougo/vimproc.vim', {
-      \ 'build' : {
-      \     'windows' : 'mingw32-make -f make_mingw32.mak',
-      \     'cygwin'  : 'make -f make_cygwin.mak',
-      \     'mac'     : 'make -f make_mac.mak',
-      \     'unix'    : 'make -f make_unix.mak',
-      \    },
-      \ }
+\ 'build' : {
+\     'windows' : 'tools\\update-dll-mingw',
+\     'cygwin' : 'make -f make_cygwin.mak',
+\     'mac' : 'make',
+\     'linux' : 'make',
+\     'unix' : 'gmake',
+\    },
+\ }
 NeoBundle 'Shougo/vimshell.vim'
 " インストール方法（Mac）
 " via  https://github.com/Shougo/vimshell
@@ -210,6 +224,8 @@ NeoBundle 'beyondmarc/glsl.vim'
 
 " terryma/vim-expand-region
 NeoBundle 'terryma/vim-expand-region'
+
+call neobundle#end()
 
 filetype plugin indent on     " required!
 
@@ -722,7 +738,7 @@ cnoremap <expr> /  getcmdtype() == '/' ? '\/' : '/'
 cnoremap <expr> ?  getcmdtype() == '?' ? '\?' : '?'
 
 " hogeファイル
-command! Hoge edit ~/hoge/hoge.txt
+command! Hoge edit ~/Dropbox/hoge/hoge.txt
 
 " 0番レジスタを使いやすくした
 " via http://qiita.com/items/bd97a9b963dae40b63f5
@@ -997,7 +1013,7 @@ nnoremap <Space>gb :<C-u>Gblame<Enter>
 " }}}
 
 " CoffeeScript
-" autocmd BufWritePost *.coffee silent CoffeeMake! -cb | cwindow | redraw!
+autocmd BufWritePost *.coffee silent CoffeeMake! -cb | cwindow | redraw!
 
 "---------------------------------------------------------------------------
 " for Shougo/vimshell.vim {{{
@@ -1146,12 +1162,12 @@ let g:SimpleJsIndenter_CaseIndentLevel = -1
 "---------------------------------------------------------------------------
 " for gcmt/wildfire.vim {{{
 " This selects the next closest text object.
-let g:wildfire_fuel_map = "<ENTER>"
-
-" This selects the previous closest text object.
-let g:wildfire_water_map = "<BS>"
-
-let g:wildfire_objects = ["i'", 'i"', "i)", "i]", "i}", "ip", "it"]
+" let g:wildfire_fuel_map = "<ENTER>"
+"
+" " This selects the previous closest text object.
+" let g:wildfire_water_map = "<BS>"
+"
+" let g:wildfire_objects = ["i'", 'i"', "i)", "i]", "i}", "ip", "it"]
 " }}}
 
 "---------------------------------------------------------------------------
@@ -1194,18 +1210,26 @@ let g:use_emmet_complete_tag = 1
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
-let g:airline_left_sep = '⮀'
-let g:airline_left_alt_sep = '⮁'
-let g:airline_right_sep = '⮂'
-let g:airline_right_alt_sep = '⮃'
-let g:airline_symbols.branch = '⭠'
-let g:airline_symbols.readonly = '⭤'
-let g:airline_symbols.linenr = '⭡'
-let g:airline_linecolumn_prefix = ''
+let g:airline_section_a = airline#section#create(['mode','','branch'])
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_buffers = 0
+let g:airline#extensions#tabline#tab_nr_type = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
+let g:Powerline_symbols = 'fancy'
+set t_Co=256
+let g:airline_theme='badwolf'
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
 let g:airline_detect_modified=1
 let g:airline_detect_paste=1
 let g:airline_inactive_collapse=1
 let g:airline#extensions#csv#enabled = 1
+let g:airline_powerline_fonts = 1
 " }}}
 
 "---------------------------------------------------------------------------
@@ -1219,7 +1243,7 @@ nmap gP <Plug>(yankround-gP)
 nmap <C-p> <Plug>(yankround-prev)
 nmap <C-n> <Plug>(yankround-next)
 " }}}
-
+"
 "---------------------------------------------------------------------------
 " for haya14busa/incsearch.vim {{{
 map /  <Plug>(incsearch-forward)
@@ -1250,10 +1274,12 @@ let g:glsl_file_extensions = '*.glsl,*.vsh,*.fsh'
 "---------------------------------------------------------------------------
 " for terryma/vim-expand-region {{{
 " let g:expand_region_use_select_mode = 0
-" map v <Plug>(expand_region_expand)
-" vmap <C-v> <Plug>(expand_region_shrink)
+map <CR> <Plug>(expand_region_expand)
+map <C-CR> <Plug>(expand_region_shrink)
 " }}}
 
 
 " }}}
+
+
 

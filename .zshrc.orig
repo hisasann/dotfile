@@ -88,7 +88,7 @@ alias swift='/Applications/Xcode6-Beta.app/Contents/Developer/Toolchains/XcodeDe
 # git
 # oh-my-zshに取られた
 # https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/git/git.plugin.zsh
-alias gst='git status -sb && g stash list'
+alias gst='git status -sb && git stash list'
 alias glgg='git logg'
 alias gcm='git cs'
 alias gpom='git pom'
@@ -226,7 +226,7 @@ setopt hist_reduce_blanks
 # git
 autoload bashcompinit
 bashcompinit
-source /usr/local/Cellar/git/1.8.0/etc/bash_completion.d/git-completion.bash
+# source /usr/local/Cellar/git/1.8.0/etc/bash_completion.d/git-completion.bash
 
 ###-begin-npm-completion-###
 #
