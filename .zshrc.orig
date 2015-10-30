@@ -65,7 +65,7 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
 # Android/tools
-export PATH="$HOME/_/dev/android-sdk-macosx/tools:$PATH"
+export PATH="$HOME/Library/Android/sdk/tools:$PATH"
 
 # エイリアスの設定
 alias ls="ls -GvF"
