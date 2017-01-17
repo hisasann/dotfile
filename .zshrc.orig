@@ -33,8 +33,11 @@ zstyle ':completion:*' list-colors 'di=34' 'ln=35' 'so=32' 'ex=31' 'bd=46;34' 'c
 # nodebrew
 export PATH=$HOME/.nodebrew/current/bin:$PATH
 
+# yarn
+export PATH="$PATH:`yarn global bin`"
+
 # go
-export GOPATH="$HOME/Dropbox/code/go"
+export GOPATH=$HOME/_/code/golang
 PATH=$PATH:$GOPATH/bin
 
 # zaw
@@ -99,33 +102,34 @@ alias cd="pushd"
 alias bd="popd"
 
 # プロンプトの色の設定
-autoload colors
-colors
-case ${UID} in
-0)
-  PROMPT="%B%{${fg[red]}%}%/#%{${reset_color}%}%b "
-  PROMPT2="%B%{${fg[red]}%}%_#%{${reset_color}%}%b "
-  SPROMPT="%B%{${fg[red]}%}%r is correct? [n,y,a,e]:%{${reset_color}%}%b "
-  [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] &&
-    PROMPT="%{${fg[white]}%}${HOST%%.*} ${PROMPT}"
-  ;;
-*)
-  PROMPT="%{${fg[red]}%}%/%%%{${reset_color}%} "
-  PROMPT2="%{${fg[red]}%}%_%%%{${reset_color}%} "
-  SPROMPT="%{${fg[red]}%}%r is correct? [n,y,a,e]:%{${reset_color}%} "
-  [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] &&
-    PROMPT="%{${fg[white]}%}${HOST%%.*} ${PROMPT}"
-  ;;
-esac
-
-# タイトル
-case "${TERM}" in
-kterm*|xterm)
-    precmd() {
-        echo -ne "\033]0;${USER}@${HOST%%.*}:${PWD}\007"
-    }
-    ;;
-esac
+# not working on prezto
+# autoload colors
+# colors
+# case ${UID} in
+# 0)
+#   PROMPT="%B%{${fg[red]}%}%/#%{${reset_color}%}%b "
+#   PROMPT2="%B%{${fg[red]}%}%_#%{${reset_color}%}%b "
+#   SPROMPT="%B%{${fg[red]}%}%r is correct? [n,y,a,e]:%{${reset_color}%}%b "
+#   [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] &&
+#     PROMPT="%{${fg[white]}%}${HOST%%.*} ${PROMPT}"
+#   ;;
+# *)
+#   PROMPT="%{${fg[red]}%}%/%%%{${reset_color}%} "
+#   PROMPT2="%{${fg[red]}%}%_%%%{${reset_color}%} "
+#   SPROMPT="%{${fg[red]}%}%r is correct? [n,y,a,e]:%{${reset_color}%} "
+#   [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] &&
+#     PROMPT="%{${fg[white]}%}${HOST%%.*} ${PROMPT}"
+#   ;;
+# esac
+#
+# # タイトル
+# case "${TERM}" in
+# kterm*|xterm)
+#     precmd() {
+#         echo -ne "\033]0;${USER}@${HOST%%.*}:${PWD}\007"
+#     }
+#     ;;
+# esac
 
 # コマンド補完
 autoload -U compinit
@@ -282,5 +286,31 @@ elif type compctl &>/dev/null; then
 fi
 ###-end-npm-completion-###
 
-# local設定を読み込み
+# peco and z
+function peco-z-search
+{
+  which peco z > /dev/null
+  if [ $? -ne 0 ]; then
+    echo "Please install peco and z"
+    return 1
+  fi
+  local res=$(z | sort -rn | cut -c 12- | peco)
+  if [ -n "$res" ]; then
+    BUFFER+="cd $res"
+    zle accept-line
+  else
+    return 1
+  fi
+}
+zle -N peco-z-search
+bindkey '^f' peco-z-search
+
+# local zshrc
 source ~/.zshrc.local
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
+
+# for z
+source ~/.zsh.d/z.sh
+
