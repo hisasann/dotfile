@@ -76,15 +76,14 @@ NeoBundle 'jelera/vim-javascript-syntax'
 " indent
 NeoBundle 'jiangmiao/simple-javascript-indenter'
 
+NeoBundle 'tyru/caw.vim'
+
 " レインボーサイクロン！
 NeoBundle 'daisuzu/rainbowcyclone.vim'
 
 " ステータスラインをカッコよくする
 NeoBundle 'vim-airline/vim-airline'
 NeoBundle 'vim-airline/vim-airline-themes'
-
-" tab の状態を保存
-NeoBundle 'xolox/vim-session', { 'depends': [ 'xolox/vim-misc' ] }
 
 call neobundle#end()
 
@@ -248,6 +247,18 @@ autocmd BufWritePre * :%s/\t/  /ge
 " }}}
 
 "---------------------------------------------------------------------------
+" backup settings {{{
+set backup
+set backupdir=~/vim_backup
+set swapfile
+set directory=~/vim_swap
+"set nobackup   " バックアップ取らない
+"set autoread   " 他で書き換えられたら自動で読み直す
+"set noswapfile " スワップファイル作らない
+"set hidden     " 編集中でも他のファイルを開けるようにする
+" }}}
+
+"---------------------------------------------------------------------------
 " color settings {{{
 " syntax color
 syntax on
@@ -280,7 +291,7 @@ set showmatch      " 括弧の対応をハイライト
 set backspace=indent,eol,start
 set clipboard=unnamed
 set pastetoggle=<F12>
-set guioptions+=a
+" set guioptions+=a
 
 " insertモードを抜けるとIMEオフ
 set noimdisable
@@ -704,6 +715,13 @@ let g:use_emmet_complete_tag = 1
 " }}}
 
 "---------------------------------------------------------------------------
+" for tyru/caw.vim {{{
+" コメントアウトを切り替えるマッピング例
+nmap ,c <Plug>(caw:I:toggle)
+vmap ,c <Plug>(caw:I:toggle)
+" }}}
+
+"---------------------------------------------------------------------------
 " for bling/vim-airline {{{
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
@@ -729,12 +747,5 @@ let g:airline_inactive_collapse=1
 let g:airline#extensions#csv#enabled = 1
 let g:airline_powerline_fonts = 1
 " }}}
-
-"---------------------------------------------------------------------------
-" for xolox/vim-session {{{
-let g:session_autosave = 'yes'
-let g:session_autoload = 'yes'
-" }}}
-
 
 " }}}
