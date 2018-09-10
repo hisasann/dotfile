@@ -503,7 +503,10 @@ cnoremap <expr> /  getcmdtype() == '/' ? '\/' : '/'
 cnoremap <expr> ?  getcmdtype() == '?' ? '\?' : '?'
 
 " hogeファイル
-command! Hoge edit ~/Dropbox/hoge/hoge.txt
+command! Hoge edit ~/Dropbox/hoge/hoge.markdown
+
+" _ファイル
+command! Underscore edit ~/_/_.txt
 
 " 0番レジスタを使いやすくした
 " via http://qiita.com/items/bd97a9b963dae40b63f5
