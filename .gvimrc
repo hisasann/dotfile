@@ -1,14 +1,7 @@
 " colorscheme
 syntax on
 set background=dark
-" colorscheme molokai
 colorscheme dracula
-" if ($ft=='js')
-"   colorscheme Tomorrow-Night
-" else
-"   colorscheme molokai
-"   colorscheme hybrid
-" endif
 
 " http://d.hatena.ne.jp/ruicc/20080202/1201971501
 if has('multi_byte_ime') || has('xim')
@@ -16,10 +9,10 @@ if has('multi_byte_ime') || has('xim')
 endif
 
 if has('gui_macvim')
-    set transparency=10
-"     set guifont=Menlo:h12
-    set guifont=Ricty\ Regular\ for\ Powerline:h13
-    set guioptions-=T
+  set transparency=10
+  set guifont=Ricty\ Regular\ for\ Powerline:h13
+  "set guifont=Source\ Code\ Pro\ for\ Powerline:h13
+  set guioptions-=T
 endif
 
 set textwidth=1000

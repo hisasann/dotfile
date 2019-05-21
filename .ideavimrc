@@ -176,6 +176,18 @@ nnoremap <Esc><Esc> :<C-u>set nohlsearch<Return>
 " 0番レジスタを使いやすくした
 " via http://qiita.com/items/bd97a9b963dae40b63f5
 vnoremap <silent> <C-p> "0p
-" }}}
 
+" Ctrl + hjkl でウィンドウ間を移動
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" Shift + 矢印でウィンドウサイズを変更
+nnoremap <S-Left>  <C-w><<CR>
+nnoremap <S-Right> <C-w>><CR>
+nnoremap <S-Up>    <C-w>-<CR>
+nnoremap <S-Down>  <C-w>+<CR>
+
+" }}}
 

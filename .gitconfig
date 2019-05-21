@@ -1,6 +1,17 @@
-[include]
-  # from 1.7.10
-  path = .gitconfig.local
+[user]
+  name = hisasann
+  email = hisasann25@gmail.com
+[core]
+  autocrlf = input
+  pager = less -r
+  editor = vim -c \"set fenc=utf-8\"
+  excludesfile = /Users/hisamatsu/.gitignore_global
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
 
 [color]
   ui = always
@@ -29,29 +40,6 @@
   added = yellow
   changed = green
   untracked = cyan
-[core]
-  autocrlf = input
-  pager = less -r
-  editor = vim -c \"set fenc=utf-8\"
-  excludesfile = ~/.gitignore_global
-
-[merge]
-  # from 1.7.6
-  tool = vimdiff
-  ff = false
-
-[pull]
-  # from 1.7.9
-  rebase = true
-
-[difftool "sourcetree"]
-  cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-  path =
-
-[mergetool "sourcetree"]
-  cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-  keepBackup = true
-  trustExitCode = true
 
 [alias]
   s       = status
@@ -113,12 +101,14 @@
   whois = "!sh -c 'git log -i -1 --pretty=\"format:%an <%ae>\n\" --author=\"$1\"' -"
   whatis = show -s --pretty='tformat:%h (%s, %ad)' --date=short
 
+[merge]
+  # from 1.7.6
+  tool = vimdiff
+  ff = false
+
+[pull]
+  # from 1.7.9
+  rebase = true
+
 [push]
   default = upstream
-
-[tig "bind"]
-  generic = g move-first-line
-  generic = G move-last-line
-
-[mergetool]
-  keepBackup = true
