@@ -18,15 +18,15 @@ fi
 
 # nodebrew
 # Customize to your needs...
-export PATH=$HOME/.nodebrew/current/bin:$PATH
+#export PATH=$HOME/.nodebrew/current/bin:$PATH
 
 # powerlevel9k
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs)
 
 # rbenv
-[[ -d ~/.rbenv  ]] && \
-  export PATH=${HOME}/.rbenv/bin:${PATH} && \
-  eval "$(rbenv init -)"
+#[[ -d ~/.rbenv  ]] && \
+#  export PATH=${HOME}/.rbenv/bin:${PATH} && \
+#  eval "$(rbenv init -)"
 
 # 関数
 find-grep () { find . -type f -print | xargs grep -n --binary-files=without-match $@ }
@@ -134,3 +134,8 @@ setopt hist_ignore_dups
 setopt hist_no_store
 # 余分なスペースを削除してヒストリに記録する
 setopt hist_reduce_blanks
+
+# asdf
+. /usr/local/opt/asdf/asdf.sh
+. /usr/local/opt/asdf/etc/bash_completion.d/asdf.bash
+
