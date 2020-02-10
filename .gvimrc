@@ -10,8 +10,8 @@ endif
 
 if has('gui_macvim')
   set transparency=10
-  set guifont=Ricty\ Regular\ for\ Powerline:h13
-  "set guifont=Source\ Code\ Pro\ for\ Powerline:h13
+  "set guifont=Ricty\ Regular\ for\ Powerline:h13
+  set guifont=Source\ Code\ Pro\ for\ Powerline:h13
   set guioptions-=T
 endif
 

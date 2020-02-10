@@ -84,6 +84,8 @@ NeoBundle 'leafgarland/typescript-vim'
 NeoBundle 'vim-airline/vim-airline'
 NeoBundle 'vim-airline/vim-airline-themes'
 
+NeoBundle 'dracula/vim'
+
 " My Bundles here:
 " Refer to |:NeoBundle-examples|.
 " Note: You don't set neobundle setting in .gvimrc!
@@ -269,7 +271,7 @@ set directory=~/vim_swap
 " color settings {{{
 " syntax color
 syntax on
-"colorscheme dracula
+colorscheme dracula
 highlight LineNr ctermfg=darkgrey
 " }}}
 
