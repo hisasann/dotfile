@@ -1,11 +1,11 @@
 [user]
-	name = hisamatsu yoshiyuki
-	email = hisasann25@gmail.com
+  name = hisamatsu yoshiyuki
+  email = hisasann25@gmail.com
 [core]
   autocrlf = input
   pager = less -r
   editor = vim -c \"set fenc=utf-8\"
-	excludesfile = /Users/hisamatsu/.gitignore_global
+  excludesfile = /Users/hisasann/.gitignore_global
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
@@ -113,4 +113,4 @@
 [push]
   default = upstream
 [commit]
-	template = /Users/hisamatsu/.stCommitMsg
+  template = /Users/hisasann/.stCommitMsg
