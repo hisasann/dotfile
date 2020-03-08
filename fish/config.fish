@@ -9,5 +9,7 @@ set PATH $ANDROID_HOME/platform-tools $PATH
 
 source ~/.asdf/asdf.fish
 source /usr/local/opt/asdf/asdf.fish
-source ~/.asdf/asdf.fish
-source ~/.asdf/asdf.fish
+
+function fish_user_key_bindings
+  bind \cj\ck random_emoji_copy
+end
