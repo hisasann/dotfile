@@ -8,7 +8,7 @@ sh setup.sh
 
 頭にドットが付いたファイルへのンクが $HOME ディレクトリに作成されます。
 
-## ぼくの使ったシェルの歴史
+## ぼくが使ったシェルの歴史
 
 ### bash
 
@@ -21,3 +21,14 @@ sh setup.sh
 ### fish
 
 [fish shell](https://fishshell.com/)
+
+## [VimコマンドやTipsをまとめてみたよ！](https://github.com/hisasann/dotfile/wiki)
+
+## 🍟 Author
+
+- [github/hisasann](https://github.com/hisasann)
+- [twitter/hisasann](https://twitter.com/hisasann)
+
+## 🥫 License
+
+MIT © [hisasann (Yoshiyuki Hisamatsu)](https://github.com/hisasann)
