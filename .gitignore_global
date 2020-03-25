@@ -26,4 +26,5 @@ vim_swap
 .atom/compile-cache
 .atom/.node-gyp
 .atom/.apm
+.idea/
 
