@@ -54,6 +54,7 @@
   bn      = branch --no-merged # mergeしてないbranchを表示
   bl      = blame              # 各行をダレが変更したか分かる
   ad      = add
+  c       = commit
   ci      = commit -a          # modifiedなファイルを全てstageへ
   cam     = commit -a --amend  # 直前のcommitを修正
   cv      = commit -v          # 変更点を表示しながらコミットメッセージを編集してコミットする
