@@ -5,7 +5,7 @@
   autocrlf = input
   pager = less -r
   editor = vim -c \"set fenc=utf-8\"
-  excludesfile = /Users/yoshiyuki.hisamatsu/.gitignore_global
+  excludesfile = /Users/hisasann/.gitignore_global
 [difftool "sourcetree"]
   cmd = opendiff \"$LOCAL\" \"$REMOTE\"
   path =
@@ -114,4 +114,4 @@
 [push]
   default = upstream
 [commit]
-  template = /Users/yoshiyuki.hisamatsu/.stCommitMsg
+  template = /Users/hisasann/.stCommitMsg
