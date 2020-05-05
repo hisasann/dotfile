@@ -86,6 +86,9 @@ NeoBundle 'vim-airline/vim-airline-themes'
 
 NeoBundle 'dracula/vim'
 
+" toml のシンタックスハイライト
+NeoBundle 'cespare/vim-toml'
+
 " My Bundles here:
 " Refer to |:NeoBundle-examples|.
 " Note: You don't set neobundle setting in .gvimrc!
