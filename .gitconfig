@@ -82,6 +82,7 @@
   oneline = log --pretty=oneline
 
   # diff関連
+  d   = diff --histogram      # ただのdiff
   dm  = diff master           # masterとのdiff
   df  = diff FETCH_HEAD       # FETCH_HEADとのdiff
   dw  = diff --color-words    # 単語単位でいろつけてdiff
