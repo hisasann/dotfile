@@ -4,42 +4,16 @@
 [core]
   autocrlf = input
   pager = less -r
-  editor = vim -c \"set fenc=utf-8\"
-  excludesfile = /Users/hisasann/.gitignore_global
-[difftool "sourcetree"]
-  cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-  path =
-[mergetool "sourcetree"]
-  cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-  trustExitCode = true
+  editor = nvim
+  excludesfile = ~/.gitignore_global
 
 [color]
-  ui = always
-#   ui = auto
-#   diff = auto
-#   status = auto
-#   branch = auto
-#   grep = auto
-#   interactive = auto
-
-[color "branch"]
-  current = yellow reverse
-  local = yellow
-  remote = green
-
-[color "diff"]
-  meta = yellow bold
-  frag = magenta
-  plain = white bold
-  old = red bold
-  new = green bold
-  commit = yellow bold
-  func = green dim
-
-[color "status"]
-  added = yellow
-  changed = green
-  untracked = cyan
+  ui = auto
+  diff = auto
+  status = auto
+  branch = auto
+  grep = auto
+  interactive = auto
 
 [alias]
   s       = status
@@ -61,8 +35,8 @@
   cs      = commit -sv         # サインも表示する
   csm     = commit -sv --amend
   so      = remote show origin
-  pom     = push origin master
-  pod     = push origin develop
+  ps      = "!git push origin $(git rev-parse --abbrev-ref HEAD)" # カレントブランチと同名のリモートブランチを push する
+  pl      = "!git pull origin $(git rev-parse --abbrev-ref HEAD)" # カレントブランチと同名のリモートブランチを pull する
   ft      = fetch
   up      = pull --rebase      # pull rebase
   rbm     = rebase master      # masterへのrebaseはよく使うのでalias
@@ -71,14 +45,15 @@
   sh2     = show HEAD~
   sh3     = show HEAD~~
   ls      = ls-files           # gitで管理しているファイル一覧
+  open    = "!hub browse"      # カレントの github ページをブラウザで開く
 
   # log関連
   lg      = log --graph --pretty=oneline --decorate --date=short --abbrev-commit --branches
   logs = log -p --graph --decorate --pretty=format:\"%ad [%cn] <c:%h t:%t p:%p> %n %Cgreen%d%Creset %s %n\" --stat
   log-g   = log --graph --date=short --pretty=format:'%Cgreen%h %cd %Cblue%cn %Creset%s'
   log-ga  = log --graph --all --color --pretty='%x09%h %cn%x09%s %Cred%d%Creset'
-#   logg = log --stat --pretty=format:'%Cblue%h %Cgreen%ar %Cred%an %Creset%s %Cred%d'
   logg = log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+  hist = log --pretty=format:\"%Cgreen%h %Creset%cd %Cblue[%cn] %Creset%s%C(yellow)%d%C(reset)\" --graph --date=relative --decorate --all
   oneline = log --pretty=oneline
 
   # diff関連
@@ -103,16 +78,16 @@
   whois = "!sh -c 'git log -i -1 --pretty=\"format:%an <%ae>\n\" --author=\"$1\"' -"
   whatis = show -s --pretty='tformat:%h (%s, %ad)' --date=short
 
-[merge]
-  # from 1.7.6
-  tool = vimdiff
-  ff = false
+[hub]
+  protocol = https
+[github]
+  user = hisasann
 
-[pull]
-  # from 1.7.9
-  rebase = true
-
-[push]
-  default = upstream
-[commit]
-  template = /Users/hisasann/.stCommitMsg
+[diff]
+  tool = nvimdiff
+[difftool "nvimdiff"]
+  cmd = nvim -d \"$LOCAL\" \"$REMOTE\"
+  path =
+[mergetool "nvimdiff"]
+  cmd = nvim -d \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+  trustExitCode = true
