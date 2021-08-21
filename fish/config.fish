@@ -32,7 +32,7 @@ abbr -a g git
 abbr -a gc git c
 abbr -a gm git dm
 abbr -a gs git status
-abbr -a gst git status sb
+abbr -a gst git status -sb
 abbr -a la exa -l -a
 abbr -a vim nvim
 abbr -a lazy lazygit
