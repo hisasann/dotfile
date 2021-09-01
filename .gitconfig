@@ -6,7 +6,7 @@
   pager = less -r
   editor = nvim
   excludesfile = ~/.gitignore_global
-  ignorecase = false
+  ignorecase = true
 
 [color]
   ui = auto
