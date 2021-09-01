@@ -1,6 +1,8 @@
 [user]
   name = hisamatsu yoshiyuki
   email = hisasann25@gmail.com
+[init]
+  defaultBranch = main
 [core]
   autocrlf = input
   pager = less -r

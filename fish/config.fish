@@ -27,6 +27,16 @@ set __fish_git_prompt_char_stashstate '↩'
 set __fish_git_prompt_char_upstream_ahead '+'
 set __fish_git_prompt_char_upstream_behind '-'
 
+# aliases
+abbr -a g git
+abbr -a gc git c
+abbr -a gm git dm
+abbr -a gs git status
+abbr -a gst git status -sb
+abbr -a la exa -l -a
+abbr -a vim nvim
+abbr -a lazy lazygit
+
 source ~/.asdf/asdf.fish
 source /usr/local/opt/asdf/asdf.fish
 
