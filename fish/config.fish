@@ -8,6 +8,7 @@ set PATH $ANDROID_HOME/tools/bin $PATH
 set PATH $ANDROID_HOME/platform-tools $PATH
 set PATH /usr/local/opt/mongodb-community@3.6/bin $PATH
 set PATH /usr/local/Cellar/mongodb-community-shell/4.2.0/bin $PATH
+set PATH $HOME/.cargo/bin $PATH
 
 # via fishのプロンプトの右側をカスタマイズして、gitのブランチとstatusを表示させる - Qiita - https://qiita.com/mom0tomo/items/b593c0e98c1eea70a114
 # Fish git prompt
