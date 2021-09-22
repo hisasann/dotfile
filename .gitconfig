@@ -51,6 +51,7 @@
   open    = "!hub browse"      # カレントの github ページをブラウザで開く
 
   # log関連
+  l = log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
   lg      = log --graph --pretty=oneline --decorate --date=short --abbrev-commit --branches
   logs = log -p --graph --decorate --pretty=format:\"%ad [%cn] <c:%h t:%t p:%p> %n %Cgreen%d%Creset %s %n\" --stat
   log-g   = log --graph --date=short --pretty=format:'%Cgreen%h %cd %Cblue%cn %Creset%s'
