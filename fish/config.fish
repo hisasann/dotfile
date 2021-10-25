@@ -8,7 +8,7 @@ set PATH $ANDROID_HOME/tools $PATH
 set PATH $ANDROID_HOME/tools/bin $PATH
 set PATH $ANDROID_HOME/platform-tools $PATH
 # Mongodb
-set PATH /usr/local/opt/mongodb-community@3.6/bin $PATH
+set PATH /usr/local/opt/mongodb-community@4.0/bin $PATH
 set PATH /usr/local/Cellar/mongodb-community-shell/4.2.0/bin $PATH
 # Rust
 set PATH $HOME/.cargo/bin $PATH
