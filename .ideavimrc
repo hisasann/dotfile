@@ -221,9 +221,6 @@ nnoremap <S-Down>  <C-w>+<CR>
 " commands https://github.com/JetBrains/ideavim/wiki/NERDTree-support
 nnoremap sf :NERDTree<CR>
 nnoremap sk :NERDTreeToggle<CR>
-
-" ファイルを開いたらNERDTreeを閉じる
-let g:NERDTreeQuitOnOpen=1
 " }}}
 
 " }}}
