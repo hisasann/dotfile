@@ -1,3 +1,10 @@
+""---------------------------------------------------------------------------
+" bundle settings {{{
+"
+Plug 'preservim/nerdtree'
+
+" }}}
+
 "---------------------------------------------------------------------------
 " basic settings {{{
 set nocompatible            " 必ず最初に書く（vi互換コードを解除）
@@ -201,6 +208,21 @@ nnoremap <S-Left>  <C-w><<CR>
 nnoremap <S-Right> <C-w>><CR>
 nnoremap <S-Up>    <C-w>-<CR>
 nnoremap <S-Down>  <C-w>+<CR>
+
+" }}}
+
+"---------------------------------------------------------------------------
+" plugin settings {{{
+"---------------------------------------------------------------------------
+"
+" for preservim/nerdtree {{{
+" commands https://github.com/JetBrains/ideavim/wiki/NERDTree-support
+nnoremap sf :NERDTree<CR>
+nnoremap sk :NERDTreeToggle<CR>
+
+" ファイルを開いたらNERDTreeを閉じる
+let g:NERDTreeQuitOnOpen=1
+" }}}
 
 " }}}
 
