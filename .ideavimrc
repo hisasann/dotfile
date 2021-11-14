@@ -1,7 +1,9 @@
 ""---------------------------------------------------------------------------
 " bundle settings {{{
-"
+" webstorm のファイラーを起動
 Plug 'preservim/nerdtree'
+
+Plug 'tpope/vim-surround'
 
 " }}}
 
