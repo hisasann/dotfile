@@ -1,9 +1,8 @@
 {
     "editor.suggestSelection": "first",
+    "editor.formatOnSave": true,
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "npm.enableScriptExplorer": true,
-    "workbench.colorTheme": "Netflix Red",
-
     //--------------------------------------------
     // vim
     //--------------------------------------------
@@ -16,71 +15,129 @@
     // jj でインサートモードから抜ける
     "vim.insertModeKeyBindings": [
         {
-            "before": [ "j", "j" ],
-            "after": [ "<Esc>" ]
+            "before": [
+                "j",
+                "j"
+            ],
+            "after": [
+                "<Esc>"
+            ]
         }
     ],
     // ノーマルモードのキーバインド
     "vim.normalModeKeyBindingsNonRecursive": [
         // カーソルを一番左に移動する
         {
-            "before": [ "1" ],
-            "after": [ "^" ]
+            "before": [
+                "1"
+            ],
+            "after": [
+                "^"
+            ]
         },
         {
-            "before": [ "<space>","h" ],
-            "after": [ "^" ]
+            "before": [
+                "<space>",
+                "h"
+            ],
+            "after": [
+                "^"
+            ]
         },
         // カーソルを一番右に移動する
         {
-            "before": [ "9" ],
-            "after": [ "$" ]
+            "before": [
+                "9"
+            ],
+            "after": [
+                "$"
+            ]
         },
         {
-            "before": [ "<space>","l" ],
-            "after": [ "$" ]
+            "before": [
+                "<space>",
+                "l"
+            ],
+            "after": [
+                "$"
+            ]
         },
         // 左のタブに移動
         {
-            "before": [ "g","h" ],
-            "after": [ "g","T" ]
+            "before": [
+                "g",
+                "h"
+            ],
+            "after": [
+                "g",
+                "T"
+            ]
         },
         // 右のタブに移動
         {
-            "before": [ "g","l" ],
-            "after": [ "g","t" ]
+            "before": [
+                "g",
+                "l"
+            ],
+            "after": [
+                "g",
+                "t"
+            ]
         },
         // セミコロンでもコロンの機能を呼ぶ
         {
-            "before": [ ";" ],
-            "after": [ ":" ]
+            "before": [
+                ";"
+            ],
+            "after": [
+                ":"
+            ]
         },
         // Bind ZZ to the vim command :wq (save and close the current file):
         {
-            "before": ["Z", "Z"],
+            "before": [
+                "Z",
+                "Z"
+            ],
             "commands": [
                 ":q!"
             ]
         },
         {
-            "before": [ "<space>","q" ],
-            "after": [ ":","q","!","<Enter>" ]
+            "before": [
+                "<space>",
+                "q"
+            ],
+            "after": [
+                ":",
+                "q",
+                "!",
+                "<Enter>"
+            ]
         },
-         // Bind : to show the command palette:
+        // Bind : to show the command palette:
         {
-            "before": [":"],
+            "before": [
+                ":"
+            ],
             "commands": [
                 "workbench.action.showCommands",
             ]
         },
         {
-            "before": ["<leader>", "m"],
+            "before": [
+                "<leader>",
+                "m"
+            ],
             "commands": [
                 "bookmarks.toggle"
             ]
         },
         {
-            "before": ["<leader>", "b"],
+            "before": [
+                "<leader>",
+                "b"
+            ],
             "commands": [
                 "bookmarks.list"
             ]
@@ -90,25 +147,51 @@
     "vim.visualModeKeyBindingsNonRecursive": [
         // Bind p in visual mode to paste without overriding the current register
         {
-            "before": [ "p", ],
-            "after": [ "p", "g", "v", "y" ]
+            "before": [
+                "p",
+            ],
+            "after": [
+                "p",
+                "g",
+                "v",
+                "y"
+            ]
         },
         // Bind > and < in visual mode to indent/outdent lines (repeatable)
         {
-            "before": [ ">" ],
-            "commands": [ "editor.action.indentLines" ]
+            "before": [
+                ">"
+            ],
+            "commands": [
+                "editor.action.indentLines"
+            ]
         },
         {
-            "before": [ "<" ],
-            "commands": [ "editor.action.outdentLines" ]
+            "before": [
+                "<"
+            ],
+            "commands": [
+                "editor.action.outdentLines"
+            ]
         },
         // ビジュアルモード時vで行末まで選択する（うまく動かない）
         {
-            "before": [ "v" ],
-            "after": [ "$","h" ]
+            "before": [
+                "v"
+            ],
+            "after": [
+                "$",
+                "h"
+            ]
         }
     ],
     // leader を <space> にする、もとは <leader> です
     "vim.leader": "<space>",
-    "window.zoomLevel": 0
+    "window.zoomLevel": 0,
+    "tabnine.experimentalAutoImports": true,
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.colorTheme": "Dracula",
+    "editor.cursorBlinking": "expand",
+    "vscode-edge-devtools.mirrorEdits": true,
+    "terminal.integrated.fontFamily": "Source Code Pro for Powerline"
 }
