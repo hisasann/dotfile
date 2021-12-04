@@ -1,14 +1,14 @@
 // Place your key bindings in this file to override the defaults
 [
-    // https://qiita.com/shimma/items/e6b3b8fd5a727897dcf4
+    // https://gist.github.com/hassaku63/9ddde639088716e63efb8e319fbee4d1
     {
         "key": "cmd+2",
-        "command": "workbench.action.terminal.toggleTerminal",
+        "command": "workbench.action.focusActiveEditorGroup",
         "when": "terminalFocus"
     },
     {
         "key": "cmd+2",
         "command": "workbench.action.terminal.focus",
-        "when": "!terminalFocus"
+        "when": "editorFocus"
     }
 ]
