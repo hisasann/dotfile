@@ -10,5 +10,47 @@
         "key": "cmd+2",
         "command": "workbench.action.terminal.focus",
         "when": "editorFocus"
+    },
+    // splitしたタブを移動
+    // https://stackoverflow.com/questions/36328029/is-there-a-hotkey-to-switch-between-split-window-panes
+    {
+        "key": "ctrl+h",
+        "command": "workbench.action.navigateLeft"
+    },
+    {
+        "key": "ctrl+l",
+        "command": "workbench.action.navigateRight"
+    },
+    {
+        "key": "ctrl+k",
+        "command": "workbench.action.navigateUp"
+    },
+    {
+        "key": "ctrl+j",
+        "command": "workbench.action.navigateDown"
+    },
+    // explorer: toggle
+    {
+        "key": "ctrl+s ctrl+k",
+        "command": "workbench.view.explorer",
+        "when": "viewContainer.workbench.view.explorer.enabled"
+    },
+    {
+        "key": "ctrl+s ctrl+k",
+        "command": "workbench.action.toggleSidebarVisibility",
+        "when": "filesExplorerFocus"
+    },
+    // explorer: open
+    // https://kamino.hatenablog.com/entry/vscode_alike_neovim
+    {
+        "key": "Enter",
+        "command": "macros.selectAndToggleSidebar",
+        "when": "explorerViewletFocus && explorerViewletVisible && !explorerResourceIsFolder && !inputFocus"
+    },
+    // explorer: move
+    {
+        "key": "Enter",
+        "command": "list.toggleExpand",
+        "when": "explorerViewletFocus && explorerViewletVisible && explorerResourceIsFolder && !inputFocus"
     }
 ]

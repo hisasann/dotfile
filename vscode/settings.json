@@ -1,6 +1,8 @@
 {
     "editor.suggestSelection": "first",
     "editor.formatOnSave": true,
+    // ミニマップを非表示にする
+    "editor.minimap.enabled": false,
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "npm.enableScriptExplorer": true,
     //--------------------------------------------
@@ -141,7 +143,27 @@
             "commands": [
                 "bookmarks.list"
             ]
-        }
+        },
+        // https://newbedev.com/vs-code-vim-jump-to-file-explorer-like-nerdtree
+        {
+            "before" : [
+                "<leader>",
+                "a"
+            ],
+            "commands" : [
+                "workbench.view.explorer"
+            ]
+        },
+        {
+            "before": [
+                "<Space>",
+                "s",
+                "v"
+            ],
+            "commands": [
+                ":vsplit"
+            ]
+        },
     ],
     // ヴィジュアルモードのキーバインド
     "vim.visualModeKeyBindingsNonRecursive": [
@@ -193,5 +215,17 @@
     "workbench.colorTheme": "Dracula",
     "editor.cursorBlinking": "expand",
     "vscode-edge-devtools.mirrorEdits": true,
-    "terminal.integrated.fontFamily": "Source Code Pro for Powerline"
+    "terminal.integrated.fontFamily": "Source Code Pro for Powerline",
+    // カーソル移動をNERDTreeと同じかんじに
+    "workbench.list.keyboardNavigation": "simple",
+    // ファイルプレビューは無効化(開かれたファイルタブを永続化)
+    "workbench.editor.enablePreview": false,
+    "workbench.editor.enablePreviewFromQuickOpen": false,
+    // macrosプラグインを使って、ファイルを開くと同時にサイドバーを閉じるコマンドを登録
+    "macros": {
+        "selectAndToggleSidebar": [
+            "list.select",
+            "workbench.action.toggleSidebarVisibility"
+        ]
+    }
 }
