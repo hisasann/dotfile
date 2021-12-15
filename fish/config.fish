@@ -1,15 +1,30 @@
 set -U FZF_LEGACY_KEYBINDINGS 0
 set -U FZF_REVERSE_ISEARCH_OPTS "--reverse --height=100%"
 
+# M1 or Intel path
+# https://zenn.dev/kentarok/articles/26f9b0d3bac81b
+switch (uname -m)
+case x86_64
+  set HOMEBREW_DIR /usr/local
+case arm64
+  set HOMEBREW_DIR /opt/homebrew
+end
+
+# Homebrew
+set -U fish_user_paths "$HOMEBREW_DIR/bin" $fish_user_paths
+
+set PATH $PATH "$HOMEBREW_DIR/bin"
+
 # Android
 set ANDROID_HOME $HOME/Library/Android/sdk
 set PATH $ANDROID_HOME/emulator $PATH
 set PATH $ANDROID_HOME/tools $PATH
 set PATH $ANDROID_HOME/tools/bin $PATH
 set PATH $ANDROID_HOME/platform-tools $PATH
+
 # Mongodb
-set PATH /usr/local/opt/mongodb-community@4.0/bin $PATH
-set PATH /usr/local/Cellar/mongodb-community-shell/4.2.0/bin $PATH
+set PATH "$HOMEBREW_DIR/opt/mongodb-community@4.2/bin" $PATH
+
 # Rust
 set PATH $HOME/.cargo/bin $PATH
 
@@ -42,7 +57,7 @@ abbr -a vim nvim
 abbr -a lazy lazygit
 
 source ~/.asdf/asdf.fish
-source /usr/local/opt/asdf/asdf.fish
+source "$HOMEBREW_DIR/opt/asdf/asdf.fish"
 
 function fish_user_key_bindings
   bind \cj\ck random_emoji_copy

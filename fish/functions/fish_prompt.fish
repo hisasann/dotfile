@@ -1046,6 +1046,18 @@ function __bobthefish_prompt_lemon -S -d 'Display lemon icon'
     echo -ns 'hisasann '
 end
 
+# プロンプトにカレントのアーキテクチャを表示する
+function __prompt_arch -d "Display current CPU architecture."
+    switch (uname -m)
+    case arm64
+        __bobthefish_start_segment $color_virtualgo
+  echo -ns 'arm '
+    case x86_64
+        __bobthefish_start_segment $color_vi_mode_visual
+  echo -ns 'x64 '
+    end
+end
+
 # ==============================
 # Apply theme
 # ==============================
@@ -1084,6 +1096,7 @@ function fish_prompt -d 'bobthefish, a fish theme optimized for awesome'
     # Virtual environments
     __bobthefish_prompt_desk
     #__bobthefish_prompt_rubies
+    __prompt_arch
     __bobthefish_prompt_lemon
     __bobthefish_prompt_virtualfish
     __bobthefish_prompt_virtualgo
