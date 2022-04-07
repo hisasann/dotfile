@@ -212,7 +212,7 @@
     "window.zoomLevel": 0,
     "tabnine.experimentalAutoImports": true,
     "workbench.iconTheme": "material-icon-theme",
-    "workbench.colorTheme": "Dracula",
+    "workbench.colorTheme": "Kabukichō",
     "editor.cursorBlinking": "expand",
     "vscode-edge-devtools.mirrorEdits": true,
     "terminal.integrated.fontFamily": "Source Code Pro for Powerline",
