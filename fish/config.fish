@@ -55,6 +55,7 @@ abbr -a gst git status -sb
 abbr -a la exa -l -a
 abbr -a vim nvim
 abbr -a lazy lazygit
+abbr -a webstorm sh ~/_/dotfile/webstorm.sh
 
 source ~/.asdf/asdf.fish
 source "$HOMEBREW_DIR/opt/asdf/asdf.fish"
