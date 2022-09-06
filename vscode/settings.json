@@ -3,6 +3,7 @@
     "editor.formatOnSave": true,
     // ミニマップを非表示にする
     "editor.minimap.enabled": false,
+    "editor.guides.bracketPairs": true,
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "npm.enableScriptExplorer": true,
     //--------------------------------------------
