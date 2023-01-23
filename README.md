@@ -1,6 +1,7 @@
 # hisasann's dotfile[s]
 
-ここにシェルの写真
+<img width="1000" alt="neovim" src="https://raw.githubusercontent.com/hisasann/dotfile/master/screenshot.png">
+[https://raw.githubusercontent.com/hisasann/dotfile/master/screenshot.png]
 
 ## Installation
 
