@@ -1,7 +1,6 @@
 # hisasann's dotfile[s]
 
 <img width="1000" alt="neovim" src="https://raw.githubusercontent.com/hisasann/dotfile/master/screenshot.png">
-[https://raw.githubusercontent.com/hisasann/dotfile/master/screenshot.png]
 
 ## Installation
 
