@@ -147,11 +147,11 @@
         },
         // https://newbedev.com/vs-code-vim-jump-to-file-explorer-like-nerdtree
         {
-            "before" : [
+            "before": [
                 "<leader>",
                 "a"
             ],
-            "commands" : [
+            "commands": [
                 "workbench.view.explorer"
             ]
         },
@@ -213,7 +213,7 @@
     "window.zoomLevel": 0,
     "tabnine.experimentalAutoImports": true,
     "workbench.iconTheme": "material-icon-theme",
-    "workbench.colorTheme": "Kabukichō",
+    "workbench.colorTheme": "Dracula",
     "editor.cursorBlinking": "expand",
     "vscode-edge-devtools.mirrorEdits": true,
     "terminal.integrated.fontFamily": "Source Code Pro for Powerline",
@@ -228,5 +228,9 @@
             "list.select",
             "workbench.action.toggleSidebarVisibility"
         ]
-    }
+    },
+    "terminal.integrated.env.osx": {
+        "FIG_NEW_SESSION": "1"
+    },
+    "audioCues.volume": 0
 }
