@@ -52,7 +52,7 @@ abbr -a gc git c
 abbr -a gm git dm
 abbr -a gs git status
 abbr -a gst git status -sb
-abbr -a la exa -l -a
+abbr -a la eza --icons --git --time-style relative -al
 abbr -a vim nvim
 abbr -a lazy lazygit
 abbr -a webstorm sh ~/_/dotfile/webstorm.sh
