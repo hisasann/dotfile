@@ -1042,19 +1042,23 @@ function __bobthefish_prompt_lemon -S -d 'Display lemon icon'
     [ "$theme_display_lemon" = 'no' ]
     and return
 
-    __bobthefish_start_segment $color_virtualfish
-    echo -ns 'hisasann '
+    #__bobthefish_start_segment $color_virtualfish
+    __bobthefish_start_segment $color_vi_mode_visual
+    echo -ns 'tamanegido '
 end
 
 # プロンプトにカレントのアーキテクチャを表示する
 function __prompt_arch -d "Display current CPU architecture."
     switch (uname -m)
     case arm64
-        __bobthefish_start_segment $color_virtualgo
-  echo -ns 'arm '
+        #__bobthefish_start_segment $color_virtualgo
+        __bobthefish_start_segment $color_aws_vault
+  #echo -ns 'arm '
+  echo -ns 'a '
     case x86_64
         __bobthefish_start_segment $color_vi_mode_visual
-  echo -ns 'x64 '
+  #echo -ns 'x64 '
+  echo -ns 'x '
     end
 end
 
