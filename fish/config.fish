@@ -28,6 +28,11 @@ set PATH "$HOMEBREW_DIR/opt/mongodb-community@4.2/bin" $PATH
 # Rust
 set PATH $HOME/.cargo/bin $PATH
 
+# Go
+set GOPATH $HOME/go
+set GOBIN $GOPATH/bin
+set PATH $GOBIN $PATH
+
 # via fishのプロンプトの右側をカスタマイズして、gitのブランチとstatusを表示させる - Qiita - https://qiita.com/mom0tomo/items/b593c0e98c1eea70a114
 # Fish git prompt
 set __fish_git_prompt_showdirtystate 'yes'
@@ -56,10 +61,17 @@ abbr -a la eza --icons --git --time-style relative -al
 abbr -a vim nvim
 abbr -a lazy lazygit
 abbr -a webstorm sh ~/_/dotfile/webstorm.sh
+abbr -a goland sh ~/_/dotfile/goland.sh
 
-source ~/.asdf/asdf.fish
-source "$HOMEBREW_DIR/opt/asdf/asdf.fish"
+source /opt/homebrew/opt/asdf/libexec/asdf.fish
 
 function fish_user_key_bindings
   bind \cj\ck random_emoji_copy
 end
+
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+set --export --prepend PATH "/Users/hisasann/.rd/bin"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/hisasann/google-cloud-sdk/path.fish.inc' ]; . '/Users/hisasann/google-cloud-sdk/path.fish.inc'; end
