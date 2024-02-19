@@ -1,13 +1,13 @@
 [user]
-  name = hisamatsu yoshiyuki
-  email = hisasann25@gmail.com
+	name = hisamatsu yoshiyuki
+	email = hisasann25@gmail.com
 [init]
   defaultBranch = main
 [core]
   autocrlf = input
   pager = less -r
   editor = nvim
-  excludesfile = ~/.gitignore_global
+	excludesfile = /Users/hisasann/.gitignore_global
   ignorecase = true
 
 [color]
@@ -96,8 +96,12 @@
   cmd = nvim -d \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
   trustExitCode = true
 [difftool "sourcetree"]
-  cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-  path =
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path =
 [mergetool "sourcetree"]
-  cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-  trustExitCode = true
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+
+[includeIf "gitdir:~/_/job/"]
+  path = ~/_/job/.gitconfig
+
