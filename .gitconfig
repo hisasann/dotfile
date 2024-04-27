@@ -9,6 +9,7 @@
   editor = nvim
 	excludesfile = /Users/hisasann/.gitignore_global
   ignorecase = true
+	hooksPath = _/code/infra/.githooks
 
 [color]
   ui = auto
