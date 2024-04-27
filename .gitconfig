@@ -9,7 +9,8 @@
   editor = nvim
 	excludesfile = /Users/hisasann/.gitignore_global
   ignorecase = true
-	hooksPath = _/code/infra/.githooks
+  # 共通のhooksを設定
+  #hooksPath = ~/_/code/infra/.githooks
 
 [color]
   ui = auto
