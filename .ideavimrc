@@ -21,14 +21,14 @@ set laststatus=2    " 常にステータス行を表示 (詳細は:he laststatus
 set lazyredraw
 set ttyfast
 
-" 折りたたみ関連
-set nofoldenable
-set foldmethod=indent
-set foldopen=all  " fold内に移動すれば自動で開く
+" 折りたたみ関連（IdeaVIMがWebStormのCode Folding設定を上書きするため無効化）
+" set nofoldenable
+" set foldmethod=indent
+" set foldopen=all  " fold内に移動すれば自動で開く
 " set foldclose=all  " fold外に移動しfoldlevelより深ければ閉じる
-set foldlevel=1   " 折りたたみの具合
-set foldnestmax=2  " 最大折りたたみ深度$
-set foldcolumn=2  " 左側に折りたたみガイド表示$
+" set foldlevel=1   " 折りたたみの具合
+" set foldnestmax=2  " 最大折りたたみ深度$
+" set foldcolumn=2  " 左側に折りたたみガイド表示$
 
 " via http://superuser.com/questions/622898/how-to-turn-off-the-bell-sound-in-intellij
 " WebStormのビープ音を消す方法
