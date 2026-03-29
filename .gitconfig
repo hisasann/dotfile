@@ -107,3 +107,10 @@
 [includeIf "gitdir:~/_/job/"]
   path = ~/_/job/.gitconfig
 
+[http]
+	sslverify = false
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
